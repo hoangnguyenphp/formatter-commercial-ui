@@ -21,5 +21,5 @@ A modern and extensible React-based frontend for the **Formatter Tool**. Support
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-org/formatter-ui.git
-cd formatter-ui
+git clone https://github.com/hoangnguyenphp/formatter-commercial-ui.git
+cd formatter-commercial-ui
