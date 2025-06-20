@@ -34,14 +34,14 @@ A modern and extensible React-based frontend for the **Formatter Tool**. Support
 | **Node**        | version v16.16.0                                                      |                                                      |   
 
 ## 🚀 Getting Started
-npm run build
-npm install -g serve
-npx serve -s build
+- npm run build
+- npm install -g serve
+- npx serve -s build
 
 OR
 
-docker build -t formatter-commercial-ui
-docker run -p 80:80 formatter-commercial-ui
+- docker build -t formatter-commercial-ui
+- docker run -p 80:80 formatter-commercial-ui
 
 ### 1. Clone the repository
 
