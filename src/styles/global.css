@@ -1,0 +1,95 @@
+/* Reset and base styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.5;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Dark Theme (default) */
+body.dark {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+body.dark textarea {
+  background-color: #1e1e1e;
+  color: #ffffff;
+  border: 1px solid #555;
+}
+
+body.dark textarea[readonly] {
+  background-color: #2a2a2a;
+  color: #ddd;
+}
+
+body.dark select {
+  background-color: #2c2c2c;
+  color: #fff;
+  border: 1px solid #444;
+}
+
+body.dark button {
+  background-color: #e63946;
+  color: white;
+}
+
+/* Light Theme */
+body.light {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+body.light textarea {
+  background-color: #f9f9f9;
+  color: #111;
+  border: 1px solid #ccc;
+}
+
+body.light textarea[readonly] {
+  background-color: #eee;
+  color: #444;
+}
+
+body.light select {
+  background-color: #ffffff;
+  color: #000;
+  border: 1px solid #aaa;
+}
+
+body.light button {
+  background-color: #d72638;
+  color: white;
+}
+
+/* Common styles */
+textarea {
+  width: 100%;
+  min-height: 200px;
+  resize: vertical;
+  padding: 1rem;
+  font-size: 1rem;
+  font-family: monospace;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+select, button {
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem 0.5rem 1rem 0;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: #888;
+  cursor: not-allowed;
+}
