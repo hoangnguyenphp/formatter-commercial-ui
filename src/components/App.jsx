@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import copy from 'copy-to-clipboard';
 import '../styles/App.css';
-import AdsBanner from '../components/AdsBanner'; // adjust if path differs
+import AdsBanner from '../components/AdsBanner';
 
 const languages = ['JSON', 'XML', 'SQL', 'HTML', 'CSS', 'MD', 'YAML', 'JAVA'];
 
@@ -50,28 +50,44 @@ export default function App() {
     URL.revokeObjectURL(link.href);
   };
 
+  const loadSampleFile = async (lang) => {
+    try {
+      const res = await fetch(`/samples/${lang.toLowerCase()}.txt`);
+      if (!res.ok) throw new Error('Sample not found');
+      const text = await res.text();
+      setInput(text);
+      setOutput('');
+    } catch (e) {
+      setInput(`// Sample not found for ${lang}`);
+      setOutput('');
+    }
+  };
+
+  useEffect(() => {
+    loadSampleFile(language);
+  }, [language]);
+
   return (
     <main className="container">
-      {/* Right Side Ad */}
       <div className="ads-right">
         <AdsBanner slot="1234567892" layout="vertical" style={{ width: '160px', height: '600px' }} />
       </div>
 
-    <header className="app-header">
-      <div className="header-ad">
-        <AdsBanner slot="1234567890" layout="horizontal" />
-      </div>
-      <div className="header-content">
-        <h1>Code Formatter</h1>
-        <button
-          className="theme-toggle"
-          onClick={() => setMode((prev) => (prev === 'dark' ? 'light' : 'dark'))}
-          title="Toggle theme"
-        >
-          {mode === 'dark' ? '☀️ Light' : '🌙 Dark'}
-        </button>
-      </div>
-    </header>
+      <header className="app-header">
+        <div className="header-ad">
+          <AdsBanner slot="1234567890" layout="horizontal" />
+        </div>
+        <div className="header-content">
+          <h1>Code Formatter</h1>
+          <button
+            className="theme-toggle"
+            onClick={() => setMode((prev) => (prev === 'dark' ? 'light' : 'dark'))}
+            title="Toggle theme"
+          >
+            {mode === 'dark' ? '☀️ Light' : '🌙 Dark'}
+          </button>
+        </div>
+      </header>
 
       <section className="controls">
         <label>
@@ -115,11 +131,10 @@ export default function App() {
         </div>
       </section>
 
-      {/* Footer Ad */}
       <AdsBanner slot="1234567891" layout="horizontal" />
-    <footer className="app-footer">
-      © {new Date().getFullYear()} Profectus Group. All rights reserved.
-    </footer>
+      <footer className="app-footer">
+        © {new Date().getFullYear()} Profectus Group. All rights reserved.
+      </footer>
     </main>
   );
 }
