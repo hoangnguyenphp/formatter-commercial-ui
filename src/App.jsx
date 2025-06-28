@@ -45,7 +45,7 @@ export default function App() {
           <AdsBanner slot="1234567890" layout="horizontal" />
         </div>
         <div className="header-content">
-          <h1>Code Formatter</h1>
+          <h1>Online Formatter Tool</h1>
           <button
             className="theme-toggle"
             onClick={() => setMode((prev) => (prev === 'dark' ? 'light' : 'dark'))}
@@ -68,7 +68,7 @@ export default function App() {
       <AdsBanner slot="1234567891" layout="horizontal" />
 
       <footer className="app-footer">
-        © {new Date().getFullYear()} Profectus Group. All rights reserved.
+        © {new Date().getFullYear()} Online Formatter Tool. All rights reserved.
       </footer>
     </main>
   );

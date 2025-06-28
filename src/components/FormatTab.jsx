@@ -2,7 +2,18 @@ import React, { useEffect, useState } from 'react';
 import copy from 'copy-to-clipboard';
 import { FormatterFactory } from '../formatter/FormatterFactory';
 
-const languages = ['JSON', 'XML', 'SQL', 'HTML', 'CSS', 'MD', 'YAML', 'JavaScript'];
+const languages = [
+  { key: 'JSON', label: 'JSON' },
+  { key: 'HTML', label: 'HTML' },
+  { key: 'CSS', label: 'CSS' },
+  { key: 'JavaScript', label: 'Java Script' },
+  { key: 'SQL', label: 'SQL' },
+  /*
+  { key: 'MD', label: 'Markdown' },
+  { key: 'YAML', label: 'YAML' },
+  { key: 'XML', label: 'XML' },
+  { key: 'SQL', label: 'SQL' },*/
+];
 
 export default function FormatTab() {
   const [input, setInput] = useState('');
@@ -10,7 +21,6 @@ export default function FormatTab() {
   const [language, setLanguage] = useState('JSON');
 
   useEffect(() => {
-    // Load sample file when language changes
     const loadSampleFile = async () => {
       try {
         const res = await fetch(`/samples/${language.toLowerCase()}.txt`);
@@ -62,9 +72,9 @@ export default function FormatTab() {
         <label>
           Language:
           <select value={language} onChange={(e) => setLanguage(e.target.value)}>
-            {languages.map((lang) => (
-              <option key={lang} value={lang}>
-                {lang}
+            {languages.map(({ key, label }) => (
+              <option key={key} value={key}>
+                {label}
               </option>
             ))}
           </select>

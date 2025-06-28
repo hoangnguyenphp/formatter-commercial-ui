@@ -4,6 +4,7 @@
   margin: 1rem 0;
   gap: 0.5rem;
   scrollbar-width: none;
+  /*border-bottom: 2px solid #ccc; */
 }
 .tab-nav::-webkit-scrollbar {
   display: none;
