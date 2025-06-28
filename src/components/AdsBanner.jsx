@@ -1,6 +1,9 @@
-import { useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export default function AdsBanner({ slot, layout = 'horizontal', style = {} }) {
+  const adRef = useRef(null);
+  const [visible, setVisible] = useState(true);
+
   useEffect(() => {
     if (process.env.NODE_ENV !== 'development') {
       try {
@@ -8,6 +11,15 @@ export default function AdsBanner({ slot, layout = 'horizontal', style = {} }) {
       } catch (e) {
         console.warn('AdSense error:', e);
       }
+
+      // Detect ad load failure (blocked or empty)
+      const timer = setTimeout(() => {
+        if (adRef.current && adRef.current.offsetHeight === 0) {
+          setVisible(false);
+        }
+      }, 3000); // wait for ad to attempt to render
+
+      return () => clearTimeout(timer);
     }
   }, []);
 
@@ -30,8 +42,11 @@ export default function AdsBanner({ slot, layout = 'horizontal', style = {} }) {
     );
   }
 
+  if (!visible) return null;
+
   return (
     <ins
+      ref={adRef}
       className="adsbygoogle"
       style={{ display: 'block', ...style }}
       data-ad-client="ca-pub-XXXXXXXXXX"

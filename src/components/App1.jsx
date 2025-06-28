@@ -5,7 +5,7 @@ import AdsBanner from '../components/AdsBanner';
 
 const languages = ['JSON', 'XML', 'SQL', 'HTML', 'CSS', 'MD', 'YAML', 'JAVA'];
 
-export default function App() {
+export default function App1() {
   const [mode, setMode] = useState('dark');
   const [input, setInput] = useState('');
   const [output, setOutput] = useState('');
