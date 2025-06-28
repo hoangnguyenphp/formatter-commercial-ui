@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import copy from 'copy-to-clipboard';
 import { FormatterFactory } from '../formatter/FormatterFactory';
 
-const languages = ['JSON', 'XML', 'SQL', 'HTML', 'CSS', 'MD', 'YAML', 'JAVA'];
+const languages = ['JSON', 'XML', 'SQL', 'HTML', 'CSS', 'MD', 'YAML', 'JavaScript'];
 
 export default function FormatTab() {
   const [input, setInput] = useState('');

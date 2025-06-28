@@ -6,8 +6,10 @@ import StringifyTab from './components/StringifyTab';
 import Tabs from './components/Tabs';
 
 const tabs = [
+   /*
   { key: 'format', label: 'Format' },
   { key: 'stringify', label: 'Stringify' }
+  */
 ];
 
 export default function App() {

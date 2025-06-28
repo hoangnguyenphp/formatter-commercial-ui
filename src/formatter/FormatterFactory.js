@@ -4,8 +4,8 @@ import { HtmlFormatter } from './HtmlFormatter';
 import { SqlFormatter } from './SqlFormatter';
 import { XmlFormatter } from './XmlFormatter';
 import { YamlFormatter } from './YamlFormatter';
-import { JavaFormatter } from './JavaFormatter';
 import { MarkdownFormatter } from './MarkdownFormatter';
+import { JSFormatter } from './JSFormatter';
 
 const formatterMap = {
   json: JsonFormatter,
@@ -14,8 +14,8 @@ const formatterMap = {
   sql: SqlFormatter,
   xml: XmlFormatter,
   yaml: YamlFormatter,
-  java: JavaFormatter,
   md: MarkdownFormatter,
+  javascript: JSFormatter,
 };
 
 export class FormatterFactory {
