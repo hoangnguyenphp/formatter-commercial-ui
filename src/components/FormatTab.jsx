@@ -31,18 +31,6 @@ export default function FormatTab() {
     }
   };
 
-  const loadSampleFile = async (lang) => {
-    try {
-      const res = await fetch(`/samples/${lang.toLowerCase()}.txt`);
-      const text = await res.text();
-      setInput(text);
-      setOutput('');
-    } catch (e) {
-      setInput(`// Sample not found for ${lang}`);
-      setOutput('');
-    }
-  };
-
   const handleCopy = () => output && copy(output);
   const handleDownload = () => {
     if (!output) return;
@@ -54,9 +42,6 @@ export default function FormatTab() {
     URL.revokeObjectURL(link.href);
   };
 
-  useEffect(() => {
-    loadSampleFile(language);
-  }, [language]);
 
   return (
     <>
