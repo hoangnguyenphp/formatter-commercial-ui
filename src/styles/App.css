@@ -1,128 +1,148 @@
-body{
-    font-family:system-ui,sans-serif;
+body {
+  font-family: system-ui, sans-serif;
 }
-main.container{
-    padding:2rem;
-    max-width:1100px;
-    margin:auto;
+
+main.container {
+  padding: 2rem;
+  max-width: 1100px;
+  margin: auto;
 }
-header.app-header{
-    margin-bottom:2rem;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    flex-wrap:wrap;
-    gap:1rem;
+
+header.app-header {
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
-section.controls{
-    margin-bottom:1.5rem;
-    display:flex;
-    flex-wrap:wrap;
-    gap:1rem;
-    align-items:center;
+
+section.controls {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
 }
-section.controls label{
-    font-weight:bold;
+
+section.controls label {
+  font-weight: bold;
 }
-section.controls select{
-    margin-left:0.5rem;
-    padding:0.3rem 0.5rem;
-    font-size:1rem;
+
+section.controls select {
+  margin-left: 0.5rem;
+  padding: 0.3rem 0.5rem;
+  font-size: 1rem;
 }
-.button-group{
-    display:flex;
-    gap:0.75rem;
-    flex-wrap:wrap;
-    margin-top:0.5rem;
+
+.button-group {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
 }
-.editor-row{
-    display:flex;
-    flex-wrap:wrap;
-    gap:2rem;
-    margin-bottom:2rem;
+
+.editor-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 2rem;
 }
-.editor-column{
-    flex:1 1 45%;
-    display:flex;
-    flex-direction:column;
-    gap:0.75rem;
+
+.editor-column {
+  flex: 1 1 45%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 }
-textarea{
-    min-height:300px;
-    width:100%;
-    padding:1rem;
-    font-family:monospace;
-    font-size:1rem;
-    resize:vertical;
-    border-radius:4px;
-    border:1px solid #ccc;
+
+textarea {
+  min-height: 300px;
+  width: 100%;
+  padding: 1rem;
+  font-family: monospace;
+  font-size: 1rem;
+  resize: vertical;
+  border-radius: 4px;
+  border: 1px solid #ccc;
 }
-.center-buttons{
-    justify-content:center;
-    margin-top:0.5rem;
+
+.center-buttons {
+  justify-content: center;
+  margin-top: 0.5rem;
 }
-.ads-right{
-    position:fixed;
-    top:100px;
-    right:0;
-    z-index:999;
-    padding:10px;
-    background:transparent;
+
+.ads-right {
+  position: fixed;
+  top: 100px;
+  right: 0;
+  z-index: 999;
+  padding: 10px;
+  background: transparent;
 }
-@media (max-width:1024px){
-    .ads-right{
-        display:none;
-    }
+
+@media (max-width:1024px) {
+  .ads-right {
+    display: none;
+  }
 }
-.app-title{
-    font-size:1.8rem;
-    font-weight:600;
-    margin:0;
+
+.app-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 0;
 }
-.header-topbar{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    flex-wrap:wrap;
-    gap:0.5rem;
-    padding:0.5rem 0;
-    border-bottom:1px solid #eee;
+
+.header-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eee;
 }
-.app-header{
-    display:flex;
-    flex-direction:column;
-    gap:1rem;
-    margin-bottom:2rem;
+
+.app-header {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
 }
-.header-ad{
-    align-self:center;
-    width:100%;
+
+.header-ad {
+  align-self: center;
+  width: 100%;
 }
-.header-content{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    flex-wrap:wrap;
-    gap:1rem;
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
-.theme-toggle{
-    font-size:1rem;
-    padding:0.4rem 0.75rem;
-    border:1px solid #ccc;
-    border-radius:4px;
-    background:white;
-    cursor:pointer;
+
+.theme-toggle {
+  font-size: 1rem;
+  padding: 0.4rem 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: white;
+  cursor: pointer;
 }
-body.dark .theme-toggle{
-    background:#222;
-    color:#f8f8f8;
-    border-color:#444;
+
+body.dark .theme-toggle {
+  background: #222;
+  color: #f8f8f8;
+  border-color: #444;
 }
-.app-footer{
-    text-align:center;
-    font-size:0.875rem;
-    color:#777;
-    margin-top:2rem;
-    padding:1rem 0;
-    border-top:1px solid #eee;
+
+.app-footer {
+  text-align: center;
+  font-size: 0.875rem;
+  color: #777;
+  margin-top: 2rem;
+  padding: 1rem 0;
+  border-top: 1px solid #eee;
 }
