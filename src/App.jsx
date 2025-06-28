@@ -1,19 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './styles/App.css';
 import AdsBanner from './components/AdsBanner';
 import FormatTab from './components/FormatTab';
 import StringifyTab from './components/StringifyTab';
+import Tabs from './components/Tabs';
 
 const tabs = [
-  // { key: 'format', label: 'Format' },
-  //{ key: 'stringify', label: 'Stringify' },
+  { key: 'format', label: 'Format' },
+  { key: 'stringify', label: 'Stringify' }
 ];
 
 export default function App() {
   const [mode, setMode] = useState('dark');
   const [activeTab, setActiveTab] = useState('format');
 
-  React.useEffect(() => {
+  useEffect(() => {
     document.body.classList.remove('dark', 'light');
     document.body.classList.add(mode);
   }, [mode]);
@@ -31,10 +32,12 @@ export default function App() {
 
   return (
     <main className="container">
+      {/* Right-side Ad */}
       <div className="ads-right">
         <AdsBanner slot="1234567892" layout="vertical" style={{ width: '160px', height: '600px' }} />
       </div>
 
+      {/* Header */}
       <header className="app-header">
         <div className="header-ad">
           <AdsBanner slot="1234567890" layout="horizontal" />
@@ -51,21 +54,17 @@ export default function App() {
         </div>
       </header>
 
-      <nav className="tab-nav">
-        {tabs.map((tab) => (
-          <button
-            key={tab.key}
-            className={activeTab === tab.key ? 'tab active' : 'tab'}
-            onClick={() => setActiveTab(tab.key)}
-          >
-            {tab.label}
-          </button>
-        ))}
-      </nav>
+      {/* Tabs */}
+      <Tabs tabs={tabs} activeKey={activeTab} onChange={setActiveTab} />
 
-      <section className="tab-content">{renderTab()}</section>
+      {/* Tab Content */}
+      <section className="tab-content">
+        {renderTab()}
+      </section>
 
+      {/* Footer Ad */}
       <AdsBanner slot="1234567891" layout="horizontal" />
+
       <footer className="app-footer">
         © {new Date().getFullYear()} Profectus Group. All rights reserved.
       </footer>
