@@ -1,0 +1,16 @@
+{
+  "short_name": "Formatter",
+  "name": "Code Formatter Tool - Minify, Beautify & Validate Code",
+  "description": "Free online tool to format, minify, and validate JSON, HTML, XML, SQL, JavaScript, Java, CSS, YAML, and Markdown. Boost code readability and performance instantly.",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "type": "image/x-icon",
+      "sizes": "64x64"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#e63946",
+  "background_color": "#ffffff"
+}
