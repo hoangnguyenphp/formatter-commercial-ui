@@ -72,7 +72,7 @@ export default function App() {
       <AdsBanner slot="1234567891" layout="horizontal" />
 
       <footer className="app-footer">
-        © {new Date().getFullYear()} Online Formatter Tool. All rights reserved.
+        © {new Date().getFullYear()} Online Code Formatter. All rights reserved.
       </footer>
     </main>
   );
