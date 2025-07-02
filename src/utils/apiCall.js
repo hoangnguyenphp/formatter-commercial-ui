@@ -11,3 +11,13 @@ export async function formatterApiCall(type, action, content) {
   if (!data.success) throw new Error(data.message);
   return data.result;
 }
+
+export async function fetchVisits() {
+  try {
+    const res = await fetch(`${process.env.REACT_APP_API_URL || 'https://code-formatter-tool2.onrender.com'}/api/page-visit-counter`);
+    const count = await res.text();
+    return count;
+  } catch (err) {
+    console.error('Failed to load visit counter:', err);
+  }
+};

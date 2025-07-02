@@ -4,6 +4,7 @@ import AdsBanner from './components/AdsBanner';
 import FormatTab from './components/FormatTab';
 import StringifyTab from './components/StringifyTab';
 import Tabs from './components/Tabs';
+import PageVisitCounter from './components/pagevisitcounter/PageVisitCounter';
 
 const tabs = [
    /*
@@ -63,7 +64,10 @@ export default function App() {
       <section className="tab-content">
         {renderTab()}
       </section>
-
+	  {/* Page Visit Counter */}
+	  <div style={{ textAlign: 'center', fontSize: '0.9rem', margin: '1em 0' }}>
+	    <PageVisitCounter />
+	  </div>
       {/* Footer Ad */}
       <AdsBanner slot="1234567891" layout="horizontal" />
 
