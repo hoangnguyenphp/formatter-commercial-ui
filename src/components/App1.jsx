@@ -1,3 +1,5 @@
+
+/* This file is deprecated */
 import React, { useState, useEffect } from 'react';
 import copy from 'copy-to-clipboard';
 import '../styles/App.css';
