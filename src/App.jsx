@@ -46,7 +46,7 @@ export default function App() {
           <AdsBanner slot="1234567890" layout="horizontal" />
         </div>
         <div className="header-content">
-          <h1>Online Formatter Tool</h1>
+          <h1>Online Code Formatter</h1>
           <button
             className="theme-toggle"
             onClick={() => setMode((prev) => (prev === 'dark' ? 'light' : 'dark'))}
