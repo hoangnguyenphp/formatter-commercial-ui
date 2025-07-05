@@ -4,11 +4,11 @@ import { FormatterFactory } from '../formatter/FormatterFactory';
 
 const languages = [
   { key: 'JSON', label: 'JSON' },
+  { key: 'XML', label: 'XML' },
+  { key: 'SQL', label: 'SQL' },
+  { key: 'JavaScript', label: 'Java Script' },
   { key: 'HTML', label: 'HTML' },
   { key: 'CSS', label: 'CSS' },
-  { key: 'JavaScript', label: 'Java Script' },
-  { key: 'SQL', label: 'SQL' },
-  { key: 'XML', label: 'XML' },
   /*
   { key: 'MD', label: 'Markdown' },
   { key: 'YAML', label: 'YAML' },
