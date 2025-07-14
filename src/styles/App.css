@@ -138,6 +138,16 @@ body.dark .theme-toggle {
   border-color: #444;
 }
 
+.footer-nav a {
+  color: #aaa;
+  margin: 0 0.5em;
+  text-decoration: none;
+}
+
+.footer-nav a:hover {
+  color: firebrick;
+}
+
 .app-footer {
   text-align: center;
   font-size: 0.875rem;

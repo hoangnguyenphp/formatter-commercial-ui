@@ -71,9 +71,17 @@ export default function App() {
       {/* Footer Ad */}
       <AdsBanner slot="1234567891" layout="horizontal" />
 
-      <footer className="app-footer">
-        © {new Date().getFullYear()} Online Code Formatter. All rights reserved.
-      </footer>
+	  <footer className="app-footer">
+	    <nav className="footer-nav">
+	      <a href="/about.html" target="_blank" rel="noopener noreferrer">About</a> |{" "}
+	      <a href="/privacy-policy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a> |{" "}
+	      <a href="/terms-of-service.html" target="_blank" rel="noopener noreferrer">Terms</a> |{" "}
+	      <a href="/contact.html" target="_blank" rel="noopener noreferrer">Contact</a>
+	    </nav>
+	    <div>
+	      © {new Date().getFullYear()} Online Code Formatter. All rights reserved.
+	    </div>
+	  </footer>
     </main>
   );
 }
