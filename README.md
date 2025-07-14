@@ -45,6 +45,14 @@ OR
 
 ### 1. Clone the repository
 
-```bash
-git clone https://github.com/hoangnguyenphp/formatter-commercial-ui.git
-cd formatter-commercial-ui
+- git clone https://github.com/hoangnguyenphp/formatter-commercial-ui.git
+- cd formatter-commercial-ui
+
+## Other
+### Domain and Host
+- Domain: https://dashboard.godaddy.com/venture?ventureId=9351ce2c-45ca-4af3-99e7-459577291fb5&ua_placement=shared_header
+- Host: https://dashboard.render.com/
+
+### Render domain configuration
+
+- https://render.com/docs/custom-domains#2-configure-dns-with-your-provider
