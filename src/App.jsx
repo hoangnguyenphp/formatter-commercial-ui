@@ -61,8 +61,6 @@ export default function App() {
       <section className="tab-content">
         {renderTab()}
       </section>
-      {/* Footer Ad */}
-      <AdsBanner slot="1234567891" layout="horizontal" />
 	  {/* Page Visit Counter */}
 	  <div style={{ textAlign: 'center', fontSize: '0.9rem', margin: '1em 0' }}>
 	    <PageVisitCounter />
