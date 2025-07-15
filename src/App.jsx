@@ -42,9 +42,6 @@ export default function App() {
 
       {/* Header */}
       <header className="app-header">
-        <div className="header-ad">
-          <AdsBanner slot="1234567890" layout="horizontal" />
-        </div>
         <div className="header-content">
           <h1>Online Code Formatter</h1>
           <button
@@ -64,13 +61,12 @@ export default function App() {
       <section className="tab-content">
         {renderTab()}
       </section>
+      {/* Footer Ad */}
+      <AdsBanner slot="1234567891" layout="horizontal" />
 	  {/* Page Visit Counter */}
 	  <div style={{ textAlign: 'center', fontSize: '0.9rem', margin: '1em 0' }}>
 	    <PageVisitCounter />
 	  </div>
-      {/* Footer Ad */}
-      <AdsBanner slot="1234567891" layout="horizontal" />
-
 	  <footer className="app-footer">
 	    <nav className="footer-nav">
 	      <a href="/about.html" target="_blank" rel="noopener noreferrer">About</a> |{" "}
