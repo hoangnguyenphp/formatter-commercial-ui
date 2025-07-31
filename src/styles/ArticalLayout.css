@@ -1,0 +1,27 @@
+.sidebar-container {
+  max-height: calc(100vh - 100px); /* Adjust to fit below header */
+  overflow-y: scroll;
+  padding-right: 8px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--scroll-thumb) transparent;
+}
+
+/* Optional: Always show scrollbar in WebKit browsers */
+.sidebar-container::-webkit-scrollbar {
+  width: 6px;
+}
+.sidebar-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+.sidebar-container::-webkit-scrollbar-thumb {
+  background-color: var(--scroll-thumb);
+  border-radius: 4px;
+}
+
+/* Theme-specific scrollbar thumb color */
+body.dark {
+  --scroll-thumb: #555;
+}
+body.light {
+  --scroll-thumb: #aaa;
+}

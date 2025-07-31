@@ -18,7 +18,7 @@ export default function PageVisitCounter() {
   }, []);
 
   return (
-    <div style={{ fontSize: '0.85em', textAlign: 'center', marginTop: '1em', color: '#777' }}>
+    <div style={{ fontSize: '0.85em', textAlign: 'center', marginTop: '1em', color: '#777', display: 'none' }}>
       {visits ? `👀 Total Visits: ${visits}` : 'Loading visit counter...'}
     </div>
   );

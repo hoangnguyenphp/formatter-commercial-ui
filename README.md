@@ -48,6 +48,131 @@ OR
 - git clone https://github.com/hoangnguyenphp/formatter-commercial-ui.git
 - cd formatter-commercial-ui
 
+## Project Source Code Structure
+
+formatter-commercial-ui
+	public
+		about.html
+		contact.html
+		googlea174f775eb913581.html
+		index.html
+		privacy-policy.html
+		terms-of-service.html
+src
+	components
+		pagevisitcounter
+			PageVisitCounter.jsx
+		AdsBanner.jsx
+		App1.jsx
+		FormatTab.jsx
+		StringifyTab.jsx
+		Tabs.jsx
+	formatter
+		CssFormatter.js
+		FormatterFactory.js
+		HtmlFormatter.js
+		JavaFormatter.js
+		JSFormatter.js
+		JsonFormatter.js
+		MarkdownFormatter.js
+		SqlFormatter.js
+		XmlFormatter.js
+		YamlFormatter.js
+	layouts
+		AppLayout.jsx
+		ArticleLayout.jsx
+	pages
+		HistoryOfAmerica_Part_01.jsx
+	styles
+		App.css
+		global.css
+		Tabs.css
+	utils
+		apiCall.js
+	App.jsx
+	index.js
+
+## Hosting Cost
+Here’s a comparison of the most popular hosting platforms for full-stack web apps (frontend + backend), including Render, Vercel, Netlify, Heroku, DigitalOcean, and AWS.
+
+We’ll compare pricing assuming your app:
+
+Has a frontend (React)
+
+Has a backend (Spring Boot API)
+
+Uses light resources (suitable for personal/small project)
+
+🔍 Quick Comparison Table (USD/month)
+Provider	Static Frontend	Backend (Dyno/Service)	DB (Optional)	Notes
+Render	Free	$0 (free, sleeps) / $7	$0 / $7	Simple, good for full stack
+Vercel	Free	Only supports Node	–	Not for Java backend
+Netlify	Free	Only supports Node	–	Not for Java backend
+Heroku	Free (limited)	$5 (Eco plan)	$0 / $5+	Cold starts unless paid
+DigitalOcean	$4–$6 (Droplet)	$4–$6 (Shared)	$0–$15	Full control, no cold start
+AWS (EC2 + S3)	$0 (S3 free tier)	$3.50+ (t4g.nano)	$0–$10	Complex but powerful
+
+🧾 Per-Platform Detail
+✅ 1. Render.com
+Static Site: Free
+
+Web Service: Free (750 hrs/month), sleeps after 15 mins idle
+
+Paid Web Service: $7/month (no sleep)
+
+PostgreSQL DB: Free (shared) or $7+ for private instance
+
+🔥 Best for full-stack apps with Java backend and React frontend
+
+✅ 2. Heroku
+Eco Dynos: $5/month (1,000 dyno hours/month)
+
+PostgreSQL: Free (shared) or $5+ for hobby dev DB
+
+Note: No longer has full free plan for backend
+
+🔄 Cold starts unless you use paid dyno
+
+❌ 3. Vercel / Netlify
+Frontend: Free and excellent for React/Next.js apps
+
+Backend: NodeJS only! Not suitable for Java/Spring Boot directly
+
+Workaround: deploy backend elsewhere (e.g., on Render or AWS)
+
+✅ 4. DigitalOcean (Droplets)
+Cheapest Droplet: $4–$6/month
+
+Full control (Linux server), no sleep, suitable for production
+
+Database: $15+/mo (managed) or install manually for free
+
+💡 Needs more DevOps skill. Reliable for long-term
+
+✅ 5. AWS (EC2 + S3 + RDS)
+EC2 t4g.nano (ARM): ~$3.50/month
+
+S3 for static frontend: Free 12 months
+
+RDS (DB): Free tier 12 months (then ~$10/month)
+
+💼 Best for enterprise/scale but complex to set up
+
+💰 Summary: Total Estimated Monthly Cost
+Platform	Free Plan	Basic Paid Plan	Notes
+Render	$0	~$7–14	Best balance for Java+React
+Heroku	$0–5	~$10+	Reliable but limited
+DigitalOcean	N/A	~$6–10	Needs setup, no sleep
+AWS	Free 1yr	~$10–15+	Complex, long-term
+
+🧠 Recommendations
+Use Case	Best Option
+MVP / Personal Project	Render (Free)
+Java backend + React frontend	Render or DigitalOcean
+NodeJS-only apps	Vercel / Netlify
+Full control, production-grade	DigitalOcean
+Enterprise / Scalable / Cloud-native	AWS
+
 ## Other
 ### Domain and Host
 - Domain: https://dashboard.godaddy.com/venture?ventureId=9351ce2c-45ca-4af3-99e7-459577291fb5&ua_placement=shared_header

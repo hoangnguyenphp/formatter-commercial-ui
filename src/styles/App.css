@@ -67,18 +67,77 @@ textarea {
   border: 1px solid #ccc;
 }
 
+
 .center-buttons {
   justify-content: center;
   margin-top: 0.5rem;
 }
+/* Left sidebar */
+.app-layout-grid {
+  display: grid;
+  grid-template-columns: 220px 1fr 160px;
+  gap: 20px;
+}
 
+.sidebar-left {
+  padding: 1rem;
+  background-color: var(--sidebar-bg, #1e1e1e);
+  color: var(--sidebar-text, #f1f1f1);
+  font-size: 0.9rem;
+  border-radius: 8px;
+}
+
+.sidebar-section {
+  margin-bottom: 1.5rem;
+}
+
+.sidebar-section h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 0.25rem;
+}
+
+.sidebar-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-section ul li {
+  margin: 0.25rem 0;
+}
+
+.sidebar-section ul li a {
+  text-decoration: none;
+  color: var(--sidebar-link, #00bfff);
+}
+
+.sidebar-section ul li a:hover {
+  text-decoration: underline;
+}
+
+.main-content {
+  padding: 1rem;
+}
+
+
+
+.ads-left,
 .ads-right {
   position: fixed;
   top: 100px;
-  right: 0;
-  z-index: 999;
-  padding: 10px;
-  background: transparent;
+  width: 160px;
+  height: 600px;
+  z-index: 100;
+}
+
+.ads-left {
+  left: 10px;
+}
+
+.ads-right {
+  right: 10px;
 }
 
 @media (max-width:1024px) {
@@ -152,7 +211,7 @@ body.dark .theme-toggle {
   text-align: center;
   font-size: 0.875rem;
   color: #777;
-  margin-top: 2rem;
+  margin-top: 8rem;
   padding: 1rem 0;
   border-top: 1px solid #eee;
 }

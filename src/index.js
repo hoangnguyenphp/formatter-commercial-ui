@@ -1,12 +1,40 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App';
-import './styles/global.css';
+import App from './apps/App';
+import HistoryOfAmerica_Part_01 from './pages/discovery/USAHistorical/HistoryOfAmerica_Part_01';
+import HistoryOfAmerica_Part_02 from './pages/discovery/USAHistorical/HistoryOfAmerica_Part_02';
+import HistoryOfAmerica_Part_03 from './pages/discovery/USAHistorical/HistoryOfAmerica_Part_03';
+import HistoryOfAmerica_Part_04 from './pages/discovery/USAHistorical/HistoryOfAmerica_Part_04';
+import HistoryOfAmerica_Part_05 from './pages/discovery/USAHistorical/HistoryOfAmerica_Part_05';
+import HistoryOfAmerica_Part_06 from './pages/discovery/USAHistorical/HistoryOfAmerica_Part_06';
+import HistoryOfAmerica_Part_07 from './pages/discovery/USAHistorical/HistoryOfAmerica_Part_07';
+import HistoryOfAmerica_Part_08 from './pages/discovery/USAHistorical/HistoryOfAmerica_Part_08';
+import HistoryOfAmerica_Part_09 from './pages/discovery/USAHistorical/HistoryOfAmerica_Part_09';
+import HistoryOfAmerica_Part_10 from './pages/discovery/USAHistorical/HistoryOfAmerica_Part_10';
+import HistoryOfAmerica_Part_11 from './pages/discovery/USAHistorical/HistoryOfAmerica_Part_11';
+import HistoryOfAmerica_Part_12 from './pages/discovery/USAHistorical/HistoryOfAmerica_Part_12';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { articleLinks } from './generic/articleLinks';
+import ScrollToTop from './utils/ScrollToTop';
 
-// Create root and render the App
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <BrowserRouter>
+  	<ScrollToTop />
+    <Routes>
+      <Route path="/" element={<App />} />
+      <Route path={articleLinks.discovery_history_of_america_part_01.to} element={<HistoryOfAmerica_Part_01 />} />
+      <Route path={articleLinks.discovery_history_of_america_part_02.to} element={<HistoryOfAmerica_Part_02 />} />
+      <Route path={articleLinks.discovery_history_of_america_part_03.to} element={<HistoryOfAmerica_Part_03 />} />
+      <Route path={articleLinks.discovery_history_of_america_part_04.to} element={<HistoryOfAmerica_Part_04 />} />
+      <Route path={articleLinks.discovery_history_of_america_part_05.to} element={<HistoryOfAmerica_Part_05 />} />
+      <Route path={articleLinks.discovery_history_of_america_part_06.to} element={<HistoryOfAmerica_Part_06 />} />
+      <Route path={articleLinks.discovery_history_of_america_part_07.to} element={<HistoryOfAmerica_Part_07 />} />
+      <Route path={articleLinks.discovery_history_of_america_part_08.to} element={<HistoryOfAmerica_Part_08 />} />
+      <Route path={articleLinks.discovery_history_of_america_part_09.to} element={<HistoryOfAmerica_Part_09 />} />
+      <Route path={articleLinks.discovery_history_of_america_part_10.to} element={<HistoryOfAmerica_Part_10 />} />
+      <Route path={articleLinks.discovery_history_of_america_part_11.to} element={<HistoryOfAmerica_Part_11 />} />
+      <Route path={articleLinks.discovery_history_of_america_part_12.to} element={<HistoryOfAmerica_Part_12 />} />
+    </Routes>
+  </BrowserRouter>
 );

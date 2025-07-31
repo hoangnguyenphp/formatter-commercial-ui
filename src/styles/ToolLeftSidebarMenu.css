@@ -1,0 +1,128 @@
+/* Base styles shared by both themes */
+.sidebar-left {
+  width: 230px;
+  padding: 1rem;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin-top: 80px; /* Adjust if you have a fixed header */
+  display: flex;
+  flex-direction: column;
+  gap: 2rem; /* More space between sections */
+  overflow: hidden; /* prevent double scroll */
+}
+
+/* Each section scrolls independently */
+.sidebar-section {
+  overflow-y: scroll;
+  padding-right: 6px; /* extra space for scrollbar */
+  border-radius: 4px;
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--scroll-thumb) transparent;
+}
+
+.sidebar-section.tools {
+	max-height: 150px;
+	min-height: 150px;
+}
+.sidebar-section.hot-articles { 
+	max-height: 150px;
+	min-height: 150px;
+}
+.sidebar-section.joking-section { 
+	max-height: 200px;
+	min-height: 200px;
+}
+/* WebKit browsers (Chrome, Safari, Edge) */
+.sidebar-section::-webkit-scrollbar {
+  width: 6px;
+}
+.sidebar-section::-webkit-scrollbar-track {
+  background: transparent;
+}
+.sidebar-section::-webkit-scrollbar-thumb {
+  background-color: var(--scroll-thumb);
+  border-radius: 4px;
+}
+
+/* Section heading styles */
+.sidebar-section h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  border-bottom: 1px solid;
+  padding-bottom: 0.3rem;
+  position: sticky;
+  top: 0;
+  background-color: inherit;
+  z-index: 1;
+}
+
+/* Unordered list style */
+.sidebar-section ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+/* List item spacing */
+.sidebar-section li {
+  margin: 0.4rem 0;
+}
+
+/* Link styling */
+.sidebar-section a {
+  display: inline-block;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: top;
+  text-decoration: none;
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.sidebar-section a:hover {
+  text-decoration: underline;
+}
+
+/* 🌙 Dark Theme */
+body.dark .sidebar-left {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+body.dark .sidebar-section h3 {
+  border-color: #888;
+  background-color: #121212;
+}
+
+body.dark .sidebar-section a {
+  color: #f0f0f0;
+}
+
+/* ☀️ Light Theme */
+body.light .sidebar-left {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* 🌙 Dark Theme Scrollbar */
+body.dark {
+  --scroll-thumb: #555;
+}
+
+/* ☀️ Light Theme Scrollbar */
+body.light {
+  --scroll-thumb: #aaa;
+}
+
+body.light .sidebar-section h3 {
+  border-color: #ccc;
+  background-color: #ffffff;
+}
+
+body.light .sidebar-section a {
+  color: #222;
+}
