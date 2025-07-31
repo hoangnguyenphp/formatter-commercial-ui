@@ -95,3 +95,22 @@ body.light .artical-sidebar-section h3 {
 body.light .artical-sidebar-section a {
   color: #222;
 }
+
+/* ✅ Responsive */
+@media screen and (max-width: 1024px) {
+  .artical-sidebar-left {
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin-top: 0;
+    border-bottom: 1px solid var(--scroll-thumb);
+    flex-direction: column;
+    padding: 1rem;
+    overflow-y: visible;
+  }
+
+  .artical-sidebar-section ul {
+    max-height: none;
+    overflow: visible;
+  }
+}
