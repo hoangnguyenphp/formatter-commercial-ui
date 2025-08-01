@@ -2,12 +2,12 @@ export const topicLinks = {
   'discovery': 	(topic_code) => ({
 	    to_value: `/topic/${topic_code}/discovery`,
 		to_pattern: '/topic/:topic_code/discovery',
-	    title: 'Discovery Topic',
+	    title: 'Discovery',
    }),
    'joking': (topic_code) => ({
        to_value: `/topic/${topic_code}/joking`,
    	   to_pattern: '/topic/:topic_code/joking',
-       title: 'Joking Topic',
+       title: 'Joking',
     }),
   /*
 	  'historyPart': (partId) => ({

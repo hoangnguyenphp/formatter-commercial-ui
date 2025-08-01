@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import App from './apps/App';
 
 import Discovery_Topic from './pages/topic/Discovery_Topic';
+import Joking_Topic from './pages/topic/Joking_Topic';
 
 import HistoryOfAmerica_Part_01 from './pages/discovery/USAHistorical/HistoryOfAmerica_Part_01';
 import HistoryOfAmerica_Part_02 from './pages/discovery/USAHistorical/HistoryOfAmerica_Part_02';
@@ -33,6 +34,7 @@ root.render(
 	  <Route path="/" element={<App />} />
 	  
 	  <Route path={topicLinks.discovery('discovery').to_pattern} element={<Discovery_Topic />} />
+	  <Route path={topicLinks.joking('joking').to_pattern} element={<Joking_Topic />} />
 	  
 	  <Route path={articleLinks.discovery_history_of_america_part_02.to} element={<HistoryOfAmerica_Part_02 />} />
       <Route path={articleLinks.discovery_history_of_america_part_01.to} element={<HistoryOfAmerica_Part_01 />} />
