@@ -1,6 +1,6 @@
 /* Base styles shared by both themes */
 .sidebar-left {
-  width: 230px;
+  width: 250px;
   padding: 1rem;
   position: fixed;
   left: 0;

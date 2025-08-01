@@ -41,7 +41,6 @@ export default function AppLayout({ children }) {
             <h1 style={{ cursor: 'pointer' }}>Online Code Formatter</h1>
             <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
               <Link className="from-tool-to-blog-link"
-                to="/blog"
                 onClick={(e) => e.stopPropagation()}
               >
                 Blog
