@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './apps/App';
+
+import Discovery_Topic from './pages/topic/Discovery_Topic';
+
 import HistoryOfAmerica_Part_01 from './pages/discovery/USAHistorical/HistoryOfAmerica_Part_01';
 import HistoryOfAmerica_Part_02 from './pages/discovery/USAHistorical/HistoryOfAmerica_Part_02';
 import HistoryOfAmerica_Part_03 from './pages/discovery/USAHistorical/HistoryOfAmerica_Part_03';
@@ -18,6 +21,7 @@ import Joking_Part_01 from './pages/joking/Joking_Part_01';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { articleLinks } from './generic/articleLinks';
+import { topicLinks } from './generic/topicLinks';
 import ScrollToTop from './utils/ScrollToTop';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -25,7 +29,11 @@ root.render(
   <BrowserRouter>
   	<ScrollToTop />
     <Routes>
-      <Route path="/" element={<App />} />
+      
+	  <Route path="/" element={<App />} />
+	  
+	  <Route path={topicLinks.discovery('discovery').to_pattern} element={<Discovery_Topic />} />
+	  
 	  <Route path={articleLinks.discovery_history_of_america_part_02.to} element={<HistoryOfAmerica_Part_02 />} />
       <Route path={articleLinks.discovery_history_of_america_part_01.to} element={<HistoryOfAmerica_Part_01 />} />
       <Route path={articleLinks.discovery_history_of_america_part_03.to} element={<HistoryOfAmerica_Part_03 />} />

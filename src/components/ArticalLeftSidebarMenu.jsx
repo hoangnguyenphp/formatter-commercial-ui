@@ -4,6 +4,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/ArticalLeftSidebarMenu.css';
 import { scrollToTop, scrollToBottom } from '../utils/scrollUtils';
+import { topicLinks } from '../generic/topicLinks';
 import GoTopBottomButtons from './GoTopBottomButtons';
 
 
@@ -25,11 +26,11 @@ export default function ArticalLeftSidebarMenu() {
 		  <div className="artical-sidebar-section topics">
 		    <h3>📚 Topics</h3>
 		    <ul>
-		      <li><Link to="/topics/html-css" title="HTML & CSS">Java</Link></li>
-		      <li><Link to="/topics/devops" title="DevOps">Microservice</Link></li>
-		      <li><Link to="/topics/ai" title="AI & Machine Learning">AI & Machine Learning</Link></li>
-		      <li><Link to="/topics/javascript" title="JavaScript">Joking 🤣</Link></li>
-		      <li><Link to="/topics/java" title="Java">Discovery</Link></li>
+		      <li><Link title="HTML & CSS">Java</Link></li>
+		      <li><Link title="DevOps">Microservice</Link></li>
+		      <li><Link title="AI & Machine Learning">AI & Machine Learning</Link></li>
+		      <li><Link to={topicLinks.discovery('discovery').to_value} title={topicLinks.discovery('discovery').title}>{topicLinks.discovery('discovery').title}</Link></li>
+		      <li><Link to={topicLinks.joking('joking').to_value} title={topicLinks.joking('joking').title}>{topicLinks.joking('joking').title}</Link></li>
 		    </ul>
 		  </div>
 		  <div style={{flexDirection: 'column', gap: '0.5rem' }}>
