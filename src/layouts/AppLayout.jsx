@@ -5,6 +5,7 @@ import '../styles/App.css';
 import '../styles/global.css';
 import { Link } from 'react-router-dom';
 import ToolLeftSidebarMenu from '../components/ToolLeftSidebarMenu';
+import { topicLinks } from '../generic/topicLinks';
 
 export default function AppLayout({ children }) {
   const [mode, setMode] = useState('dark');
@@ -40,7 +41,7 @@ export default function AppLayout({ children }) {
           <div className="header-content">
             <h1 style={{ cursor: 'pointer' }}>Online Code Formatter</h1>
             <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-              <Link className="from-tool-to-blog-link"
+              <Link to={topicLinks.discovery('discovery').to_value} className="from-tool-to-blog-link"
                 onClick={(e) => e.stopPropagation()}
               >
                 Blog

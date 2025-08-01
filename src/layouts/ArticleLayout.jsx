@@ -34,7 +34,7 @@ export default function ArticleLayout({ children }) {
 	      {/* Header */}
 	      <header className="app-header" onClick={() => (window.location.href = '/')}>
 	        <div className="header-content">
-	          <h1 style={{ cursor: 'pointer' }}>Blog</h1>
+	          <h1 style={{ cursor: 'pointer' }}>The Univer Blog</h1>
 	          <button
 	            className="theme-toggle"
 	            onClick={(e) => {
