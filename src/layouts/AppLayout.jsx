@@ -18,9 +18,16 @@ export default function AppLayout({ children }) {
 
   return (
     <main className="container">
-	  {/* Sidebar */}
-	  <ToolLeftSidebarMenu />
-	  
+      {/* Sidebar */}
+      <ToolLeftSidebarMenu />
+
+	  {/*Left-side Ad */}
+	  {/*
+	  <div className="ads-left">
+	    <AdsBanner slot="1234567892" layout="vertical" style={{ width: '160px', height: '600px' }} />
+	  </div>
+	  */}
+
       {/* Right-side Ad */}
       <div className="ads-right">
         <AdsBanner slot="1234567892" layout="vertical" style={{ width: '160px', height: '600px' }} />
@@ -31,17 +38,25 @@ export default function AppLayout({ children }) {
         {/* Header */}
         <header className="app-header" onClick={() => (window.location.href = '/')}>
           <div className="header-content">
-            <h1>Online Code Formatter</h1>
-            <button
-              className="theme-toggle"
-              onClick={(e) => {
-                e.stopPropagation();
-                setMode((prev) => (prev === 'dark' ? 'light' : 'dark'));
-              }}
-              title="Toggle theme"
-            >
-              {mode === 'dark' ? '🌞 Light' : '🌙 Dark'}
-            </button>
+            <h1 style={{ cursor: 'pointer' }}>Online Code Formatter</h1>
+            <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+              <Link className="from-tool-to-blog-link"
+                to="/blog"
+                onClick={(e) => e.stopPropagation()}
+              >
+                Blog
+              </Link>
+              <button
+                className="theme-toggle"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setMode((prev) => (prev === 'dark' ? 'light' : 'dark'));
+                }}
+                title="Toggle theme"
+              >
+                {mode === 'dark' ? '🌞 Light' : '🌙 Dark'}
+              </button>
+            </div>
           </div>
         </header>
 
