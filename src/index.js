@@ -13,6 +13,9 @@ import HistoryOfAmerica_Part_09 from './pages/discovery/USAHistorical/HistoryOfA
 import HistoryOfAmerica_Part_10 from './pages/discovery/USAHistorical/HistoryOfAmerica_Part_10';
 import HistoryOfAmerica_Part_11 from './pages/discovery/USAHistorical/HistoryOfAmerica_Part_11';
 import HistoryOfAmerica_Part_12 from './pages/discovery/USAHistorical/HistoryOfAmerica_Part_12';
+
+import Joking_Part_01 from './pages/joking/Joking_Part_01';
+
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { articleLinks } from './generic/articleLinks';
 import ScrollToTop from './utils/ScrollToTop';
@@ -23,8 +26,8 @@ root.render(
   	<ScrollToTop />
     <Routes>
       <Route path="/" element={<App />} />
+	  <Route path={articleLinks.discovery_history_of_america_part_02.to} element={<HistoryOfAmerica_Part_02 />} />
       <Route path={articleLinks.discovery_history_of_america_part_01.to} element={<HistoryOfAmerica_Part_01 />} />
-      <Route path={articleLinks.discovery_history_of_america_part_02.to} element={<HistoryOfAmerica_Part_02 />} />
       <Route path={articleLinks.discovery_history_of_america_part_03.to} element={<HistoryOfAmerica_Part_03 />} />
       <Route path={articleLinks.discovery_history_of_america_part_04.to} element={<HistoryOfAmerica_Part_04 />} />
       <Route path={articleLinks.discovery_history_of_america_part_05.to} element={<HistoryOfAmerica_Part_05 />} />
@@ -35,6 +38,9 @@ root.render(
       <Route path={articleLinks.discovery_history_of_america_part_10.to} element={<HistoryOfAmerica_Part_10 />} />
       <Route path={articleLinks.discovery_history_of_america_part_11.to} element={<HistoryOfAmerica_Part_11 />} />
       <Route path={articleLinks.discovery_history_of_america_part_12.to} element={<HistoryOfAmerica_Part_12 />} />
+	  
+      <Route path={articleLinks.joking_part_01.to} element={<Joking_Part_01 />} />
+	  	  
     </Routes>
   </BrowserRouter>
 );
