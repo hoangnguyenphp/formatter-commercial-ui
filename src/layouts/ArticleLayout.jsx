@@ -35,16 +35,23 @@ export default function ArticleLayout({ children }) {
 	      <header className="app-header" onClick={() => (window.location.href = '/')}>
 	        <div className="header-content">
 	          <h1 style={{ cursor: 'pointer' }}>The Universe Blog</h1>
-	          <button
-	            className="theme-toggle"
-	            onClick={(e) => {
-	              e.stopPropagation();
-	              setMode((prev) => (prev === 'dark' ? 'light' : 'dark'));
-	            }}
-	            title="Toggle theme"
-	          >
-	            {mode === 'dark' ? '🌞 Light' : '🌙 Dark'}
-	          </button>
+			  <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+			    <Link to="/" className="from-blog-to-tool-link"
+			      onClick={(e) => e.stopPropagation()}
+			    >
+			      Home
+			    </Link>
+			    <button
+			      className="theme-toggle"
+			      onClick={(e) => {
+			        e.stopPropagation();
+			        setMode((prev) => (prev === 'dark' ? 'light' : 'dark'));
+			      }}
+			      title="Toggle theme"
+			    >
+			      {mode === 'dark' ? '🌞 Light' : '🌙 Dark'}
+			    </button>
+			  </div>
 	        </div>
 	      </header>
 
