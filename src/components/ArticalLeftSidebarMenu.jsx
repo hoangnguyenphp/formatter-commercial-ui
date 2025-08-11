@@ -26,9 +26,6 @@ export default function ArticalLeftSidebarMenu() {
 		  <div className="artical-sidebar-section topics">
 		    <h3>📚 Topics</h3>
 		    <ul>
-		      <li><Link title="HTML & CSS">Java</Link></li>
-		      <li><Link title="DevOps">Microservice</Link></li>
-		      <li><Link title="AI & Machine Learning">AI & Machine Learning</Link></li>
 		      <li><Link to={topicLinks.discovery('discovery').to_value} title={topicLinks.discovery('discovery').title}>{topicLinks.discovery('discovery').title}</Link></li>
 		      <li><Link to={topicLinks.joking('joking').to_value} title={topicLinks.joking('joking').title}>{topicLinks.joking('joking').title}</Link></li>
 		    </ul>
