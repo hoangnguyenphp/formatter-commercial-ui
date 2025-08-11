@@ -21,7 +21,6 @@ export default function ToolLeftSidebarMenu() {
 	  <div className="sidebar-section hot-articles">
 	    <h3>🔥 Hot Articles</h3>
 	  <ul>
-	    <li><Link to={articleLinks.discovery_history_of_america_part_01.to} title={articleLinks.discovery_history_of_america_part_01.title}>{articleLinks.discovery_history_of_america_part_01.title}</Link></li>
 	    <li><Link to={articleLinks.discovery_history_of_america_part_02.to} title={articleLinks.discovery_history_of_america_part_02.title}>{articleLinks.discovery_history_of_america_part_02.title}</Link></li>
 	    <li><Link to={articleLinks.discovery_history_of_america_part_03.to} title={articleLinks.discovery_history_of_america_part_03.title}>{articleLinks.discovery_history_of_america_part_03.title}</Link></li>
 	    <li><Link to={articleLinks.discovery_history_of_america_part_04.to} title={articleLinks.discovery_history_of_america_part_04.title}>{articleLinks.discovery_history_of_america_part_04.title}</Link></li>

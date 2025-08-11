@@ -6,12 +6,13 @@ import '../styles/global.css';
 import { Link } from 'react-router-dom';
 import ToolLeftSidebarMenu from '../components/ToolLeftSidebarMenu';
 import { topicLinks } from '../generic/topicLinks';
+import { useTranslation } from 'react-i18next';
 
 export default function AppLayout({ children }) {
   const [mode, setMode] = useState('dark');
   const truncate = (text, max = 30) =>
     text.length > max ? text.slice(0, max - 3) + '...' : text;
-
+  const { t, i18n } = useTranslation();
   useEffect(() => {
     document.body.classList.remove('dark', 'light');
     document.body.classList.add(mode);
@@ -69,10 +70,10 @@ export default function AppLayout({ children }) {
         </div>
         <footer className="app-footer">
           <nav className="footer-nav">
-            <a href="/about.html" target="_blank" rel="noopener noreferrer">About</a> |{" "}
-            <a href="/privacy-policy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a> |{" "}
-            <a href="/terms-of-service.html" target="_blank" rel="noopener noreferrer">Terms</a> |{" "}
-            <a href="/contact.html" target="_blank" rel="noopener noreferrer">Contact</a>
+            <a href="/about.html" target="_blank" rel="noopener noreferrer">{t('about')}</a> |{" "}
+            <a href="/privacy-policy.html" target="_blank" rel="noopener noreferrer">{t('privacyPolicy')}</a> |{" "}
+            <a href="/terms-of-service.html" target="_blank" rel="noopener noreferrer">{t('terms')}</a> |{" "}
+            <a href="/contact.html" target="_blank" rel="noopener noreferrer">{t('contact')}</a>
           </nav>
           <div>
             © {new Date().getFullYear()} Online Code Formatter. All rights reserved.
