@@ -8,13 +8,18 @@ import { Link } from 'react-router-dom';
 import ArticalLeftSidebarMenu from '../components/ArticalLeftSidebarMenu';
 
 export default function ArticleLayout({ children }) {
-	const [mode, setMode] = useState('dark');
+	// 1️⃣ Initialize from localStorage
+	const [mode, setMode] = useState(() => {
+	  return localStorage.getItem('themeMode') || 'dark';
+	});
 	const truncate = (text, max = 30) =>
 	  text.length > max ? text.slice(0, max - 3) + '...' : text;
 
+	// 2️⃣ Sync to body and localStorage
 	useEffect(() => {
 	  document.body.classList.remove('dark', 'light');
 	  document.body.classList.add(mode);
+	  localStorage.setItem('themeMode', mode);
 	}, [mode]);
 
 	return (

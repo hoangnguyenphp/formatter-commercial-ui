@@ -51,7 +51,7 @@ root.render(
       <Route path={articleLinks.discovery_history_of_america_part_11.to} element={<HistoryOfAmerica_Part_11 />} />
       <Route path={articleLinks.discovery_history_of_america_part_12.to} element={<HistoryOfAmerica_Part_12 />} />
 	  
-      <Route path='{articleLinks.joking_part_01.to}' element={<Joking_Part_01 />} />
+      <Route path={articleLinks.joking_part_01.to} element={<Joking_Part_01 />} />
 	  
 	  
 	  	  

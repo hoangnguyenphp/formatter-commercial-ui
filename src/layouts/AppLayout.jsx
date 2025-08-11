@@ -9,40 +9,44 @@ import { topicLinks } from '../generic/topicLinks';
 import { useTranslation } from 'react-i18next';
 
 export default function AppLayout({ children }) {
-  const [mode, setMode] = useState('dark');
-  const truncate = (text, max = 30) =>
-    text.length > max ? text.slice(0, max - 3) + '...' : text;
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
+
+  // 1️⃣ Initialize from localStorage
+  const [mode, setMode] = useState(() => {
+    return localStorage.getItem('themeMode') || 'dark';
+  });
+
+  // 2️⃣ Sync to body and localStorage
   useEffect(() => {
     document.body.classList.remove('dark', 'light');
     document.body.classList.add(mode);
+    localStorage.setItem('themeMode', mode);
   }, [mode]);
+
+  const truncate = (text, max = 30) =>
+    text.length > max ? text.slice(0, max - 3) + '...' : text;
 
   return (
     <main className="container">
-      {/* Sidebar */}
       <ToolLeftSidebarMenu />
-
-	  {/*Left-side Ad */}
-	  {/*
-	  <div className="ads-left">
-	    <AdsBanner slot="1234567892" layout="vertical" style={{ width: '160px', height: '600px' }} />
-	  </div>
-	  */}
 
       {/* Right-side Ad */}
       <div className="ads-right">
         <AdsBanner slot="1234567892" layout="vertical" style={{ width: '160px', height: '600px' }} />
       </div>
 
-      {/* Main Content Wrapper */}
       <div className="main-content">
         {/* Header */}
-        <header className="app-header" onClick={() => (window.location.href = '/')}>
+        <header
+          className="app-header"
+          onClick={() => (window.location.href = '/')}
+        >
           <div className="header-content">
             <h1 style={{ cursor: 'pointer' }}>Online Code Formatter</h1>
             <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-              <Link to={topicLinks.discovery('discovery').to_value} className="from-tool-to-blog-link"
+              <Link
+                to={topicLinks.discovery('discovery').to_value}
+                className="from-tool-to-blog-link"
                 onClick={(e) => e.stopPropagation()}
               >
                 Blog
@@ -61,23 +65,30 @@ export default function AppLayout({ children }) {
           </div>
         </header>
 
-        {/* Main Children Content */}
         {children}
 
-        {/* Footer */}
         <div style={{ textAlign: 'center', fontSize: '0.9rem', margin: '1em 0' }}>
           <PageVisitCounter />
         </div>
         <footer className="app-footer">
           <nav className="footer-nav">
-            <a href="/about.html" target="_blank" rel="noopener noreferrer">{t('about')}</a> |{" "}
-            <a href="/privacy-policy.html" target="_blank" rel="noopener noreferrer">{t('privacyPolicy')}</a> |{" "}
-            <a href="/terms-of-service.html" target="_blank" rel="noopener noreferrer">{t('terms')}</a> |{" "}
-            <a href="/contact.html" target="_blank" rel="noopener noreferrer">{t('contact')}</a>
+            <a href="/about.html" target="_blank" rel="noopener noreferrer">
+              {t('about')}
+            </a>{" "}
+            |{" "}
+            <a href="/privacy-policy.html" target="_blank" rel="noopener noreferrer">
+              {t('privacyPolicy')}
+            </a>{" "}
+            |{" "}
+            <a href="/terms-of-service.html" target="_blank" rel="noopener noreferrer">
+              {t('terms')}
+            </a>{" "}
+            |{" "}
+            <a href="/contact.html" target="_blank" rel="noopener noreferrer">
+              {t('contact')}
+            </a>
           </nav>
-          <div>
-            © {new Date().getFullYear()} Online Code Formatter. All rights reserved.
-          </div>
+          <div>© {new Date().getFullYear()} Online Code Formatter. All rights reserved.</div>
         </footer>
       </div>
     </main>
