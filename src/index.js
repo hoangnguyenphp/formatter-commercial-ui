@@ -21,7 +21,6 @@ import HistoryOfAmerica_Part_12 from './pages/discovery/USAHistorical/HistoryOfA
 
 import Joking_Part_01 from './pages/joking/Joking_Part_01';
 
-import TicTacToe from './game/TicTacToe';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { articleLinks } from './generic/articleLinks';
@@ -53,8 +52,6 @@ root.render(
       <Route path={articleLinks.discovery_history_of_america_part_12.to} element={<HistoryOfAmerica_Part_12 />} />
 	  
       <Route path='{articleLinks.joking_part_01.to}' element={<Joking_Part_01 />} />
-	  
-      <Route path='/game/tic-tac-toe' element={<TicTacToe />} />
 	  
 	  
 	  	  
