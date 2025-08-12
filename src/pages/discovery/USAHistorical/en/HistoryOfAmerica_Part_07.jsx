@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import ArticleLayout from '../../../layouts/ArticleLayout';
-import '../../../styles/RelatedArtical.css';
-import { articleLinks } from '../../../generic/articleLinks';
+import ArticleLayout from '../../../../layouts/ArticleLayout';
+import '../../../../styles/RelatedArtical.css';
+import { articleLinks } from '../../../../generic/articleLinks';
 
-export default function HistoryOfAmerica_Part_06() {
+export default function HistoryOfAmerica_Part_07() {
   return (
     <ArticleLayout>
       <article className="article">
 	  <h2 style={{ fontSize: '1.5em', marginTop: '2em' }}>
-	    History of America - Part 06: World War II and Its Aftermath (1939–1950)
+	    History of America - Part 07: The Cold War and Civil Rights Era (1950–1970)
 	  </h2>
 	  {/* ✅ Publish Date */}
 	  <p
@@ -27,39 +27,43 @@ export default function HistoryOfAmerica_Part_06() {
 	  {/* 👉 Next Chapter Section */} 
 	  <div className="chapter-navigation">
 	    <div className="prev-chapter-container">
-	  	<Link to={articleLinks.discovery_history_of_america_part_05.to} className="prev-chapter-link">
+	  	<Link to={articleLinks.discovery_history_of_america_part_06.to} className="prev-chapter-link">
 	  	  ⬅️ Previous Chapter
 	  	</Link>
 	    </div>
 	    <div className="next-chapter-container">
-	  	<Link to={articleLinks.discovery_history_of_america_part_07.to} className="next-chapter-link">
+	  	<Link to={articleLinks.discovery_history_of_america_part_08.to} className="next-chapter-link">
 	  	  Next Chapter ➡️
 	  	</Link>
 	    </div>
 	  </div>
 
 	  <p style={{ marginTop: '1em' }}>
-	  When World War II broke out in Europe in 1939, the United States initially remained neutral. However, it provided material support to the Allies through programs like Lend-Lease, as public opinion gradually shifted in favor of intervention. The turning point came on December 7, 1941, when Japan attacked the U.S. naval base at Pearl Harbor, prompting the United States to declare war on Japan — and soon after, on Germany and Italy.
+	  After World War II, tensions between the United States and the Soviet Union intensified, giving rise to the Cold War — a period of geopolitical rivalry that would shape global politics for decades. Though the two superpowers avoided direct military conflict, they competed in an arms race, a space race, and influence over developing nations through proxy wars and diplomacy.
 	  </p>
 
 	  <p style={{ marginTop: '1em' }}>
-	  The United States became a central force in the Allied war effort. American factories ramped up production, transforming the economy and ending the Great Depression. Millions of men and women served in the military, while others supported the war effort on the home front through rationing, war bonds, and working in defense industries. Women entered the workforce in large numbers, symbolized by "Rosie the Riveter."
+	  The early 1950s were marked by fears of communist infiltration. Senator Joseph McCarthy led investigations into alleged communist sympathizers, resulting in widespread paranoia and the violation of civil liberties in what became known as McCarthyism. At the same time, the Korean War (1950–1953) was the first major military conflict of the Cold War, with the U.S. supporting South Korea against the communist North, backed by China and the USSR.
 	  </p>
 
 	  <p style={{ marginTop: '1em' }}>
-	  The war was fought on two major fronts: Europe and the Pacific. In Europe, American forces landed in North Africa, Italy, and France — most famously during the D-Day invasion of Normandy in 1944. In the Pacific, they engaged in brutal island-hopping campaigns to push back Japanese forces. The war culminated in the dropping of atomic bombs on Hiroshima and Nagasaki in August 1945, leading to Japan's surrender and the official end of World War II.
+	  Meanwhile, domestic life in the U.S. saw unprecedented economic growth. Suburbanization expanded rapidly, fueled by the GI Bill, car culture, and consumerism. However, the prosperity of the postwar period was not equally shared. Racial segregation remained deeply entrenched, particularly in the South, prompting a growing movement for civil rights.
 	  </p>
 
 	  <p style={{ marginTop: '1em' }}>
-	  The victory came at a great cost — over 400,000 American lives lost — but it also cemented the United States’ status as a global superpower. In the postwar years, America helped lead the reconstruction of Europe through the Marshall Plan, supported the founding of the United Nations, and established NATO to counter the growing influence of the Soviet Union.
+	  The Civil Rights Movement gained momentum in the 1950s, beginning with events such as the 1954 Supreme Court ruling in <i>Brown v. Board of Education</i>, which declared segregated schools unconstitutional. In 1955, Rosa Parks’ refusal to give up her bus seat sparked the Montgomery Bus Boycott, led by a young Martin Luther King Jr. Peaceful protests, marches, and sit-ins became hallmarks of the movement.
 	  </p>
 
 	  <p style={{ marginTop: '1em' }}>
-	  At home, the postwar period brought economic prosperity and the beginning of the "baby boom." Yet, it was also marked by growing tensions with the Soviet Union, signaling the start of the Cold War. Domestically, returning veterans benefited from the GI Bill, which expanded access to education and homeownership, helping to fuel the rise of a strong middle class.
+	  By the 1960s, the struggle intensified. The 1963 March on Washington, where King delivered his iconic “I Have a Dream” speech, galvanized national attention. Landmark legislation followed: the Civil Rights Act of 1964 banned discrimination based on race, religion, or gender; the Voting Rights Act of 1965 ensured federal protection for Black voters, especially in the South.
 	  </p>
 
 	  <p style={{ marginTop: '1em' }}>
-	  Racial segregation and discrimination, however, persisted. African American veterans returned to a country still deeply divided by Jim Crow laws. The seeds of the Civil Rights Movement began to take root during this time, setting the stage for the social and political struggles of the decades to follow.
+	  This decade also saw the escalation of the Vietnam War, a Cold War conflict that deeply divided American society. Initially backed by broad political support, the war became increasingly unpopular as U.S. casualties mounted and television brought images of the conflict into American living rooms. By the late 1960s, anti-war protests surged alongside continued civil rights activism, feminism, and calls for social change.
+	  </p>
+
+	  <p style={{ marginTop: '1em' }}>
+	  The assassination of key leaders — John F. Kennedy (1963), Martin Luther King Jr. (1968), and Robert F. Kennedy (1968) — shocked the nation and intensified a sense of turmoil. By 1970, the U.S. was a nation transformed: politically powerful, economically dominant, but deeply conflicted over issues of race, war, and identity.
 	  </p>
 	  {/* 📚 Source Reference */}
 	  <div className="artical-source-reference">
@@ -77,17 +81,16 @@ export default function HistoryOfAmerica_Part_06() {
 	  {/* 👉 Next Chapter Section */} 
 	  <div className="chapter-navigation">
 	    <div className="prev-chapter-container">
-	  	<Link to={articleLinks.discovery_history_of_america_part_05.to} className="prev-chapter-link">
+	  	<Link to={articleLinks.discovery_history_of_america_part_06.to} className="prev-chapter-link">
 	  	  ⬅️ Previous Chapter
 	  	</Link>
 	    </div>
 	    <div className="next-chapter-container">
-	  	<Link to={articleLinks.discovery_history_of_america_part_07.to} className="next-chapter-link">
+	  	<Link to={articleLinks.discovery_history_of_america_part_08.to} className="next-chapter-link">
 	  	  Next Chapter ➡️
 	  	</Link>
 	    </div>
 	  </div>
-
 
       {/* 👉 Related Articles Section */}
       <div className="related-content-box ">
@@ -113,9 +116,6 @@ export default function HistoryOfAmerica_Part_06() {
 			</li>
 			<li>
 			  <Link to={articleLinks.discovery_history_of_america_part_07.to}>{articleLinks.discovery_history_of_america_part_07.title}</Link>
-			</li>
-			<li>
-			  <Link to={articleLinks.discovery_history_of_america_part_08.to}>{articleLinks.discovery_history_of_america_part_08.title}</Link>
 			</li>
 			<li>
 			  <Link to={articleLinks.discovery_history_of_america_part_08.to}>{articleLinks.discovery_history_of_america_part_08.title}</Link>

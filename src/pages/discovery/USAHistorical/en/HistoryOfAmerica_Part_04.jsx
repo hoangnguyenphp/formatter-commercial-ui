@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import ArticleLayout from '../../../layouts/ArticleLayout';
-import '../../../styles/RelatedArtical.css';
-import { articleLinks } from '../../../generic/articleLinks';
+import ArticleLayout from '../../../../layouts/ArticleLayout';
+import '../../../../styles/RelatedArtical.css';
+import { articleLinks } from '../../../../generic/articleLinks';
 
-export default function HistoryOfAmerica_Part_05() {
+export default function HistoryOfAmerica_Part_04() {
   return (
     <ArticleLayout>
       <article className="article">
-	  <h2 style={{ fontSize: '1.5em', marginTop: '2em' }}>History of America - Part 05: The Roaring Twenties and the Great Depression (1920–1939)</h2>
+	  <h2 style={{ fontSize: '1.5em', marginTop: '2em' }}>History of America - Part 04: The Gilded Age and Progressive Era (1877–1920)</h2>
 	  {/* ✅ Publish Date */}
 	  <p
 	    style={{
@@ -24,43 +24,47 @@ export default function HistoryOfAmerica_Part_05() {
 	  {/* 👉 Next Chapter Section */} 
 	  <div className="chapter-navigation">
 	    <div className="prev-chapter-container">
-	  	<Link to={articleLinks.discovery_history_of_america_part_04.to} className="prev-chapter-link">
+	  	<Link to={articleLinks.discovery_history_of_america_part_03.to} className="prev-chapter-link">
 	  	  ⬅️ Previous Chapter
 	  	</Link>
 	    </div>
 	    <div className="next-chapter-container">
-	  	<Link to={articleLinks.discovery_history_of_america_part_06.to} className="next-chapter-link">
+	  	<Link to={articleLinks.discovery_history_of_america_part_05.to} className="next-chapter-link">
 	  	  Next Chapter ➡️
 	  	</Link>
 	    </div>
 	  </div>
 	  
 	  <p style={{ marginTop: '1em' }}>
-	  The 1920s, often called the "Roaring Twenties," were a time of dramatic cultural and economic change in the United States. Following World War I, Americans embraced new freedoms, technologies, and a booming consumer economy. Cities expanded, jazz music flourished, and Hollywood became the epicenter of a growing entertainment industry.
+	  After the end of Reconstruction in 1877, the United States entered a period of rapid industrialization, urbanization, and economic expansion known as the Gilded Age. Coined by Mark Twain, the term reflects the glittering prosperity that masked deep social problems like inequality, corruption, and exploitation.
 	  </p>
 
 	  <p style={{ marginTop: '1em' }}>
-	  For many, life was fast-paced and prosperous. Automobiles, radios, and household appliances became common. The stock market soared, and consumer credit allowed people to spend beyond their means. Women, having gained the right to vote in 1920, pushed social boundaries — symbolized by the rise of the “flapper,” a new, freer image of womanhood.
+	  Massive growth in steel, oil, and railroads made industrialists like Andrew Carnegie and John D. Rockefeller immensely wealthy. Cities swelled as millions of immigrants from Europe arrived, seeking opportunity. But tenement housing, poor labor conditions, and political machines like Tammany Hall revealed the darker side of this boom.
 	  </p>
 
 	  <p style={{ marginTop: '1em' }}>
-	  However, the decade was not universally prosperous. African Americans continued to face discrimination and violence, even as the Harlem Renaissance celebrated Black cultural achievements. Immigrants and laborers faced xenophobia and crackdowns, and Prohibition — the nationwide ban on alcohol — led to speakeasies and the rise of organized crime.
+	  Labor unrest grew. Strikes like the Great Railroad Strike of 1877 and the Haymarket Affair of 1886 highlighted tensions between workers and industrialists. Unions such as the American Federation of Labor began to organize for better wages, hours, and working conditions.
 	  </p>
 
 	  <p style={{ marginTop: '1em' }}>
-	  Then, in October 1929, the stock market crashed. What began as a financial panic spiraled into the Great Depression — the most severe economic downturn in American history. Banks collapsed, businesses failed, and unemployment soared to over 25%. Millions lost their homes, and poverty spread across both cities and rural areas.
+	  Meanwhile, the federal government often sided with big business. Corruption was rampant, and reform seemed distant. Yet reformers and muckrakers — investigative journalists like Upton Sinclair and Ida Tarbell — began exposing abuses in industry, politics, and society.
 	  </p>
 
 	  <p style={{ marginTop: '1em' }}>
-	  President Herbert Hoover’s attempts to stabilize the economy were seen as too little, too late. In 1932, Franklin D. Roosevelt was elected on a promise of a “New Deal” for the American people. His administration launched unprecedented federal programs to provide relief, create jobs, and reform the financial system.
+	  This led to the Progressive Era, beginning around 1890 and lasting into the early 20th century. Progressives pushed for reforms: breaking up monopolies, improving urban life, advancing women’s suffrage, and regulating food and drugs. Presidents like Theodore Roosevelt and Woodrow Wilson championed many of these efforts.
 	  </p>
 
 	  <p style={{ marginTop: '1em' }}>
-	  The New Deal included initiatives like Social Security, the Civilian Conservation Corps (CCC), and the Works Progress Administration (WPA). These efforts helped stabilize the economy and restore public confidence, though full recovery remained elusive.
+	  During this time, the U.S. also emerged as a global power. The Spanish-American War in 1898 resulted in control over territories like Puerto Rico, Guam, and the Philippines. The construction of the Panama Canal and Roosevelt’s “Big Stick” diplomacy signaled growing American influence abroad.
 	  </p>
 
 	  <p style={{ marginTop: '1em' }}>
-	  Throughout the 1930s, Americans also faced natural disasters like the Dust Bowl, which devastated farmlands in the Midwest. As the decade ended, the rise of authoritarian regimes in Europe and Asia signaled a new global threat — and set the stage for America’s involvement in World War II.
+	  Socially, the movement for women’s rights gained momentum. Activists like Susan B. Anthony and Alice Paul fought for the vote, culminating in the 19th Amendment in 1920, which granted women nationwide suffrage.
+	  </p>
+
+	  <p style={{ marginTop: '1em' }}>
+	  By 1920, the United States had been transformed — from a mostly rural society into an industrial and urban powerhouse. But new challenges loomed, including the aftermath of World War I, economic instability, and unresolved racial and class tensions.
 	  </p>
 	  {/* 📚 Source Reference */}
 	  <div className="artical-source-reference">
@@ -78,12 +82,12 @@ export default function HistoryOfAmerica_Part_05() {
 	  {/* 👉 Next Chapter Section */} 
 	  <div className="chapter-navigation">
 	    <div className="prev-chapter-container">
-	  	<Link to={articleLinks.discovery_history_of_america_part_04.to} className="prev-chapter-link">
+	  	<Link to={articleLinks.discovery_history_of_america_part_03.to} className="prev-chapter-link">
 	  	  ⬅️ Previous Chapter
 	  	</Link>
 	    </div>
 	    <div className="next-chapter-container">
-	  	<Link to={articleLinks.discovery_history_of_america_part_06.to} className="next-chapter-link">
+	  	<Link to={articleLinks.discovery_history_of_america_part_05.to} className="next-chapter-link">
 	  	  Next Chapter ➡️
 	  	</Link>
 	    </div>

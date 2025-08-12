@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import ArticleLayout from '../../../layouts/ArticleLayout';
-import '../../../styles/RelatedArtical.css';
-import { articleLinks } from '../../../generic/articleLinks';
+import ArticleLayout from '../../../../layouts/ArticleLayout';
+import '../../../../styles/RelatedArtical.css';
+import { articleLinks } from '../../../../generic/articleLinks';
 
-export default function HistoryOfAmerica_Part_03() {
+export default function HistoryOfAmerica_Part_06() {
   return (
     <ArticleLayout>
       <article className="article">
-	  <h2 style={{ fontSize: '1.5em', marginTop: '2em' }}>History of America - Part 03: Civil War and Reconstruction (1861–1877)</h2>
+	  <h2 style={{ fontSize: '1.5em', marginTop: '2em' }}>
+	    History of America - Part 06: World War II and Its Aftermath (1939–1950)
+	  </h2>
 	  {/* ✅ Publish Date */}
 	  <p
 	    style={{
@@ -21,51 +23,43 @@ export default function HistoryOfAmerica_Part_03() {
 	  >
 	    🗓️ Published on July 30, 2025
 	  </p>
+
 	  {/* 👉 Next Chapter Section */} 
 	  <div className="chapter-navigation">
 	    <div className="prev-chapter-container">
-	  	<Link to={articleLinks.discovery_history_of_america_part_02.to} className="prev-chapter-link">
+	  	<Link to={articleLinks.discovery_history_of_america_part_05.to} className="prev-chapter-link">
 	  	  ⬅️ Previous Chapter
 	  	</Link>
 	    </div>
-
 	    <div className="next-chapter-container">
-	  	<Link to={articleLinks.discovery_history_of_america_part_04.to} className="next-chapter-link">
+	  	<Link to={articleLinks.discovery_history_of_america_part_07.to} className="next-chapter-link">
 	  	  Next Chapter ➡️
 	  	</Link>
 	    </div>
 	  </div>
-	  
+
 	  <p style={{ marginTop: '1em' }}>
-	  By 1861, the United States was no longer united. After decades of mounting tensions over slavery, states’ rights, and economic differences between the North and South, the election of Abraham Lincoln sparked the secession of eleven Southern states, forming the Confederate States of America.
+	  When World War II broke out in Europe in 1939, the United States initially remained neutral. However, it provided material support to the Allies through programs like Lend-Lease, as public opinion gradually shifted in favor of intervention. The turning point came on December 7, 1941, when Japan attacked the U.S. naval base at Pearl Harbor, prompting the United States to declare war on Japan — and soon after, on Germany and Italy.
 	  </p>
 
 	  <p style={{ marginTop: '1em' }}>
-	  The Civil War, lasting from 1861 to 1865, was the deadliest conflict on American soil, claiming over 600,000 lives. Early battles such as Bull Run showed the war would not be short. The Union, under Lincoln, fought to preserve the nation; the Confederacy, under Jefferson Davis, fought for independence and the preservation of slavery.
+	  The United States became a central force in the Allied war effort. American factories ramped up production, transforming the economy and ending the Great Depression. Millions of men and women served in the military, while others supported the war effort on the home front through rationing, war bonds, and working in defense industries. Women entered the workforce in large numbers, symbolized by "Rosie the Riveter."
 	  </p>
 
 	  <p style={{ marginTop: '1em' }}>
-	  Military strategies and technologies evolved rapidly. Ironclad ships, railroads, and the telegraph reshaped warfare. Key Union victories at Antietam, Gettysburg, and Vicksburg turned the tide. Lincoln’s Emancipation Proclamation in 1863 redefined the war — not just as a struggle to save the Union, but also to end slavery.
+	  The war was fought on two major fronts: Europe and the Pacific. In Europe, American forces landed in North Africa, Italy, and France — most famously during the D-Day invasion of Normandy in 1944. In the Pacific, they engaged in brutal island-hopping campaigns to push back Japanese forces. The war culminated in the dropping of atomic bombs on Hiroshima and Nagasaki in August 1945, leading to Japan's surrender and the official end of World War II.
 	  </p>
 
 	  <p style={{ marginTop: '1em' }}>
-	  In April 1865, General Robert E. Lee surrendered to General Ulysses S. Grant at Appomattox Court House, effectively ending the war. Just days later, President Lincoln was assassinated, casting a shadow over the nation’s fragile hopes for unity.
+	  The victory came at a great cost — over 400,000 American lives lost — but it also cemented the United States’ status as a global superpower. In the postwar years, America helped lead the reconstruction of Europe through the Marshall Plan, supported the founding of the United Nations, and established NATO to counter the growing influence of the Soviet Union.
 	  </p>
 
 	  <p style={{ marginTop: '1em' }}>
-	  The postwar period, known as Reconstruction, sought to rebuild the South and integrate millions of newly freed African Americans into American society. The 13th, 14th, and 15th Amendments abolished slavery, granted citizenship, and protected voting rights for Black men.
+	  At home, the postwar period brought economic prosperity and the beginning of the "baby boom." Yet, it was also marked by growing tensions with the Soviet Union, signaling the start of the Cold War. Domestically, returning veterans benefited from the GI Bill, which expanded access to education and homeownership, helping to fuel the rise of a strong middle class.
 	  </p>
 
 	  <p style={{ marginTop: '1em' }}>
-	  But Reconstruction faced fierce opposition. Southern states implemented Black Codes to restrict freedoms, and white supremacist groups like the Ku Klux Klan used terror to enforce racial hierarchies. Despite federal efforts, including the presence of Union troops, systemic racism and economic inequality persisted.
-	  </p>
-
-	  <p style={{ marginTop: '1em' }}>
-	  By 1877, federal troops withdrew from the South as part of a political compromise, effectively ending Reconstruction. Many of its promises remained unfulfilled, and a century of segregation and disenfranchisement would follow.
-	  </p>
-
-	  <p style={{ marginTop: '1em' }}>
-	  Still, the Civil War and Reconstruction reshaped the nation permanently. Slavery was abolished, citizenship redefined, and the power of the federal government strengthened. The next challenge would be transforming a war-torn, divided country into a unified modern nation.
+	  Racial segregation and discrimination, however, persisted. African American veterans returned to a country still deeply divided by Jim Crow laws. The seeds of the Civil Rights Movement began to take root during this time, setting the stage for the social and political struggles of the decades to follow.
 	  </p>
 	  {/* 📚 Source Reference */}
 	  <div className="artical-source-reference">
@@ -80,20 +74,20 @@ export default function HistoryOfAmerica_Part_03() {
 	  </div>
       </article>
 
-      {/* 👉 Next Chapter Section */}
+	  {/* 👉 Next Chapter Section */} 
 	  <div className="chapter-navigation">
 	    <div className="prev-chapter-container">
-	  	<Link to={articleLinks.discovery_history_of_america_part_02.to} className="prev-chapter-link">
+	  	<Link to={articleLinks.discovery_history_of_america_part_05.to} className="prev-chapter-link">
 	  	  ⬅️ Previous Chapter
 	  	</Link>
 	    </div>
-
 	    <div className="next-chapter-container">
-	  	<Link to={articleLinks.discovery_history_of_america_part_04.to} className="next-chapter-link">
+	  	<Link to={articleLinks.discovery_history_of_america_part_07.to} className="next-chapter-link">
 	  	  Next Chapter ➡️
 	  	</Link>
 	    </div>
 	  </div>
+
 
       {/* 👉 Related Articles Section */}
       <div className="related-content-box ">
@@ -119,6 +113,9 @@ export default function HistoryOfAmerica_Part_03() {
 			</li>
 			<li>
 			  <Link to={articleLinks.discovery_history_of_america_part_07.to}>{articleLinks.discovery_history_of_america_part_07.title}</Link>
+			</li>
+			<li>
+			  <Link to={articleLinks.discovery_history_of_america_part_08.to}>{articleLinks.discovery_history_of_america_part_08.title}</Link>
 			</li>
 			<li>
 			  <Link to={articleLinks.discovery_history_of_america_part_08.to}>{articleLinks.discovery_history_of_america_part_08.title}</Link>

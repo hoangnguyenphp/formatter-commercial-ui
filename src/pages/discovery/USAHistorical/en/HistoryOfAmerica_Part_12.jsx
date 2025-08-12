@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import ArticleLayout from '../../../layouts/ArticleLayout';
-import '../../../styles/RelatedArtical.css';
-import { articleLinks } from '../../../generic/articleLinks';
+import ArticleLayout from '../../../../layouts/ArticleLayout';
+import '../../../../styles/RelatedArtical.css';
+import { articleLinks } from '../../../../generic/articleLinks';
 
-export default function HistoryOfAmerica_Part_10() {
+export default function HistoryOfAmerica_Part_12() {
   return (
     <ArticleLayout>
       <article className="article">
 	  <h2 style={{ fontSize: '1.5em', marginTop: '2em' }}>
-	    History of America - Part 10: The Post–Cold War Era and Globalization (1991–2001)
+	    History of America - Part 12: Social Change, Polarization, and Innovation (2010–2020)
 	  </h2>
 	  {/* ✅ Publish Date */}
 	  <p
@@ -26,44 +26,48 @@ export default function HistoryOfAmerica_Part_10() {
 	  {/* 👉 Next Chapter Section */}
 	  <div className="chapter-navigation">
 	    <div className="prev-chapter-container">
-	  	<Link to={articleLinks.discovery_history_of_america_part_09.to} className="prev-chapter-link">
+	  	<Link to={articleLinks.discovery_history_of_america_part_11.to} className="prev-chapter-link">
 	  	  ⬅️ Previous Chapter
 	  	</Link>
 	    </div>
 	    <div className="next-chapter-container">
-	  	<Link to={articleLinks.discovery_history_of_america_part_11.to} className="next-chapter-link">
+	  	<Link className="next-chapter-link">
 	  	  Next Chapter ➡️
 	  	</Link>
 	    </div>
 	  </div>
+
+	  <p style={{ marginTop: '1em' }}>
+	    The 2010s were marked by profound <strong>social transformation</strong>, growing <strong>political polarization</strong>, and unprecedented <strong>technological innovation</strong>. Following the 2008 financial crisis, the U.S. economy gradually recovered, supported by government stimulus and a rebounding tech sector. Unemployment dropped steadily, and the stock market soared, benefiting from innovations in automation, cloud computing, and artificial intelligence.
+	  </p>
+
+	  <p style={{ marginTop: '1em' }}>
+	    Meanwhile, <strong>social movements</strong> gained momentum. The <strong>Black Lives Matter</strong> movement emerged in 2013 in response to police violence against African Americans, while <strong>LGBTQ+ rights</strong> advanced with the 2015 <strong>Supreme Court ruling legalizing same-sex marriage</strong> nationwide. Discussions around gender, race, and inequality became central to the national discourse, amplified by the reach of social media.
+	  </p>
+
+	  <p style={{ marginTop: '1em' }}>
+	    Technology played a defining role during this era. The widespread adoption of smartphones, social media platforms like <strong>Twitter</strong> and <strong>Instagram</strong>, and the rise of <strong>streaming services</strong> such as Netflix revolutionized how Americans communicated and consumed content. At the same time, concerns grew over <strong>data privacy</strong>, <strong>online misinformation</strong>, and the power of tech giants like Google, Facebook, Amazon, and Apple.
+	  </p>
+
+	  <p style={{ marginTop: '1em' }}>
+	    Politically, the country experienced deepening <strong>partisan divides</strong>. The rise of the <strong>Tea Party movement</strong> influenced conservative politics, while progressives pushed for climate action and healthcare reform. The 2016 election of <strong>Donald Trump</strong>, a businessman and political outsider, shocked the political establishment. His presidency sparked intense national debates over immigration, nationalism, media credibility, and America's role in the world.
+	  </p>
+
+	  <p style={{ marginTop: '1em' }}>
+	    On the international stage, the U.S. re-evaluated its commitments. The Trump administration withdrew from several global agreements, including the <strong>Paris Climate Accord</strong> and the <strong>Iran nuclear deal</strong>, and engaged in trade conflicts, particularly with China. These moves signaled a shift toward economic nationalism and a more unilateral approach to foreign policy.
+	  </p>
+
+	  <p style={{ marginTop: '1em' }}>
+	    Innovation surged as the U.S. led advances in <strong>space exploration</strong> (e.g., SpaceX), <strong>renewable energy</strong>, and <strong>biotechnology</strong>. At the same time, underlying societal tensions simmered—income inequality grew, rural and urban divides widened, and trust in institutions declined.
+	  </p>
+
+	  <p style={{ marginTop: '1em' }}>
+	    The decade ended with the emergence of a global threat: the <strong>COVID-19 pandemic</strong>, which began in late 2019 and accelerated in early 2020. It would bring the nation into its next profound crisis, testing both its resilience and unity.
+	  </p>
+	  <p style={{ marginTop: '2em', textAlign: 'center', }}>
+	    <strong>___END___</strong>
+	  </p>
 	  
-	  <p style={{ marginTop: '1em' }}>
-	    The end of the Cold War in 1991 ushered in a new era of American dominance in global affairs, as the United States emerged as the <strong>world’s sole superpower</strong>. This period, defined by relative geopolitical stability and rapid technological change, became a critical time of <strong>economic expansion, globalization, and digital transformation</strong>.
-	  </p>
-
-	  <p style={{ marginTop: '1em' }}>
-	    Under President <strong>George H. W. Bush</strong>, the U.S. led a multinational coalition during the <strong>Gulf War</strong> in 1991 to expel Iraqi forces from Kuwait, demonstrating its military strength and its leadership role in the post-Cold War world order. The successful operation reinforced confidence in American power, but also signaled the complexities of Middle Eastern geopolitics that would persist into the 21st century.
-	  </p>
-
-	  <p style={{ marginTop: '1em' }}>
-	    The 1990s were characterized by <strong>unprecedented economic growth</strong>, low unemployment, and technological innovation. Much of this success was driven by the rapid expansion of the <strong>internet and information technology</strong>. The rise of companies like Microsoft, Intel, and later Amazon and Google helped make the U.S. the global leader in the digital economy. A booming stock market, particularly in tech sectors, fueled what became known as the <strong>dot-com bubble</strong>.
-	  </p>
-
-	  <p style={{ marginTop: '1em' }}>
-	    The presidency of <strong>Bill Clinton</strong> (1993–2001) focused on centrist domestic policies, budget surpluses, welfare reform, and expanded international trade. Major trade agreements like <strong>NAFTA (North American Free Trade Agreement)</strong> were signed to deepen economic ties with neighboring countries. However, globalization also led to concerns over job outsourcing and growing inequality—debates that continue today.
-	  </p>
-
-	  <p style={{ marginTop: '1em' }}>
-	    Internationally, the U.S. engaged in peacekeeping and conflict resolution, including in the Balkans (Bosnia and Kosovo), Haiti, and the Middle East. At the same time, terrorism began to emerge as a new threat, marked by events like the <strong>1993 World Trade Center bombing</strong> and the 1998 <strong>U.S. embassy bombings in Kenya and Tanzania</strong> by al-Qaeda.
-	  </p>
-
-	  <p style={{ marginTop: '1em' }}>
-	    The decade also saw cultural shifts, with increasing social liberalization, growing racial and gender equality, and debates over technology's role in privacy and society. The impeachment of President Clinton in 1998 over the Monica Lewinsky scandal highlighted deep political divisions but did not derail the broader economic boom.
-	  </p>
-
-	  <p style={{ marginTop: '1em' }}>
-	    By 2001, the United States stood at the peak of its global influence—economically, militarily, and culturally. However, challenges loomed beneath the surface: <strong>economic bubbles, unresolved geopolitical tensions, and a growing threat from international terrorism</strong>. The events that would unfold in the following years would dramatically reshape both America’s role in the world and its domestic priorities.
-	  </p>
 	  {/* 📚 Source Reference */}
 	  <div className="artical-source-reference">
 	    <strong>Source:</strong>{' '}
@@ -80,12 +84,12 @@ export default function HistoryOfAmerica_Part_10() {
 	  {/* 👉 Next Chapter Section */}
 	  <div className="chapter-navigation">
 	    <div className="prev-chapter-container">
-	  	<Link to={articleLinks.discovery_history_of_america_part_09.to} className="prev-chapter-link">
+	  	<Link to={articleLinks.discovery_history_of_america_part_11.to} className="prev-chapter-link">
 	  	  ⬅️ Previous Chapter
 	  	</Link>
 	    </div>
 	    <div className="next-chapter-container">
-	  	<Link to={articleLinks.discovery_history_of_america_part_11.to} className="next-chapter-link">
+	  	<Link className="next-chapter-link">
 	  	  Next Chapter ➡️
 	  	</Link>
 	    </div>

@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import ArticleLayout from '../../../layouts/ArticleLayout';
-import '../../../styles/RelatedArtical.css';
-import { articleLinks } from '../../../generic/articleLinks';
+import ArticleLayout from '../../../../layouts/ArticleLayout';
+import '../../../../styles/RelatedArtical.css';
+import { articleLinks } from '../../../../generic/articleLinks';
 
-export default function HistoryOfAmerica_Part_04() {
+export default function HistoryOfAmerica_Part_08() {
   return (
     <ArticleLayout>
       <article className="article">
-	  <h2 style={{ fontSize: '1.5em', marginTop: '2em' }}>History of America - Part 04: The Gilded Age and Progressive Era (1877–1920)</h2>
+	  <h2 style={{ fontSize: '1.5em', marginTop: '2em' }}>
+	    History of America - Part 08: Vietnam, Watergate, and Economic Challenges (1970–1980)
+	  </h2>
 	  {/* ✅ Publish Date */}
 	  <p
 	    style={{
@@ -24,47 +26,43 @@ export default function HistoryOfAmerica_Part_04() {
 	  {/* 👉 Next Chapter Section */} 
 	  <div className="chapter-navigation">
 	    <div className="prev-chapter-container">
-	  	<Link to={articleLinks.discovery_history_of_america_part_03.to} className="prev-chapter-link">
+	  	<Link to={articleLinks.discovery_history_of_america_part_07.to} className="prev-chapter-link">
 	  	  ⬅️ Previous Chapter
 	  	</Link>
 	    </div>
 	    <div className="next-chapter-container">
-	  	<Link to={articleLinks.discovery_history_of_america_part_05.to} className="next-chapter-link">
+	  	<Link to={articleLinks.discovery_history_of_america_part_09.to} className="next-chapter-link">
 	  	  Next Chapter ➡️
 	  	</Link>
 	    </div>
 	  </div>
 	  
 	  <p style={{ marginTop: '1em' }}>
-	  After the end of Reconstruction in 1877, the United States entered a period of rapid industrialization, urbanization, and economic expansion known as the Gilded Age. Coined by Mark Twain, the term reflects the glittering prosperity that masked deep social problems like inequality, corruption, and exploitation.
+	  The 1970s marked a turbulent decade for the United States, defined by the ongoing conflict in Vietnam, a political scandal that shook the core of American democracy, and significant economic troubles. It was a time of disillusionment, introspection, and change — both domestically and globally.
 	  </p>
 
 	  <p style={{ marginTop: '1em' }}>
-	  Massive growth in steel, oil, and railroads made industrialists like Andrew Carnegie and John D. Rockefeller immensely wealthy. Cities swelled as millions of immigrants from Europe arrived, seeking opportunity. But tenement housing, poor labor conditions, and political machines like Tammany Hall revealed the darker side of this boom.
+	  At the start of the decade, the Vietnam War continued to dominate headlines. Although President Richard Nixon promised “peace with honor,” the war dragged on. His administration expanded the conflict into neighboring Cambodia and Laos, sparking widespread protests, most notably the tragic Kent State shootings in 1970. Public opinion turned sharply against the war.
 	  </p>
 
 	  <p style={{ marginTop: '1em' }}>
-	  Labor unrest grew. Strikes like the Great Railroad Strike of 1877 and the Haymarket Affair of 1886 highlighted tensions between workers and industrialists. Unions such as the American Federation of Labor began to organize for better wages, hours, and working conditions.
+	  In 1973, the Paris Peace Accords led to a ceasefire and the withdrawal of U.S. combat troops. However, fighting continued between North and South Vietnam until 1975, when Saigon fell and the country was unified under communist control. The war left deep scars: over 58,000 Americans were killed, millions of Vietnamese civilians and soldiers died, and returning veterans faced trauma and indifference.
 	  </p>
 
 	  <p style={{ marginTop: '1em' }}>
-	  Meanwhile, the federal government often sided with big business. Corruption was rampant, and reform seemed distant. Yet reformers and muckrakers — investigative journalists like Upton Sinclair and Ida Tarbell — began exposing abuses in industry, politics, and society.
+	  As the war ended, a new crisis emerged. The Watergate scandal, originating from a 1972 break-in at the Democratic National Committee headquarters and the Nixon administration’s efforts to cover it up, led to a dramatic political unraveling. Investigations revealed abuses of power, illegal wiretapping, and a culture of corruption. In 1974, facing almost certain impeachment, Nixon became the first U.S. president to resign.
 	  </p>
 
 	  <p style={{ marginTop: '1em' }}>
-	  This led to the Progressive Era, beginning around 1890 and lasting into the early 20th century. Progressives pushed for reforms: breaking up monopolies, improving urban life, advancing women’s suffrage, and regulating food and drugs. Presidents like Theodore Roosevelt and Woodrow Wilson championed many of these efforts.
+	  This political turmoil was mirrored by economic instability. The 1973 oil embargo, imposed by OPEC in response to U.S. support for Israel during the Yom Kippur War, led to gas shortages, long lines at pumps, and skyrocketing energy prices. The nation entered a period of “stagflation” — a combination of stagnant economic growth and high inflation — which challenged traditional economic policies.
 	  </p>
 
 	  <p style={{ marginTop: '1em' }}>
-	  During this time, the U.S. also emerged as a global power. The Spanish-American War in 1898 resulted in control over territories like Puerto Rico, Guam, and the Philippines. The construction of the Panama Canal and Roosevelt’s “Big Stick” diplomacy signaled growing American influence abroad.
+	  President Gerald Ford, who succeeded Nixon, struggled to restore trust and revive the economy. His “Whip Inflation Now” campaign met with limited success. In 1976, Democrat Jimmy Carter was elected on promises of honesty and reform. Yet his presidency was marred by economic woes, rising unemployment, and a growing energy crisis. Carter’s foreign policy achievements, including the Camp David Accords between Egypt and Israel, were overshadowed by the 1979 Iranian Revolution and the subsequent hostage crisis at the U.S. embassy in Tehran.
 	  </p>
 
 	  <p style={{ marginTop: '1em' }}>
-	  Socially, the movement for women’s rights gained momentum. Activists like Susan B. Anthony and Alice Paul fought for the vote, culminating in the 19th Amendment in 1920, which granted women nationwide suffrage.
-	  </p>
-
-	  <p style={{ marginTop: '1em' }}>
-	  By 1920, the United States had been transformed — from a mostly rural society into an industrial and urban powerhouse. But new challenges loomed, including the aftermath of World War I, economic instability, and unresolved racial and class tensions.
+	  By the end of the 1970s, Americans faced a sense of national malaise. The decade had tested the country’s institutions and confidence. But it also set the stage for political realignment and a new era of conservatism that would emerge in the following decade under Ronald Reagan.
 	  </p>
 	  {/* 📚 Source Reference */}
 	  <div className="artical-source-reference">
@@ -82,12 +80,12 @@ export default function HistoryOfAmerica_Part_04() {
 	  {/* 👉 Next Chapter Section */} 
 	  <div className="chapter-navigation">
 	    <div className="prev-chapter-container">
-	  	<Link to={articleLinks.discovery_history_of_america_part_03.to} className="prev-chapter-link">
+	  	<Link to={articleLinks.discovery_history_of_america_part_07.to} className="prev-chapter-link">
 	  	  ⬅️ Previous Chapter
 	  	</Link>
 	    </div>
 	    <div className="next-chapter-container">
-	  	<Link to={articleLinks.discovery_history_of_america_part_05.to} className="next-chapter-link">
+	  	<Link to={articleLinks.discovery_history_of_america_part_09.to} className="next-chapter-link">
 	  	  Next Chapter ➡️
 	  	</Link>
 	    </div>

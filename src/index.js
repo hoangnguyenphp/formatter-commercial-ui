@@ -6,20 +6,20 @@ import App from './apps/App';
 import Discovery_Topic from './pages/topic/Discovery_Topic';
 import Joking_Topic from './pages/topic/Joking_Topic';
 
-import HistoryOfAmerica_Part_01 from './pages/discovery/USAHistorical/HistoryOfAmerica_Part_01';
-import HistoryOfAmerica_Part_02 from './pages/discovery/USAHistorical/HistoryOfAmerica_Part_02';
-import HistoryOfAmerica_Part_03 from './pages/discovery/USAHistorical/HistoryOfAmerica_Part_03';
-import HistoryOfAmerica_Part_04 from './pages/discovery/USAHistorical/HistoryOfAmerica_Part_04';
-import HistoryOfAmerica_Part_05 from './pages/discovery/USAHistorical/HistoryOfAmerica_Part_05';
-import HistoryOfAmerica_Part_06 from './pages/discovery/USAHistorical/HistoryOfAmerica_Part_06';
-import HistoryOfAmerica_Part_07 from './pages/discovery/USAHistorical/HistoryOfAmerica_Part_07';
-import HistoryOfAmerica_Part_08 from './pages/discovery/USAHistorical/HistoryOfAmerica_Part_08';
-import HistoryOfAmerica_Part_09 from './pages/discovery/USAHistorical/HistoryOfAmerica_Part_09';
-import HistoryOfAmerica_Part_10 from './pages/discovery/USAHistorical/HistoryOfAmerica_Part_10';
-import HistoryOfAmerica_Part_11 from './pages/discovery/USAHistorical/HistoryOfAmerica_Part_11';
-import HistoryOfAmerica_Part_12 from './pages/discovery/USAHistorical/HistoryOfAmerica_Part_12';
+import HistoryOfAmerica_Part_01 from './pages/discovery/USAHistorical/en/HistoryOfAmerica_Part_01';
+import HistoryOfAmerica_Part_02 from './pages/discovery/USAHistorical/en/HistoryOfAmerica_Part_02';
+import HistoryOfAmerica_Part_03 from './pages/discovery/USAHistorical/en/HistoryOfAmerica_Part_03';
+import HistoryOfAmerica_Part_04 from './pages/discovery/USAHistorical/en/HistoryOfAmerica_Part_04';
+import HistoryOfAmerica_Part_05 from './pages/discovery/USAHistorical/en/HistoryOfAmerica_Part_05';
+import HistoryOfAmerica_Part_06 from './pages/discovery/USAHistorical/en/HistoryOfAmerica_Part_06';
+import HistoryOfAmerica_Part_07 from './pages/discovery/USAHistorical/en/HistoryOfAmerica_Part_07';
+import HistoryOfAmerica_Part_08 from './pages/discovery/USAHistorical/en/HistoryOfAmerica_Part_08';
+import HistoryOfAmerica_Part_09 from './pages/discovery/USAHistorical/en/HistoryOfAmerica_Part_09';
+import HistoryOfAmerica_Part_10 from './pages/discovery/USAHistorical/en/HistoryOfAmerica_Part_10';
+import HistoryOfAmerica_Part_11 from './pages/discovery/USAHistorical/en/HistoryOfAmerica_Part_11';
+import HistoryOfAmerica_Part_12 from './pages/discovery/USAHistorical/en/HistoryOfAmerica_Part_12';
 
-import Joking_Part_01 from './pages/joking/Joking_Part_01';
+import Joking_Part_01 from './pages/joking/en/Joking_Part_01';
 
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';

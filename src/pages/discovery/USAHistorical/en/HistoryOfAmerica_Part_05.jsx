@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import ArticleLayout from '../../../layouts/ArticleLayout';
-import '../../../styles/RelatedArtical.css';
-import { articleLinks } from '../../../generic/articleLinks';
+import ArticleLayout from '../../../../layouts/ArticleLayout';
+import '../../../../styles/RelatedArtical.css';
+import { articleLinks } from '../../../../generic/articleLinks';
 
-export default function HistoryOfAmerica_Part_08() {
+export default function HistoryOfAmerica_Part_05() {
   return (
     <ArticleLayout>
       <article className="article">
-	  <h2 style={{ fontSize: '1.5em', marginTop: '2em' }}>
-	    History of America - Part 08: Vietnam, Watergate, and Economic Challenges (1970–1980)
-	  </h2>
+	  <h2 style={{ fontSize: '1.5em', marginTop: '2em' }}>History of America - Part 05: The Roaring Twenties and the Great Depression (1920–1939)</h2>
 	  {/* ✅ Publish Date */}
 	  <p
 	    style={{
@@ -26,43 +24,43 @@ export default function HistoryOfAmerica_Part_08() {
 	  {/* 👉 Next Chapter Section */} 
 	  <div className="chapter-navigation">
 	    <div className="prev-chapter-container">
-	  	<Link to={articleLinks.discovery_history_of_america_part_07.to} className="prev-chapter-link">
+	  	<Link to={articleLinks.discovery_history_of_america_part_04.to} className="prev-chapter-link">
 	  	  ⬅️ Previous Chapter
 	  	</Link>
 	    </div>
 	    <div className="next-chapter-container">
-	  	<Link to={articleLinks.discovery_history_of_america_part_09.to} className="next-chapter-link">
+	  	<Link to={articleLinks.discovery_history_of_america_part_06.to} className="next-chapter-link">
 	  	  Next Chapter ➡️
 	  	</Link>
 	    </div>
 	  </div>
 	  
 	  <p style={{ marginTop: '1em' }}>
-	  The 1970s marked a turbulent decade for the United States, defined by the ongoing conflict in Vietnam, a political scandal that shook the core of American democracy, and significant economic troubles. It was a time of disillusionment, introspection, and change — both domestically and globally.
+	  The 1920s, often called the "Roaring Twenties," were a time of dramatic cultural and economic change in the United States. Following World War I, Americans embraced new freedoms, technologies, and a booming consumer economy. Cities expanded, jazz music flourished, and Hollywood became the epicenter of a growing entertainment industry.
 	  </p>
 
 	  <p style={{ marginTop: '1em' }}>
-	  At the start of the decade, the Vietnam War continued to dominate headlines. Although President Richard Nixon promised “peace with honor,” the war dragged on. His administration expanded the conflict into neighboring Cambodia and Laos, sparking widespread protests, most notably the tragic Kent State shootings in 1970. Public opinion turned sharply against the war.
+	  For many, life was fast-paced and prosperous. Automobiles, radios, and household appliances became common. The stock market soared, and consumer credit allowed people to spend beyond their means. Women, having gained the right to vote in 1920, pushed social boundaries — symbolized by the rise of the “flapper,” a new, freer image of womanhood.
 	  </p>
 
 	  <p style={{ marginTop: '1em' }}>
-	  In 1973, the Paris Peace Accords led to a ceasefire and the withdrawal of U.S. combat troops. However, fighting continued between North and South Vietnam until 1975, when Saigon fell and the country was unified under communist control. The war left deep scars: over 58,000 Americans were killed, millions of Vietnamese civilians and soldiers died, and returning veterans faced trauma and indifference.
+	  However, the decade was not universally prosperous. African Americans continued to face discrimination and violence, even as the Harlem Renaissance celebrated Black cultural achievements. Immigrants and laborers faced xenophobia and crackdowns, and Prohibition — the nationwide ban on alcohol — led to speakeasies and the rise of organized crime.
 	  </p>
 
 	  <p style={{ marginTop: '1em' }}>
-	  As the war ended, a new crisis emerged. The Watergate scandal, originating from a 1972 break-in at the Democratic National Committee headquarters and the Nixon administration’s efforts to cover it up, led to a dramatic political unraveling. Investigations revealed abuses of power, illegal wiretapping, and a culture of corruption. In 1974, facing almost certain impeachment, Nixon became the first U.S. president to resign.
+	  Then, in October 1929, the stock market crashed. What began as a financial panic spiraled into the Great Depression — the most severe economic downturn in American history. Banks collapsed, businesses failed, and unemployment soared to over 25%. Millions lost their homes, and poverty spread across both cities and rural areas.
 	  </p>
 
 	  <p style={{ marginTop: '1em' }}>
-	  This political turmoil was mirrored by economic instability. The 1973 oil embargo, imposed by OPEC in response to U.S. support for Israel during the Yom Kippur War, led to gas shortages, long lines at pumps, and skyrocketing energy prices. The nation entered a period of “stagflation” — a combination of stagnant economic growth and high inflation — which challenged traditional economic policies.
+	  President Herbert Hoover’s attempts to stabilize the economy were seen as too little, too late. In 1932, Franklin D. Roosevelt was elected on a promise of a “New Deal” for the American people. His administration launched unprecedented federal programs to provide relief, create jobs, and reform the financial system.
 	  </p>
 
 	  <p style={{ marginTop: '1em' }}>
-	  President Gerald Ford, who succeeded Nixon, struggled to restore trust and revive the economy. His “Whip Inflation Now” campaign met with limited success. In 1976, Democrat Jimmy Carter was elected on promises of honesty and reform. Yet his presidency was marred by economic woes, rising unemployment, and a growing energy crisis. Carter’s foreign policy achievements, including the Camp David Accords between Egypt and Israel, were overshadowed by the 1979 Iranian Revolution and the subsequent hostage crisis at the U.S. embassy in Tehran.
+	  The New Deal included initiatives like Social Security, the Civilian Conservation Corps (CCC), and the Works Progress Administration (WPA). These efforts helped stabilize the economy and restore public confidence, though full recovery remained elusive.
 	  </p>
 
 	  <p style={{ marginTop: '1em' }}>
-	  By the end of the 1970s, Americans faced a sense of national malaise. The decade had tested the country’s institutions and confidence. But it also set the stage for political realignment and a new era of conservatism that would emerge in the following decade under Ronald Reagan.
+	  Throughout the 1930s, Americans also faced natural disasters like the Dust Bowl, which devastated farmlands in the Midwest. As the decade ended, the rise of authoritarian regimes in Europe and Asia signaled a new global threat — and set the stage for America’s involvement in World War II.
 	  </p>
 	  {/* 📚 Source Reference */}
 	  <div className="artical-source-reference">
@@ -80,12 +78,12 @@ export default function HistoryOfAmerica_Part_08() {
 	  {/* 👉 Next Chapter Section */} 
 	  <div className="chapter-navigation">
 	    <div className="prev-chapter-container">
-	  	<Link to={articleLinks.discovery_history_of_america_part_07.to} className="prev-chapter-link">
+	  	<Link to={articleLinks.discovery_history_of_america_part_04.to} className="prev-chapter-link">
 	  	  ⬅️ Previous Chapter
 	  	</Link>
 	    </div>
 	    <div className="next-chapter-container">
-	  	<Link to={articleLinks.discovery_history_of_america_part_09.to} className="next-chapter-link">
+	  	<Link to={articleLinks.discovery_history_of_america_part_06.to} className="next-chapter-link">
 	  	  Next Chapter ➡️
 	  	</Link>
 	    </div>
