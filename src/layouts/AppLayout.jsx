@@ -9,22 +9,27 @@ import { topicLinks } from '../generic/topicLinks';
 import { useTranslation } from 'react-i18next';
 
 export default function AppLayout({ children }) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
-  // 1️⃣ Initialize from localStorage
+  // Theme state with localStorage
   const [mode, setMode] = useState(() => {
     return localStorage.getItem('themeMode') || 'dark';
   });
 
-  // 2️⃣ Sync to body and localStorage
   useEffect(() => {
     document.body.classList.remove('dark', 'light');
     document.body.classList.add(mode);
     localStorage.setItem('themeMode', mode);
   }, [mode]);
-
+  
   const truncate = (text, max = 30) =>
     text.length > max ? text.slice(0, max - 3) + '...' : text;
+
+  // ✅ Define changeLanguage
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+    localStorage.setItem('language', lng); // optional: remember choice
+  };
 
   return (
     <main className="container">
@@ -37,12 +42,13 @@ export default function AppLayout({ children }) {
 
       <div className="main-content">
         {/* Header */}
-        <header
-          className="app-header"
-          onClick={() => (window.location.href = '/')}
-        >
-          <div className="header-content">
-            <h1 style={{ cursor: 'pointer' }}>Online Code Formatter</h1>
+        <header className="app-header">
+          <div 
+            className="header-content"
+            onClick={() => (window.location.href = '/')}
+            style={{ cursor: 'pointer' }}
+          >
+            <h1>Online Code Formatter</h1>
             <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
               <Link
                 to={topicLinks.discovery('discovery').to_value}
@@ -61,6 +67,15 @@ export default function AppLayout({ children }) {
               >
                 {mode === 'dark' ? '🌞 Light' : '🌙 Dark'}
               </button>
+              {/* ✅ Move dropdown inside clickable area but prevent header redirect */}
+              <select style={{ display: 'none'}}
+                value={i18n.language}
+                onChange={(e) => changeLanguage(e.target.value)}
+                onClick={(e) => e.stopPropagation()} // ✅ stop header click
+              >
+                <option value="en">English</option>
+                <option value="vi">Tiếng Việt</option>
+              </select>
             </div>
           </div>
         </header>
