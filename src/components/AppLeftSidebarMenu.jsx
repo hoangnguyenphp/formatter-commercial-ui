@@ -1,6 +1,6 @@
 // src/components/LeftSidebarMenu.jsx
 import React from 'react';
-import '../styles/ToolLeftSidebarMenu.css';
+import '../styles/AppLeftSidebarMenu.css';
 import { articleLinks } from '../generic/articleLinks'
 
 import { Link } from 'react-router-dom';
