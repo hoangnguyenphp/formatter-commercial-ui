@@ -5,7 +5,7 @@ import { articleLinks } from '../generic/articleLinks'
 
 import { Link } from 'react-router-dom';
 
-export default function ToolLeftSidebarMenu() {
+export default function AppLeftSidebarMenu() {
 	
 	const truncate = (text, max = 30) =>
 	  text.length > max ? text.slice(0, max - 3) + '...' : text;

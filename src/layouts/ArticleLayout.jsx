@@ -3,7 +3,6 @@ import AdsBanner from '../components/AdsBanner';
 import PageVisitCounter from '../components/pagevisitcounter/PageVisitCounter';
 import '../styles/global.css';
 import '../styles/ArticalLayout.css';
-import '../styles/App.css';
 import { Link } from 'react-router-dom';
 import ArticalLeftSidebarMenu from '../components/ArticalLeftSidebarMenu';
 

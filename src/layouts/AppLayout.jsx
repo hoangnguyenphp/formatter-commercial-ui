@@ -4,7 +4,7 @@ import PageVisitCounter from '../components/pagevisitcounter/PageVisitCounter';
 import '../styles/App.css';
 import '../styles/global.css';
 import { Link } from 'react-router-dom';
-import ToolLeftSidebarMenu from '../components/ToolLeftSidebarMenu';
+import AppLeftSidebarMenu from '../components/AppLeftSidebarMenu';
 import { topicLinks } from '../generic/topicLinks';
 import { useTranslation } from 'react-i18next';
 
@@ -33,7 +33,7 @@ export default function AppLayout({ children }) {
 
   return (
     <main className="container">
-      <ToolLeftSidebarMenu />
+      <AppLeftSidebarMenu />
 
       {/* Right-side Ad */}
       <div className="ads-right">
