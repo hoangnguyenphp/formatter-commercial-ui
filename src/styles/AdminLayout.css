@@ -1,0 +1,116 @@
+/* Base styles shared by both themes */
+.admin-sidebar-left {
+  width: 230px;
+  padding: 1rem;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin-top: 80px; /* Adjust if you have a fixed header */
+  display: flex;
+  flex-direction: column;
+  gap: 2rem; /* More space between sections */
+  overflow: hidden; /* prevent double scroll */
+}
+
+/* Each section scrolls independently */
+.admin-sidebar-section {
+  overflow-y: scroll;
+  padding-right: 6px; /* extra space for scrollbar */
+  border-radius: 4px;
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.admin-sidebar-section.topics {
+	max-height: 500px;
+	min-height: 500px;
+}
+
+/* Section heading styles */
+.admin-sidebar-section h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  border-bottom: 1px solid;
+  padding-bottom: 0.3rem;
+  position: sticky;
+  top: 0;
+  background-color: inherit;
+  z-index: 1;
+}
+
+/* Unordered list style */
+.admin-sidebar-section ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+/* List item spacing */
+.admin-sidebar-section li {
+  margin: 0.4rem 0;
+}
+
+/* Link styling */
+.admin-sidebar-section a {
+  display: inline-block;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: top;
+  text-decoration: none;
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.admin-sidebar-section a:hover {
+  text-decoration: underline;
+}
+
+/* 🌙 Dark Theme */
+body.dark .admin-sidebar-left {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+body.dark .admin-sidebar-section h3 {
+  border-color: #888;
+  background-color: #121212;
+}
+
+body.dark .admin-sidebar-section a {
+  color: #f0f0f0;
+}
+
+/* ☀️ Light Theme */
+body.light .admin-sidebar-left {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+body.light .admin-sidebar-section h3 {
+  border-color: #ccc;
+  background-color: #ffffff;
+}
+
+body.light .admin-sidebar-section a {
+  color: #222;
+}
+
+/* ✅ Responsive */
+@media screen and (max-width: 1024px) {
+  .admin-sidebar-left {
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin-top: 0;
+    border-bottom: 1px solid var(--scroll-thumb);
+    flex-direction: column;
+    padding: 1rem;
+    overflow-y: visible;
+  }
+
+  .admin-sidebar-section ul {
+    max-height: none;
+    overflow: visible;
+  }
+}

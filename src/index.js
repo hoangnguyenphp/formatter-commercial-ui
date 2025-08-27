@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom/client';
 import './i18n/i18n'; // load i18n
 import App from './apps/App';
 
+import Admin_Artical_Creation from './admin/Admin_Artical_Creation';
+
 import Discovery_Topic from './pages/topic/Discovery_Topic';
 import Joking_Topic from './pages/topic/Joking_Topic';
 
@@ -34,6 +36,8 @@ root.render(
     <Routes>
       
 	  <Route path="/" element={<App />} />
+	  
+	  <Route path="/admin/9c2d9d8c-26d1-4b02-8f12-7b18b7c6f693/artical-creation" element={<Admin_Artical_Creation />} />
 	  
 	  <Route path={topicLinks.discovery('discovery').to_pattern} element={<Discovery_Topic />} />
 	  <Route path={topicLinks.joking('joking').to_pattern} element={<Joking_Topic />} />
