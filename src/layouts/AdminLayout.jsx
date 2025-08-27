@@ -27,12 +27,6 @@ export default function ArticleLayout({ children }) {
 	  <div className="sidebar-container">
 	    <AdminLeftSidebarMenu />
 	  </div>
-	  
-	    {/* Right-side Ad */}
-	    <div className="ads-right">
-	      <AdsBanner slot="1234567892" layout="vertical" style={{ width: '160px', height: '600px' }} />
-	    </div>
-
 	    {/* Main Content Wrapper */}
 	    <div className="main-content">
 	      {/* Header */}
