@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './i18n/i18n'; // load i18n
 import App from './apps/App';
+import UUIDGenerator from './apps/UUIDGenerator';
 
 import Admin_Article_Creation from './admin/Admin_Article_Creation';
 
@@ -35,7 +36,9 @@ root.render(
   	<ScrollToTop />
     <Routes>
       
+	  
 	  <Route path="/" element={<App />} />
+	  <Route path="/apps/uuid-generator" element={<UUIDGenerator />} />
 	  
 	  <Route path="/admin/9c2d9d8c-26d1-4b02-8f12-7b18b7c6f693/article-creation" element={<Admin_Article_Creation />} />
 	  

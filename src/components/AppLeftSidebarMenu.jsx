@@ -16,6 +16,7 @@ export default function AppLeftSidebarMenu() {
 		<h3>🛠️ Tools</h3>
 		<ul>
 		  <li><Link to="/">Code Formatter</Link></li>
+		  <li><Link to="/apps/uuid-generator">UUID Generator</Link></li>
 		</ul>
 	  </div>
 	  <div className="sidebar-section hot-articles">
