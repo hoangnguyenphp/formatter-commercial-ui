@@ -34,7 +34,7 @@ export default function ArticleLayout({ children }) {
 	        <div className="header-content">
 	          <h1 style={{ cursor: 'pointer' }}>Administration</h1>
 			  <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-			    <Link to="/" className="from-blog-to-tool-link"
+			    <Link to="/" className="from-admin-to-app-link"
 			      onClick={(e) => e.stopPropagation()}
 			    >
 			      Home

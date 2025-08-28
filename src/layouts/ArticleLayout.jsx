@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import AdsBanner from '../components/AdsBanner';
 import PageVisitCounter from '../components/pagevisitcounter/PageVisitCounter';
 import '../styles/global.css';
-import '../styles/ArticalLayout.css';
+import '../styles/ArticleLayout.css';
 import { Link } from 'react-router-dom';
-import ArticalLeftSidebarMenu from '../components/ArticalLeftSidebarMenu';
+import ArticalLeftSidebarMenu from '../components/ArticleLeftSidebarMenu';
 
 export default function ArticleLayout({ children }) {
 	// 1️⃣ Initialize from localStorage

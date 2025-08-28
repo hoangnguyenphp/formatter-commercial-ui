@@ -2,13 +2,13 @@
 import React from 'react';
 
 import { Link } from 'react-router-dom';
-import '../styles/ArticalLeftSidebarMenu.css';
+import '../styles/ArticleLeftSidebarMenu.css';
 import { scrollToTop, scrollToBottom } from '../utils/scrollUtils';
 import { topicLinks } from '../generic/topicLinks';
 import GoTopBottomButtons from './GoTopBottomButtons';
 
 
-export default function ArticalLeftSidebarMenu() {
+export default function ArticleLeftSidebarMenu() {
 	
 	const truncate = (text, max = 30) =>
 	  text.length > max ? text.slice(0, max - 3) + '...' : text;

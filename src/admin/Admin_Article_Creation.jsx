@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import AdminLayout from '../layouts/AdminLayout';
-import '../styles/Admin_Artical_Creation.css'
+import '../styles/Admin_Article_Creation.css'
 
 // Quill imports
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 
-export default function Admin_Artical_Creation() {
+export default function Admin_Article_Creation() {
   const [editorContent, setEditorContent] = useState(''); // state for editor
 
   const handleSave = () => {
