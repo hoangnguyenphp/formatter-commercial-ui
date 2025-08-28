@@ -37,7 +37,7 @@ root.render(
       
 	  <Route path="/" element={<App />} />
 	  
-	  <Route path="/admin/9c2d9d8c-26d1-4b02-8f12-7b18b7c6f693/artical-creation" element={<Admin_Article_Creation />} />
+	  <Route path="/admin/9c2d9d8c-26d1-4b02-8f12-7b18b7c6f693/article-creation" element={<Admin_Article_Creation />} />
 	  
 	  <Route path={topicLinks.discovery('discovery').to_pattern} element={<Discovery_Topic />} />
 	  <Route path={topicLinks.joking('joking').to_pattern} element={<Joking_Topic />} />
