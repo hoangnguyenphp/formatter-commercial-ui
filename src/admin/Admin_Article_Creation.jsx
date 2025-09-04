@@ -11,7 +11,8 @@ export default function Admin_Article_Creation() {
 
   const handleSave = () => {
     // Later: send to backend API / DB
-    console.log('Saved article content:', editorContent);
+	const jsonContent = JSON.stringify(editorContent);
+    console.log('Saved article content:', jsonContent);
     alert('Article saved! (check console)');
   };
 

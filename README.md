@@ -59,21 +59,25 @@ formatter-commercial-ui
 		privacy-policy.html
 		terms-of-service.html
 	src
+		admin
+			Admin_Article_Creation.jsx
 		apps
 			App.jsx
+			UUIDGenerator.jsx
 		components
 			pagevisitcounter
 				LeftSidebarMenu.jsx
 				PageVisitCounter.jsx
+			AdminLeftSidebarMenu.jsx
 			AdsBanner.jsx
 			App1.jsx
-			ArticalLeftSidebarMenu.jsx
+			AppLeftSidebarMenu.jsx
+			ArticleLeftSidebarMenu.jsx
 			FormatTab.jsx
 			GoTopBottomButtons.jsx
 			MenuSection.jsx
 			StringifyTab.jsx
 			Tabs.jsx
-			ToolLeftSidebarMenu.jsx
 		formatter
 			CssFormatter.js
 			FormatterFactory.js
@@ -85,41 +89,54 @@ formatter-commercial-ui
 			SqlFormatter.js
 			XmlFormatter.js
 			YamlFormatter.js
+		game
+			TicTacToe.jsx
 		generic
 			articleLinks.js
 			TopicCode.js
 			topicLinks.js
+		i18n
+			i18n.js
 		layouts
+			AdminLayout.jsx
 			AppLayout.jsx
 			ArticleLayout.jsx
+			GameLayout.jsx
 		pages
 			discovery
 				USAHistorical
-					HistoryOfAmerica_Part_01.jsx
-					HistoryOfAmerica_Part_02.jsx
-					HistoryOfAmerica_Part_03.jsx
-					HistoryOfAmerica_Part_04.jsx
-					HistoryOfAmerica_Part_05.jsx
-					HistoryOfAmerica_Part_06.jsx
-					HistoryOfAmerica_Part_07.jsx
-					HistoryOfAmerica_Part_08.jsx
-					HistoryOfAmerica_Part_09.jsx
-					HistoryOfAmerica_Part_10.jsx
-					HistoryOfAmerica_Part_11.jsx
-					HistoryOfAmerica_Part_12.jsx
-			joking
-				Joking_Part_01.jsx
-			topic
-				Discovery_Topic.jsx
-				Joking_Topic.jsx
+					en
+						HistoryOfAmerica_Part_01.jsx
+						HistoryOfAmerica_Part_02.jsx
+						HistoryOfAmerica_Part_03.jsx
+						HistoryOfAmerica_Part_04.jsx
+						HistoryOfAmerica_Part_05.jsx
+						HistoryOfAmerica_Part_06.jsx
+						HistoryOfAmerica_Part_07.jsx
+						HistoryOfAmerica_Part_08.jsx
+						HistoryOfAmerica_Part_09.jsx
+						HistoryOfAmerica_Part_10.jsx
+						HistoryOfAmerica_Part_11.jsx
+						HistoryOfAmerica_Part_12.jsx
+				joking
+					en
+						Joking_Part_01.jsx
+				topic
+					Discovery_Topic.jsx
+					Joking_Topic.jsx
 		styles
+			Admin_Article_Creation.css
+			AdminLayout.css
+			AdminLeftSidebarMenu.css
 			App.css
-			ArticalLayout.css
-			ArticalLeftSidebarMenu.css
+			AppLeftSidebarMenu.css
+			ArticleLayout.css
+			ArticleLeftSidebarMenu.css
+			ArtileLayout.css
 			global.css
 			RelatedArtical.css
 			Tabs.css
-			ToolLeftSidebarMenu.css
+			TicTacToe.css
 		utils
 			apiCall.js
 			ScrollToTop.js
