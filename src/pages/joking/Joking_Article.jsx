@@ -13,7 +13,7 @@ export default function Joking_Article() {
     const fetchArticle = async () => {
       try {
         const response = await fetch(
-          'http://localhost:8081/articles/de9b9207-0b68-44a2-bd84-c2e3d33ac1ab'
+          'https://universe-blog-service.onrender.com/articles/de9b9207-0b68-44a2-bd84-c2e3d33ac1ab'
         );
         
         if (!response.ok) {

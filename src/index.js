@@ -24,6 +24,8 @@ import HistoryOfAmerica_Part_12 from './pages/discovery/USAHistorical/en/History
 
 import Joking_Part_01 from './pages/joking/en/Joking_Part_01';
 
+import Jorking_Article from './pages/joking/Joking_Article';
+
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { articleLinks } from './generic/articleLinks';
@@ -59,6 +61,7 @@ root.render(
       <Route path={articleLinks.discovery_history_of_america_part_12.to} element={<HistoryOfAmerica_Part_12 />} />
 	  
       <Route path={articleLinks.joking_part_01.to} element={<Joking_Part_01 />} />
+      <Route path='/joking/joking_article' element={<Jorking_Article />} />
 	  
 	  
 	  	  
