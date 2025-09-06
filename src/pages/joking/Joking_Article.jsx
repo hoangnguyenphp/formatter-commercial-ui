@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import ArticleLayout from '../../layouts/ArticleLayout';
 import '../../styles/RelatedArtical.css';
 import { articleLinks } from '../../generic/articleLinks';
+import { fetchArticle } from '../../utils/apiCall'; // Import from utils
 
 export default function Joking_Article() {
   const [articleData, setArticleData] = useState(null);
@@ -10,26 +11,24 @@ export default function Joking_Article() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchArticle = async () => {
+    const getArticle = async () => {
       try {
-        const response = await fetch(
-          'https://universe-blog-service.onrender.com/articles/de9b9207-0b68-44a2-bd84-c2e3d33ac1ab'
-        );
-        
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        
-        const data = await response.json();
+        // Use the imported fetchArticle function
+        const data = await fetchArticle('de9b9207-0b68-44a2-bd84-c2e3d33ac1ab');
         setArticleData(data);
         setLoading(false);
       } catch (err) {
         setError(err.message);
         setLoading(false);
+        // Fallback data
+        setArticleData({
+          articleName: "Programmer Jokes",
+          articleContent: "<p>Unable to load content. Please check your connection and try again.</p>"
+        });
       }
     };
 
-    fetchArticle();
+    getArticle();
   }, []);
 
   if (loading) {
@@ -56,7 +55,7 @@ export default function Joking_Article() {
     <ArticleLayout>
       <article className="article">
         <h1 style={{ fontSize: '1.2em', marginBottom: '1.5em', textAlign: 'center' }}>
-          {articleData?.articleName || 'Programmer Jokes - Part 01'}
+          {articleData?.articleName || 'Programmer Jokes'}
         </h1>
         {/* ✅ Publish Date */}
         <p

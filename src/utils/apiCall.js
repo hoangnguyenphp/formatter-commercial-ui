@@ -21,3 +21,22 @@ export async function fetchVisits() {
     console.error('Failed to load visit counter:', err);
   }
 };
+
+// NEW: Simple fetchArticle function
+export async function fetchArticle(articleUuid) {
+  try {
+    // Use proxy in development, direct URL in production
+    const baseUrl = `${process.env.REACT_APP_UNIVERSE_BLOG_API_URL || 'http://localhost:8081'}`;
+    
+    const response = await fetch(`${baseUrl}/articles/${articleUuid}`);
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    
+    return await response.json();
+  } catch (error) {
+    console.error('Error fetching article:', error);
+    throw error;
+  }
+}
