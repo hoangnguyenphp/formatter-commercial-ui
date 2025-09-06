@@ -14,7 +14,7 @@ export default function Joking_Article() {
     const getArticle = async () => {
       try {
         // Use the imported fetchArticle function
-        const data = await fetchArticle('de9b9207-0b68-44a2-bd84-c2e3d33ac1ab');
+        const data = await fetchArticle('2f75a6ba-97ad-43ce-8dbe-85b52ff6ea75');
         setArticleData(data);
         setLoading(false);
       } catch (err) {
