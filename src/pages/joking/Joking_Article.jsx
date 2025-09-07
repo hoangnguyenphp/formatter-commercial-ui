@@ -13,8 +13,7 @@ export default function Joking_Article() {
   useEffect(() => {
     const getArticle = async () => {
       try {
-        // Use the imported fetchArticle function
-        const data = await fetchArticle('2f75a6ba-97ad-43ce-8dbe-85b52ff6ea75');
+		const data = await fetchArticle('2f75a6ba-97ad-43ce-8dbe-85b52ff6ea75');
         setArticleData(data);
         setLoading(false);
       } catch (err) {
