@@ -1,3 +1,4 @@
+// src/utils/apiCall.js
 export async function formatterApiCall(type, action, content) {
   const url = `${process.env.REACT_APP_ONLINE_CODE_FORMATTER_API_URL || 'http://localhost:8080'}/api/format/${action}`;
 
@@ -22,10 +23,9 @@ export async function fetchVisits() {
   }
 };
 
-// NEW: Simple fetchArticle function
+// Fetch article function
 export async function fetchArticle(articleUuid) {
   try {
-    // Use proxy in development, direct URL in production
     const baseUrl = `${process.env.REACT_APP_UNIVERSE_BLOG_API_URL || 'http://localhost:8081'}`;
     
     const response = await fetch(`${baseUrl}/articles/${articleUuid}`);
@@ -37,6 +37,68 @@ export async function fetchArticle(articleUuid) {
     return await response.json();
   } catch (error) {
     console.error('Error fetching article:', error);
+    throw error;
+  }
+}
+
+// Fetch topics function - accept languageCode as parameter
+export async function fetchTopicsByLanguageCode(languageCode) {
+  try {
+    const baseUrl = `${process.env.REACT_APP_UNIVERSE_BLOG_API_URL || 'http://localhost:8081'}`;
+    
+    const response = await fetch(`${baseUrl}/topics/${languageCode}`);
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    
+    return await response.json();
+  } catch (error) {
+    console.error('Error fetching topics:', error);
+    throw error;
+  }
+}
+
+// Fetch topics function - accept languageCode as parameter
+export async function fetchSingleArticlesByTopicAndLanguage(topicUuid, languageCode) {
+  try {
+    const baseUrl = `${process.env.REACT_APP_UNIVERSE_BLOG_API_URL || 'http://localhost:8081'}`;
+    
+    const response = await fetch(`${baseUrl}/articles/single-articles-by-topic-language/${topicUuid}/${languageCode}`);
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    
+    return await response.json();
+  } catch (error) {
+    console.error('Error fetching topics:', error);
+    throw error;
+  }
+}
+
+// Generic API call function (optional)
+export async function apiCall(endpoint, options = {}) {
+  try {
+    const baseUrl = process.env.NODE_ENV === 'development' 
+      ? '/api'
+      : `${process.env.REACT_APP_UNIVERSE_BLOG_API_URL || 'http://localhost:8081'}`;
+    
+    const response = await fetch(`${baseUrl}${endpoint}`, {
+      headers: {
+        'Content-Type': 'application/json',
+        ...options.headers,
+      },
+      ...options,
+    });
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    
+    return await response.json();
+  } catch (error) {
+    console.error('API call error:', error);
     throw error;
   }
 }

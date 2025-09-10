@@ -1,0 +1,164 @@
+/* ArticlesByTopic.css */
+.articles-by-topic-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* Header Styles */
+.topic-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.topic-title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+}
+
+.topic-subtitle {
+  font-size: 1rem;
+  color: #666;
+  margin: 0;
+}
+
+/* Section Styles */
+.section {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: var(--sidebar-bg);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+}
+
+.section-header {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+}
+
+.section-subtitle {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0;
+}
+
+/* Articles List */
+.articles-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.article-item {
+  padding: 0.3rem;
+  transition: background-color 0.2s ease;
+}
+
+.article-item:hover {
+  background: #f8f9fa;
+}
+
+.article-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.article-link h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-color);
+  line-height: 1.4;
+}
+
+.article-info {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: #666;
+  flex-wrap: wrap;
+}
+
+/* Placeholder Styles */
+.placeholder-content {
+  text-align: center;
+  padding: 2rem;
+  color: #666;
+  font-style: italic;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 2rem;
+  color: #666;
+}
+
+/* Dark Theme Support */
+body.dark .article-item:hover {
+  background: #2a2a2a;
+}
+
+body.dark .article-info {
+  color: #999;
+}
+
+body.dark .topic-subtitle,
+body.dark .section-subtitle {
+  color: #999;
+}
+
+/* Loading Spinner */
+.loading-spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #667eea;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-right: 10px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .articles-by-topic-container {
+    padding: 0.5rem;
+  }
+  
+  .topic-title {
+    font-size: 1.5rem;
+  }
+  
+  .section {
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .article-item {
+    padding: 0.8rem;
+  }
+  
+  .article-link h3 {
+    font-size: 1rem;
+  }
+  
+  .article-info {
+    font-size: 0.8rem;
+  }
+}

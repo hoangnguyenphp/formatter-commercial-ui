@@ -93,3 +93,13 @@ button:disabled {
   background-color: #888;
   cursor: not-allowed;
 }
+
+:root {
+  --card-bg: #ffffff;
+  --border-color: #e1e5e9;
+}
+
+body.dark {
+  --card-bg: #2a2a2a;
+  --border-color: #444;
+}
