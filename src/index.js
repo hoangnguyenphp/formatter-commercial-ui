@@ -27,6 +27,8 @@ import Joking_Part_01 from './pages/joking/en/Joking_Part_01';
 
 import Jorking_Article from './pages/joking/Joking_Article';
 
+import Article from './pages/article/Article';
+
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { articleLinks } from './generic/articleLinks';
@@ -62,6 +64,8 @@ root.render(
 	  
       <Route path={articleLinks.joking_part_01.to} element={<Joking_Part_01 />} />
       <Route path='/joking/joking_article' element={<Jorking_Article />} />
+	  
+	  <Route path="/article/:articleUuid" element={<Article/>}/>
 	  
 	  
 	  	  
