@@ -3,18 +3,21 @@ import { Link, useParams } from 'react-router-dom';
 import ArticleLayout from '../../layouts/ArticleLayout';
 import '../../styles/RelatedArtical.css';
 import { articleLinks } from '../../generic/articleLinks';
-import { fetchArticle } from '../../utils/apiCall'; // Import from utils
+import { fetchSingleArticleByUuidAndLanguage } from '../../utils/apiCall'; // Import from utils
+import { useTranslation } from 'react-i18next';
 
-export default function Article() {
+export default function SingleArticle() {
   const { articleUuid } = useParams();
   const [articleData, setArticleData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const { i18n } = useTranslation();
 
   useEffect(() => {
     const getArticle = async () => {
       try {
-		const data = await fetchArticle(articleUuid);
+		const languageCode = i18n.language || 'en';
+		const data = await fetchSingleArticleByUuidAndLanguage(articleUuid, languageCode);
         setArticleData(data);
         setLoading(false);
       } catch (err) {

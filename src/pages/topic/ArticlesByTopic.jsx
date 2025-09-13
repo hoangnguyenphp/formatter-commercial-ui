@@ -79,7 +79,7 @@ export default function ArticlesByTopic() {
             <div className="articles-list">
               {articles.map((article) => (
                 <div key={article.articleUuid} className="article-item">
-                  <Link to={`/article/${article.articleUuid}`} className="article-link">
+                  <Link to={`/article/single-article/${article.articleUuid}`} className="article-link">
                     <span>{article.articleName}</span>
                     <div className="article-info">
                       <span>{article.languageName}</span>

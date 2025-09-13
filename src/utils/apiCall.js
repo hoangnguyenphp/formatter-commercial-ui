@@ -41,6 +41,24 @@ export async function fetchArticle(articleUuid) {
   }
 }
 
+// Fetch single article function
+export async function fetchSingleArticleByUuidAndLanguage(articleUuid, languageCode) {
+  try {
+    const baseUrl = `${process.env.REACT_APP_UNIVERSE_BLOG_API_URL || 'http://localhost:8081'}`;
+    
+    const response = await fetch(`${baseUrl}/articles/${articleUuid}/${languageCode}`);
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    
+    return await response.json();
+  } catch (error) {
+    console.error('Error fetching article:', error);
+    throw error;
+  }
+}
+
 // Fetch topics function - accept languageCode as parameter
 export async function fetchTopicsByLanguageCode(languageCode) {
   try {
