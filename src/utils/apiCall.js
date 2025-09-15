@@ -42,7 +42,7 @@ export async function fetchArticle(articleUuid) {
 }
 
 // Fetch single article function
-export async function fetchSingleArticleByUuidAndLanguage(articleUuid, languageCode) {
+export async function fetchArticleByUuidAndLanguage(articleUuid, languageCode) {
   try {
     const baseUrl = `${process.env.REACT_APP_UNIVERSE_BLOG_API_URL || 'http://localhost:8081'}`;
     
@@ -98,9 +98,7 @@ export async function fetchSingleArticlesByTopicAndLanguage(topicUuid, languageC
 // Generic API call function (optional)
 export async function apiCall(endpoint, options = {}) {
   try {
-    const baseUrl = process.env.NODE_ENV === 'development' 
-      ? '/api'
-      : `${process.env.REACT_APP_UNIVERSE_BLOG_API_URL || 'http://localhost:8081'}`;
+    const baseUrl = `${process.env.REACT_APP_UNIVERSE_BLOG_API_URL || 'http://localhost:8081'}`;
     
     const response = await fetch(`${baseUrl}${endpoint}`, {
       headers: {

@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import ArticleLayout from '../../layouts/ArticleLayout';
 import '../../styles/RelatedArtical.css';
 import { articleLinks } from '../../generic/articleLinks';
-import { fetchSingleArticleByUuidAndLanguage } from '../../utils/apiCall'; // Import from utils
+import { fetchArticleByUuidAndLanguage } from '../../utils/apiCall'; // Import from utils
 import { useTranslation } from 'react-i18next';
 
 export default function SingleArticle() {
@@ -17,7 +17,7 @@ export default function SingleArticle() {
     const getArticle = async () => {
       try {
 		const languageCode = i18n.language || 'en';
-		const data = await fetchSingleArticleByUuidAndLanguage(articleUuid, languageCode);
+		const data = await fetchArticleByUuidAndLanguage(articleUuid, languageCode);
         setArticleData(data);
         setLoading(false);
       } catch (err) {

@@ -28,6 +28,7 @@ import Joking_Part_01 from './pages/joking/en/Joking_Part_01';
 import Jorking_Article from './pages/joking/Joking_Article';
 
 import SingleArticle from './pages/article/SingleArticle';
+import SerialArticle from './pages/article/SerialArticle';
 
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -66,6 +67,7 @@ root.render(
       <Route path='/joking/joking_article' element={<Jorking_Article />} />
 	  
 	  <Route path="/article/single-article/:articleUuid" element={<SingleArticle/>}/>
+	  <Route path="/article/serial-article/:articleUuid" element={<SerialArticle/>}/>
 	  
 	  
 	  	  
