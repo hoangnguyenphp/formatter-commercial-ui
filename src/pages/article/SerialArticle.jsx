@@ -6,6 +6,7 @@ import '../../styles/SerialArticle.css';
 import { articleLinks } from '../../generic/articleLinks';
 import { apiCall, fetchArticleByUuidAndLanguage } from '../../utils/apiCall'; 
 import { useTranslation } from 'react-i18next';
+import { ArticleLinkFactory } from '../ArticleLinkFactory'; // Adjust path as needed
 
 export default function SerialArticle() {
   const { articleUuid } = useParams();
@@ -15,6 +16,14 @@ export default function SerialArticle() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const { i18n } = useTranslation();
+
+  // Pagination states
+  const [currentPage, setCurrentPage] = useState(0);
+  const [loadedChapters, setLoadedChapters] = useState([]);
+  const [hasMore, setHasMore] = useState(true);
+  const [loadingChapters, setLoadingChapters] = useState(false);
+  
+  const LOAD_MORE_CHAPTER_SIZE = 2;
 
   useEffect(() => {
     const fetchArticleData = async () => {
@@ -29,7 +38,7 @@ export default function SerialArticle() {
         const data = await fetchArticleByUuidAndLanguage(articleUuid, languageCode);
         setArticleData(data);
         
-        // If this is a serial article, fetch previous and next chapter data
+        // If this is a serial article, fetch previous, next chapter data, and initial chapters
         if (data.serialArticle && data.chapterId) {
           // Previous Chapter
           try {
@@ -52,6 +61,9 @@ export default function SerialArticle() {
             console.log('Error fetching next chapter:', nextChapterError);
             setNextChapterData(null);
           }
+          
+          // Load initial chapters (page 0, size 10)
+          await loadChapters(0, LOAD_MORE_CHAPTER_SIZE, data.serialArticle, languageCode);
         }
       } catch (err) {
         console.error('Error fetching article:', err);
@@ -63,6 +75,66 @@ export default function SerialArticle() {
 
     fetchArticleData();
   }, [articleUuid, i18n.language]);
+
+  // Function to load chapters with pagination
+  const loadChapters = async (page, size, serialArticleUuid, languageCode) => {
+    try {
+      setLoadingChapters(true);
+      const chapters = await apiCall(
+        `/articles/serial-article-chapters/${serialArticleUuid}/${languageCode}?page=${page}&size=${size}`
+      );
+      
+      if (chapters.length === 0) {
+        setHasMore(false);
+      } else {
+        if (page === 0) {
+          setLoadedChapters(chapters);
+        } else {
+          setLoadedChapters(prev => [...prev, ...chapters]);
+        }
+        setCurrentPage(page);
+        
+        // Check if we might have more chapters (if we got exactly the requested size)
+        if (chapters.length < size) {
+          setHasMore(false);
+        }
+      }
+    } catch (error) {
+      console.log('Error fetching chapters:', error);
+    } finally {
+      setLoadingChapters(false);
+    }
+  };
+
+  // Function to load more chapters
+  const loadMoreChapters = () => {
+    if (articleData && articleData.serialArticle && hasMore && !loadingChapters) {
+      const languageCode = i18n.language ? 'en' : 'en';
+      loadChapters(currentPage + 1, LOAD_MORE_CHAPTER_SIZE, articleData.serialArticle, languageCode);
+    }
+  };
+
+  // Combined function for scrolling and loading more
+  const handleNextButtonClick = () => {
+    // First try to scroll
+    document.querySelector(".chapters-scroll-container")?.scrollBy({ 
+      left: 250, 
+      behavior: "smooth" 
+    });
+    
+    // If we're near the end and have more chapters, load more
+    const scrollContainer = document.querySelector(".chapters-scroll-container");
+    if (scrollContainer) {
+      const scrollLeft = scrollContainer.scrollLeft;
+      const scrollWidth = scrollContainer.scrollWidth;
+      const clientWidth = scrollContainer.clientWidth;
+      
+      // If we're at 80% of the scroll position and have more chapters, load more
+      if (scrollLeft + clientWidth >= scrollWidth * 0.8 && hasMore) {
+        loadMoreChapters();
+      }
+    }
+  };
 
   if (loading) {
     return (
@@ -133,7 +205,7 @@ export default function SerialArticle() {
           <div className="prev-chapter-container">
             {previousChapterData ? (
               <Link 
-                to={`/article/serial-article/${previousChapterData.articleUuid}`} 
+                to={ArticleLinkFactory.createSerialArticleLink(previousChapterData.articleUuid)}
                 className="prev-chapter-link"
               >
                 ⬅️ Previous Chapter
@@ -148,7 +220,7 @@ export default function SerialArticle() {
           <div className="next-chapter-container">
             {nextChapterData ? (
               <Link 
-                to={`/article/serial-article/${nextChapterData.articleUuid}`} 
+                to={ArticleLinkFactory.createSerialArticleLink(nextChapterData.articleUuid)}
                 className="next-chapter-link"
               >
                 Next Chapter ➡️
@@ -196,7 +268,7 @@ export default function SerialArticle() {
         <div className="prev-chapter-container">
           {previousChapterData ? (
             <Link 
-              to={`/article/serial-article/${previousChapterData.articleUuid}`} 
+              to={ArticleLinkFactory.createSerialArticleLink(previousChapterData.articleUuid)}
               className="prev-chapter-link"
             >
               ⬅️ Previous Chapter
@@ -211,7 +283,7 @@ export default function SerialArticle() {
         <div className="next-chapter-container">
           {nextChapterData ? (
             <Link 
-              to={`/article/serial-article/${nextChapterData.articleUuid}`} 
+              to={ArticleLinkFactory.createSerialArticleLink(nextChapterData.articleUuid)}
               className="next-chapter-link"
             >
               Next Chapter ➡️
@@ -224,75 +296,78 @@ export default function SerialArticle() {
         </div>
       </div>
 
-	  {/* 👉 All Chapters Section - UI Only (No API calls) */}
-	  {articleData.serialArticle && (
-	    <div className="all-chapters-section">
-	      <div className="section-header">
-	        <h3>📖 All Chapters</h3>
-	        <p className="section-subtitle">Complete series navigation</p>
-	      </div>
+      {/* 👉 All Chapters Section - With Pagination */}
+      {articleData.serialArticle && (
+        <div className="all-chapters-section">
+          <div className="section-header">
+            <h3>📖 All Chapters</h3>
+            <p className="section-subtitle">Complete series navigation</p>
+            {loadingChapters && (
+              <span className="chapters-loading-text">Loading more chapters...</span>
+            )}
+          </div>
 
-	      <div className="chapters-wrapper">
-	        {/* Previous Button */}
-	        <button
-	          className="scroll-btn prev-btn"
-	          onClick={() => {
-	            document.querySelector(".chapters-scroll-container")
-	              .scrollBy({ left: -250, behavior: "smooth" });
-	          }}
-	        >
-	          ❮
-	        </button>
+          <div className="chapters-wrapper">
+            {/* Previous Button */}
+            <button
+              className="scroll-btn prev-btn"
+              onClick={() => {
+                document.querySelector(".chapters-scroll-container")
+                  .scrollBy({ left: -250, behavior: "smooth" });
+              }}
+            >
+              ❮
+            </button>
 
-	        <div className="chapters-scroll-container">
-	          <div className="chapters-grid">
-	            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((chapterNumber) => {
-	              const articleKey = `discovery_history_of_america_part_${chapterNumber
-	                .toString()
-	                .padStart(2, "0")}`;
-	              const articleLink = articleLinks[articleKey];
-	              const isCurrentChapter = currentChapterId === chapterNumber;
+            <div className="chapters-scroll-container">
+              <div className="chapters-grid">
+                {loadedChapters.length > 0 ? (
+                  loadedChapters.map((chapter) => {
+                    const isCurrentChapter = currentChapterId === chapter.chapterId;
 
-	              return (
-	                <div
-	                  key={chapterNumber}
-	                  className={`chapter-item ${isCurrentChapter ? "current-chapter" : ""}`}
-	                >
-	                  {articleLink ? (
-	                    <Link
-	                      to={articleLink.to}
-	                      className="chapter-link"
-	                      title={articleLink.title}
-	                    >
-	                      <span className="chapter-number">Chapter {chapterNumber}</span>
-	                      <span className="chapter-title">{articleLink.title}</span>
-	                    </Link>
-	                  ) : (
-	                    <div className="chapter-link disabled">
-	                      <span className="chapter-number">Chapter {chapterNumber}</span>
-	                      <span className="chapter-title">Coming Soon</span>
-	                    </div>
-	                  )}
-	                </div>
-	              );
-	            })}
-	          </div>
-	        </div>
+                    return (
+                      <div
+                        key={chapter.articleUuid}
+                        className={`chapter-item ${isCurrentChapter ? "current-chapter" : ""}`}
+                      >
+                        <Link
+                          to={ArticleLinkFactory.createSerialArticleLink(chapter.articleUuid)}
+                          className="chapter-link"
+                          title={chapter.articleName}
+                        >
+                          <span className="chapter-number">Chapter {chapter.chapterId}</span>
+                          <span className="chapter-title">{chapter.articleName}</span>
+                        </Link>
+                      </div>
+                    );
+                  })
+                ) : (
+                  // Fallback UI if no chapters data
+                  <div className="chapters-error-message">
+                    <p>Failed to load all chapters</p>
+                  </div>
+                )}
+              </div>
+            </div>
 
-	        {/* Next Button */}
-	        <button
-	          className="scroll-btn next-btn"
-	          onClick={() => {
-	            document.querySelector(".chapters-scroll-container")
-	              .scrollBy({ left: 250, behavior: "smooth" });
-	          }}
-	        >
-	          ❯
-	        </button>
-	      </div>
-	    </div>
-	  )}
+            {/* Next Button - Now handles both scrolling and loading more */}
+            <button
+              className="scroll-btn next-btn"
+              onClick={handleNextButtonClick}
+              disabled={!hasMore && loadingChapters}
+            >
+              {loadingChapters ? '⏳' : '❯'}
+            </button>
+          </div>
 
+          {/* Loading indicator for chapters */}
+          {loadingChapters && (
+            <div className="chapters-loading">
+              <div className="loading-spinner">Loading more chapters...</div>
+            </div>
+          )}
+        </div>
+      )}
 
       {/* 👉 Related Articles Section */}
       <div className="related-content-box">
