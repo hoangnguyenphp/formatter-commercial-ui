@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import ArticleLayout from '../../layouts/ArticleLayout';
 import '../../styles/RelatedArtical.css';
+import '../../styles/SerialArticle.css';
 import { articleLinks } from '../../generic/articleLinks';
 import { apiCall, fetchArticleByUuidAndLanguage } from '../../utils/apiCall'; 
 import { useTranslation } from 'react-i18next';
@@ -25,27 +26,28 @@ export default function SerialArticle() {
         const languageCode = i18n.language ? 'en' : 'en';
         
         // Fetch main article data
-        const data = await await fetchArticleByUuidAndLanguage(articleUuid, languageCode);
+        const data = await fetchArticleByUuidAndLanguage(articleUuid, languageCode);
         setArticleData(data);
-		
+        
         // If this is a serial article, fetch previous and next chapter data
         if (data.serialArticle && data.chapterId) {
-		  // Previous Chapter
-		  try {
-		  const previousChapterData = await apiCall(
-		  	`/articles/article-by-serial-article-chapter-language/${data.serialArticle}/${data.chapterId - 1}/${languageCode}`);
-		  setPreviousChapterData(previousChapterData);			
-		  } catch (previousChapterError) {
-		    console.log('Error fetching previous chapter:', previousChapterError);
-		  	setPreviousChapterData(null);
-		  }		  
-			
-		  // Next chapter	
+          // Previous Chapter
           try {
-            const nextChapterData = await apiCall(
+            const previousChapter = await apiCall(
+              `/articles/article-by-serial-article-chapter-language/${data.serialArticle}/${data.chapterId - 1}/${languageCode}`
+            );
+            setPreviousChapterData(previousChapter);
+          } catch (previousChapterError) {
+            console.log('Error fetching previous chapter:', previousChapterError);
+            setPreviousChapterData(null);
+          }
+          
+          // Next Chapter
+          try {
+            const nextChapter = await apiCall(
               `/articles/article-by-serial-article-chapter-language/${data.serialArticle}/${data.chapterId + 1}/${languageCode}`
             );
-            setNextChapterData(nextChapterData);
+            setNextChapterData(nextChapter);
           } catch (nextChapterError) {
             console.log('Error fetching next chapter:', nextChapterError);
             setNextChapterData(null);
@@ -103,6 +105,9 @@ export default function SerialArticle() {
     });
   };
 
+  // Get current chapter number for highlighting
+  const currentChapterId = articleData.chapterId;
+
   return (
     <ArticleLayout>
       <article className="article">
@@ -126,18 +131,18 @@ export default function SerialArticle() {
         {/* Chapter Navigation - Top */}
         <div className="chapter-navigation">
           <div className="prev-chapter-container">
-			{previousChapterData ? (
-			  <Link 
-			    to={`/article/serial-article/${previousChapterData.articleUuid}`} 
-			    className="prev-chapter-link"
-			  >
-			    ⬅️ Previous Chapter
-			  </Link>
-			) : (
-			  <span className="prev-chapter-link" style={{ opacity: 0.5 }}>
-			    ⬅️ Previous Chapter
-			  </span>
-			)}			
+            {previousChapterData ? (
+              <Link 
+                to={`/article/serial-article/${previousChapterData.articleUuid}`} 
+                className="prev-chapter-link"
+              >
+                ⬅️ Previous Chapter
+              </Link>
+            ) : (
+              <span className="prev-chapter-link" style={{ opacity: 0.5 }}>
+                ⬅️ Previous Chapter
+              </span>
+            )}
           </div>
 
           <div className="next-chapter-container">
@@ -188,20 +193,20 @@ export default function SerialArticle() {
 
       {/* 👉 Next Chapter Section - Bottom */}
       <div className="chapter-navigation">
-		<div className="prev-chapter-container">
-		  {previousChapterData ? (
-			    <Link 
-			      to={`/article/serial-article/${previousChapterData.articleUuid}`} 
-			      className="prev-chapter-link"
-			    >
-			      ⬅️ Previous Chapter
-			    </Link>
-			  ) : (
-			    <span className="prev-chapter-link" style={{ opacity: 0.5 }}>
-			      ⬅️ Previous Chapter
-			    </span>
-			  )}			
-		</div>
+        <div className="prev-chapter-container">
+          {previousChapterData ? (
+            <Link 
+              to={`/article/serial-article/${previousChapterData.articleUuid}`} 
+              className="prev-chapter-link"
+            >
+              ⬅️ Previous Chapter
+            </Link>
+          ) : (
+            <span className="prev-chapter-link" style={{ opacity: 0.5 }}>
+              ⬅️ Previous Chapter
+            </span>
+          )}
+        </div>
         
         <div className="next-chapter-container">
           {nextChapterData ? (
@@ -218,6 +223,76 @@ export default function SerialArticle() {
           )}
         </div>
       </div>
+
+	  {/* 👉 All Chapters Section - UI Only (No API calls) */}
+	  {articleData.serialArticle && (
+	    <div className="all-chapters-section">
+	      <div className="section-header">
+	        <h3>📖 All Chapters</h3>
+	        <p className="section-subtitle">Complete series navigation</p>
+	      </div>
+
+	      <div className="chapters-wrapper">
+	        {/* Previous Button */}
+	        <button
+	          className="scroll-btn prev-btn"
+	          onClick={() => {
+	            document.querySelector(".chapters-scroll-container")
+	              .scrollBy({ left: -250, behavior: "smooth" });
+	          }}
+	        >
+	          ❮
+	        </button>
+
+	        <div className="chapters-scroll-container">
+	          <div className="chapters-grid">
+	            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((chapterNumber) => {
+	              const articleKey = `discovery_history_of_america_part_${chapterNumber
+	                .toString()
+	                .padStart(2, "0")}`;
+	              const articleLink = articleLinks[articleKey];
+	              const isCurrentChapter = currentChapterId === chapterNumber;
+
+	              return (
+	                <div
+	                  key={chapterNumber}
+	                  className={`chapter-item ${isCurrentChapter ? "current-chapter" : ""}`}
+	                >
+	                  {articleLink ? (
+	                    <Link
+	                      to={articleLink.to}
+	                      className="chapter-link"
+	                      title={articleLink.title}
+	                    >
+	                      <span className="chapter-number">Chapter {chapterNumber}</span>
+	                      <span className="chapter-title">{articleLink.title}</span>
+	                    </Link>
+	                  ) : (
+	                    <div className="chapter-link disabled">
+	                      <span className="chapter-number">Chapter {chapterNumber}</span>
+	                      <span className="chapter-title">Coming Soon</span>
+	                    </div>
+	                  )}
+	                </div>
+	              );
+	            })}
+	          </div>
+	        </div>
+
+	        {/* Next Button */}
+	        <button
+	          className="scroll-btn next-btn"
+	          onClick={() => {
+	            document.querySelector(".chapters-scroll-container")
+	              .scrollBy({ left: 250, behavior: "smooth" });
+	          }}
+	        >
+	          ❯
+	        </button>
+	      </div>
+	    </div>
+	  )}
+
 
       {/* 👉 Related Articles Section */}
       <div className="related-content-box">
