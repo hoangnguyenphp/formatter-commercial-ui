@@ -98,7 +98,7 @@ body.light .blog-sidebar-section a {
 
 /* ✅ Responsive */
 @media screen and (max-width: 1024px) {
-  .artical-sidebar-left {
+  .blog-sidebar-left {
     position: relative;
     width: 100%;
     height: auto;
