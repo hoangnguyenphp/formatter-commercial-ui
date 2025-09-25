@@ -95,6 +95,15 @@ export async function fetchSingleArticlesByTopicAndLanguage(topicUuid, languageC
   }
 }
 
+export const fetchTopicTranslation = async (topicUuid, languageCode) => {
+	try {
+  	  return apiCall(`/topic-translations/${topicUuid}/${languageCode}`);
+  } catch (error) {
+	console.error('Error fetching topic translation:', error);
+	throw error;
+  }
+};
+
 // Generic API call function (optional)
 export async function apiCall(endpoint, options = {}) {
   try {
