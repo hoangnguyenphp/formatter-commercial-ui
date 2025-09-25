@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import AdsBanner from '../components/AdsBanner';
 import PageVisitCounter from '../components/pagevisitcounter/PageVisitCounter';
 import '../styles/global.css';
-import '../styles/AdminLayout.css';
+import '../styles/BlogLayout.css';
 import { Link } from 'react-router-dom';
-import AdminLeftSidebarMenu from '../components/AdminLeftSidebarMenu';
+import BlogLeftSidebarMenu from '../components/BlogLeftSidebarMenu';
 
 export default function BlogLayout({ children }) {
 	// 1️⃣ Initialize from localStorage
@@ -24,16 +25,22 @@ export default function BlogLayout({ children }) {
 	  <main className="container">
 	  {/* Sidebar */}
 	  <div className="sidebar-container">
-	    <AdminLeftSidebarMenu />
+	    <BlogLeftSidebarMenu />
 	  </div>
+	  
+	    {/* Right-side Ad */}
+	    <div className="ads-right">
+	      <AdsBanner slot="1234567892" layout="vertical" style={{ width: '160px', height: '600px' }} />
+	    </div>
+
 	    {/* Main Content Wrapper */}
 	    <div className="main-content">
 	      {/* Header */}
 	      <header className="app-header" onClick={() => (window.location.href = '/')}>
 	        <div className="header-content">
-	          <h1 style={{ cursor: 'pointer' }}>Administration</h1>
+	          <h1 style={{ cursor: 'pointer' }}>The Universe Blog</h1>
 			  <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-			    <Link to="/" className="from-admin-to-app-link"
+			    <Link to="/" className="from-blog-to-tool-link"
 			      onClick={(e) => e.stopPropagation()}
 			    >
 			      Home

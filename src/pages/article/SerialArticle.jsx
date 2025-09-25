@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import ArticleLayout from '../../layouts/ArticleLayout';
+import BlogLayout from '../../layouts/BlogLayout';
 import '../../styles/RelatedArtical.css';
 import '../../styles/SerialArticle.css';
 import { articleLinks } from '../../generic/articleLinks';
@@ -135,31 +135,31 @@ export default function SerialArticle() {
 
   if (loading) {
     return (
-      <ArticleLayout>
+      <BlogLayout>
         <div style={{ textAlign: 'center', padding: '2rem' }}>
           <div className="loading-spinner">Loading article...</div>
         </div>
-      </ArticleLayout>
+      </BlogLayout>
     );
   }
 
   if (error) {
     return (
-      <ArticleLayout>
+      <BlogLayout>
         <div style={{ textAlign: 'center', padding: '2rem', color: 'red' }}>
           Error loading article: {error}
         </div>
-      </ArticleLayout>
+      </BlogLayout>
     );
   }
 
   if (!articleData) {
     return (
-      <ArticleLayout>
+      <BlogLayout>
         <div style={{ textAlign: 'center', padding: '2rem' }}>
           Article not found.
         </div>
-      </ArticleLayout>
+      </BlogLayout>
     );
   }
 
@@ -183,7 +183,7 @@ export default function SerialArticle() {
   };
   
   return (
-    <ArticleLayout>
+    <BlogLayout>
       <article className="article">
         <h2 style={{ fontSize: '1.2em', marginBottom: '1.5em', textAlign: 'center' }}>
           {articleData.articleName}
@@ -406,6 +406,6 @@ export default function SerialArticle() {
           ))}
         </ul>
       </div>
-    </ArticleLayout>
+    </BlogLayout>
   );
 }

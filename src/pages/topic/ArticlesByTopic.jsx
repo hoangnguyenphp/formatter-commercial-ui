@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import ArticleLayout from '../../layouts/ArticleLayout';
+import BlogLayout from '../../layouts/BlogLayout';
 import '../../styles/ArticlesByTopic.css';
 import { fetchSingleArticlesByTopicAndLanguage, fetchTopicTranslation } from '../../utils/apiCall';
 import { useTranslation } from 'react-i18next';
@@ -43,26 +43,26 @@ export default function ArticlesByTopic() {
 
   if (loading) {
     return (
-      <ArticleLayout>
+      <BlogLayout>
         <div style={{ textAlign: 'center', padding: '2rem' }}>
           <div className="loading-spinner">Loading articles...</div>
         </div>
-      </ArticleLayout>
+      </BlogLayout>
     );
   }
 
   if (error) {
     return (
-      <ArticleLayout>
+      <BlogLayout>
         <div style={{ textAlign: 'center', padding: '2rem', color: 'red' }}>
           Error: {error}
         </div>
-      </ArticleLayout>
+      </BlogLayout>
     );
   }
 
   return (
-    <ArticleLayout>
+    <BlogLayout>
       <div className="articles-by-topic-container">
         {/* Header */}
         <div className="topic-header">
@@ -127,6 +127,6 @@ export default function ArticlesByTopic() {
           </div>
         </section>
       </div>
-    </ArticleLayout>
+    </BlogLayout>
   );
 }

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import ArticleLayout from '../../layouts/ArticleLayout';
+import BlogLayout from '../../layouts/BlogLayout';
 import '../../styles/RelatedArtical.css';
 import { articleLinks } from '../../generic/articleLinks';
 import { fetchArticleByUuidAndLanguage } from '../../utils/apiCall'; // Import from utils
@@ -36,26 +36,26 @@ export default function SingleArticle() {
 
   if (loading) {
     return (
-      <ArticleLayout>
+      <BlogLayout>
         <div style={{ textAlign: 'center', padding: '2rem' }}>
           Loading article...
         </div>
-      </ArticleLayout>
+      </BlogLayout>
     );
   }
 
   if (error) {
     return (
-      <ArticleLayout>
+      <BlogLayout>
         <div style={{ textAlign: 'center', padding: '2rem', color: 'red' }}>
           Error loading article: {error}
         </div>
-      </ArticleLayout>
+      </BlogLayout>
     );
   }
 
   return (
-    <ArticleLayout>
+    <BlogLayout>
       <article className="article">
         <h1 style={{ fontSize: '1.2em', marginBottom: '1.5em', textAlign: 'center' }}>
           {articleData?.articleName || 'Programmer Jokes'}
@@ -98,6 +98,6 @@ export default function SingleArticle() {
           </li>
         </ul>
       </div>
-    </ArticleLayout>
+    </BlogLayout>
   );
 }
