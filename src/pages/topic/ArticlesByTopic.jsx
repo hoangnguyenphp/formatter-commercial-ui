@@ -108,31 +108,24 @@ export default function ArticlesByTopic() {
         </section>)}
 
 		{/* Serial Articles Section */}
-		<section className="section serial-articles-section">
+		{ serialArticles.length === 0 ? '' : (<section className="section serial-articles-section">
 		  <div className="section-header">
 		    <h2 className="section-title">Serial Articles</h2>
 		    <p className="section-subtitle">Multi-part article series</p>
 		  </div>
-
-		  {serialArticles.length === 0 ? (
-		    <div className="placeholder-content">
-		      <p>No serial articles available for this topic.</p>
-		    </div>
-		  ) : (
-		    <div className="serial-articles-list">
-		      {serialArticles.map((serial) => (
-		        <div key={serial.serialArticleUuid} className="serial-article-item">
-		          <Link
-		            to={`/article/serial-article/${serial.serialArticleUuid}`}
-		            className="serial-article-link"
-		          >
-		            📚 {serial.serialArticleName}
-		          </Link>
-		        </div>
-		      ))}
-		    </div>
-		  )}
-		</section>
+		  <div className="serial-articles-list">
+		    {serialArticles.map((serial) => (
+		      <div key={serial.serialArticleUuid} className="serial-article-item">
+		        <Link
+		          to={`/article/serial-article/${serial.serialArticleUuid}`}
+		          className="serial-article-link"
+		        >
+		          {serial.serialArticleName}
+		        </Link>
+		      </div>
+		    ))}
+		  </div>
+		</section>)}
       </div>
     </BlogLayout>
   );
