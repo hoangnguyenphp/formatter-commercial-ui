@@ -67,12 +67,14 @@
 
 .article-item:hover {
   background: #f8f9fa;
+  text-decoration: underline;
 }
 
 .article-link {
   text-decoration: none;
   color: inherit;
 }
+
 
 .article-link h3 {
   margin: 0 0 0.5rem 0;
@@ -89,6 +91,36 @@
   color: #666;
   flex-wrap: wrap;
 }
+
+/* Single Article */
+.serial-articles-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+}
+
+.serial-article-item {
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background: var(--card-bg);
+  transition: background 0.2s ease;
+}
+
+.serial-article-item:hover {
+	background: #666;
+}
+
+.serial-article-link  {
+  text-decoration: none;
+  color: inherit;
+}
+
+.serial-article-link:hover {
+  text-decoration: underline;
+}
+
 
 /* Placeholder Styles */
 .placeholder-content {
