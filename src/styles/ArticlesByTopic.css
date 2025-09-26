@@ -121,6 +121,32 @@
   text-decoration: underline;
 }
 
+/* Scrollable */
+
+.scrollable-content {
+  max-height: 300px;       /* adjust based on design */
+  overflow-y: auto;
+  padding-right: 0.5rem;   /* space for scrollbar */
+  margin-top: 0.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background: var(--card-bg);
+}
+
+/* Optional: prettier scrollbar */
+.scrollable-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scrollable-content::-webkit-scrollbar-thumb {
+  background-color: rgba(0,0,0,0.2);
+  border-radius: 4px;
+}
+
+.scrollable-content::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0,0,0,0.4);
+}
+
 
 /* Placeholder Styles */
 .placeholder-content {

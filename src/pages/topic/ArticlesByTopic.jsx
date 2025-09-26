@@ -85,25 +85,27 @@ export default function ArticlesByTopic() {
             <h2 className="section-title">Single Articles</h2>
             <p className="section-subtitle">Standalone articles on this topic</p>
           </div>
-		  <div className="articles-list">
-		    {articles.map((article) => (
-		      <div key={article.articleUuid} className="article-item">
-		        <Link
-		          to={`/article/single-article/${article.articleUuid}`}
-		          className="article-link"
-		        >
-		          <span>{article.articleName}</span>
-		          <div className="article-info">
-		            <span>{article.languageName}</span>
-		            <span>•</span>
-		            <span>{article.viewCounter} views</span>
-		            {article.serialArticle && (
-		              <span>• Series: {article.serialArticle}</span>
-		            )}
-		          </div>
-		        </Link>
-		      </div>
-		    ))}
+		  <div className="scrollable-content">
+			  <div className="articles-list">
+			    {articles.map((article) => (
+			      <div key={article.articleUuid} className="article-item">
+			        <Link
+			          to={`/article/single-article/${article.articleUuid}`}
+			          className="article-link"
+			        >
+			          <span>{article.articleName}</span>
+			          <div className="article-info">
+			            <span>{article.languageName}</span>
+			            <span>•</span>
+			            <span>{article.viewCounter} views</span>
+			            {article.serialArticle && (
+			              <span>• Series: {article.serialArticle}</span>
+			            )}
+			          </div>
+			        </Link>
+			      </div>
+			    ))}																														
+			  </div>
 		  </div>
         </section>)}
 
@@ -113,17 +115,19 @@ export default function ArticlesByTopic() {
 		    <h2 className="section-title">Serial Articles</h2>
 		    <p className="section-subtitle">Multi-part article series</p>
 		  </div>
-		  <div className="serial-articles-list">
-		    {serialArticles.map((serial) => (
-		      <div key={serial.serialArticleUuid} className="serial-article-item">
-		        <Link
-		          to={`/article/serial-article/${serial.serialArticleUuid}`}
-		          className="serial-article-link"
-		        >
-		          {serial.serialArticleName}
-		        </Link>
-		      </div>
-		    ))}
+		  <div className="scrollable-content">
+			  <div className="serial-articles-list">
+			    {serialArticles.map((serial) => (
+			      <div key={serial.serialArticleUuid} className="serial-article-item">
+			        <Link
+			          to={`/article/serial-article/${serial.serialArticleUuid}`}
+			          className="serial-article-link"
+			        >
+			          {serial.serialArticleName}
+			        </Link>
+			      </div>
+			    ))}																									
+			  </div>
 		  </div>
 		</section>)}
       </div>
