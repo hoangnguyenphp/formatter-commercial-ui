@@ -120,7 +120,7 @@ export default function ArticlesByTopic() {
 			    {serialArticles.map((serial) => (
 			      <div key={serial.serialArticleUuid} className="serial-article-item">
 			        <Link
-			          to={`/article/serial-article/${serial.serialArticleUuid}`}
+			          to={`/serial-article/${serial.serialArticleUuid}`}
 			          className="serial-article-link"
 			        >
 			          {serial.serialArticleName}

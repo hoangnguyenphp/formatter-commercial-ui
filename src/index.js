@@ -30,6 +30,8 @@ import Jorking_Article from './pages/joking/Joking_Article';
 import SingleArticle from './pages/article/SingleArticle';
 import SerialArticle from './pages/article/SerialArticle';
 
+import SerialArticleChapterList from './pages/serialarticle/SerialArticleChapterList';
+
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { articleLinks } from './generic/articleLinks';
@@ -68,6 +70,7 @@ root.render(
 	  
 	  <Route path="/article/single-article/:articleUuid" element={<SingleArticle/>}/>
 	  <Route path="/article/serial-article/:articleUuid" element={<SerialArticle/>}/>
+	  <Route path="/serial-article/:serialArticleUuid" element={<SerialArticleChapterList/>}/>
 	  
 	  
 	  	  
