@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Link, useParams } from "react-router-dom";
 import BlogLayout from "../../layouts/BlogLayout";
 import "../../styles/SerialArticleChapterList.css";
 import { useTranslation } from "react-i18next";
 import {
   fetchSerialArticleByUuidAndLanguage,
-  fetchChaptersBySerialUuidAndLanguage 
-} from '../../utils/apiCall';
+  fetchChaptersBySerialUuidAndLanguage,
+} from "../../utils/apiCall";
 
 export default function SerialArticleChapterList() {
-  const { serialArticleUuid } = useParams(); // ✅ we need the serial article uuid here
+  const { serialArticleUuid } = useParams();
   const [serialArticle, setSerialArticle] = useState(null);
   const [chapters, setChapters] = useState([]);
   const [page, setPage] = useState(0);
@@ -17,26 +17,38 @@ export default function SerialArticleChapterList() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const { i18n } = useTranslation();
-  const pageSize = 3;
+  const pageSize = 4;
 
+  const scrollRef = useRef(null);
+
+  // Fetch data
   useEffect(() => {
-    const fectchData = async () => {
+    const fetchData = async () => {
       try {
         setLoading(true);
         setError(null);
 
         const languageCode = i18n.language ? "en" : "en";
-		
-		const serialArticleData = await fetchSerialArticleByUuidAndLanguage(serialArticleUuid, languageCode);
-		
-		setSerialArticle(serialArticleData);	
-				
-        const chaptersData = await fetchChaptersBySerialUuidAndLanguage(serialArticleUuid, languageCode, page, pageSize);
+
+        if (page === 0) {
+          const serialArticleData = await fetchSerialArticleByUuidAndLanguage(
+            serialArticleUuid,
+            languageCode
+          );
+          setSerialArticle(serialArticleData);
+        }
+
+        const chaptersData = await fetchChaptersBySerialUuidAndLanguage(
+          serialArticleUuid,
+          languageCode,
+          page,
+          pageSize
+        );
 
         if (chaptersData.length > 0) {
           setChapters((prev) => [...prev, ...chaptersData]);
         } else {
-          setHasMore(false); // no more data
+          setHasMore(false);
         }
       } catch (err) {
         console.error("Error fetching chapters:", err);
@@ -46,8 +58,28 @@ export default function SerialArticleChapterList() {
       }
     };
 
-    fectchData();
+    fetchData();
   }, [page, serialArticleUuid, i18n.language]);
+
+  // Infinite scroll handler
+  useEffect(() => {
+    const container = scrollRef.current;
+    if (!container) return;
+
+    const handleScroll = () => {
+      if (
+        container.scrollTop + container.clientHeight >=
+          container.scrollHeight - 50 &&
+        hasMore &&
+        !loading
+      ) {
+        setPage((prev) => prev + 1);
+      }
+    };
+
+    container.addEventListener("scroll", handleScroll);
+    return () => container.removeEventListener("scroll", handleScroll);
+  }, [hasMore, loading]);
 
   if (error) {
     return (
@@ -64,7 +96,9 @@ export default function SerialArticleChapterList() {
       <div className="serial-article-chapter-list-container">
         {/* Header */}
         <div className="serial-article-chapter-list-header">
-          <h1 className="serial-article-chapter-list-title">{serialArticle?.serialArticleName}</h1>
+          <h1 className="serial-article-chapter-list-title">
+            {serialArticle?.serialArticleName}
+          </h1>
           <p className="serial-article-chapter-list-subtitle">
             Explore all chapters of this serial article
           </p>
@@ -76,7 +110,7 @@ export default function SerialArticleChapterList() {
             <h2 className="section-title">All Chapters</h2>
             <p className="section-subtitle">Multi-part chapters</p>
           </div>
-          <div className="scrollable-content">
+          <div className="scrollable-content" ref={scrollRef}>
             <div className="chapter-list">
               {chapters.map((chapter) => (
                 <div key={chapter.articleUuid} className="chapter-item">
@@ -93,20 +127,15 @@ export default function SerialArticleChapterList() {
               ))}
             </div>
 
-            {/* Load More */}
-            {hasMore && !loading && (
-              <div style={{ textAlign: "center", margin: "1rem 0" }}>
-                <button
-                  className="load-more-btn"
-                  onClick={() => setPage((prev) => prev + 1)}
-                >
-                  Load More
-                </button>
-              </div>
-            )}
+            {/* Loading + End States */}
             {loading && (
               <div style={{ textAlign: "center", padding: "1rem" }}>
                 Loading...
+              </div>
+            )}
+            {!hasMore && !loading && (
+              <div style={{ textAlign: "center", padding: "1rem" }}>
+                No more chapters
               </div>
             )}
           </div>
