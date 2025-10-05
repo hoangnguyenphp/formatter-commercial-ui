@@ -16,7 +16,7 @@ export default function AppLeftSidebarMenu() {
   const { i18n } = useTranslation();
   
   const numberOfHotArticles = 10;
-  const jokingTopicUuid = 'b2775a2b-3cdb-46a4-a9ba-9ea1f3b68bcc'; // Joking topic UUID
+  const jokingTopicUuid = 'c03f204f-8803-4152-89e0-94958897d9fd'; // Joking topic UUID
   const jokingArticleQuantity = 10;
 
   useEffect(() => {
