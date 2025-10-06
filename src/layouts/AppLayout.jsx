@@ -51,7 +51,7 @@ export default function AppLayout({ children }) {
             <h1>Online Code Formatter</h1>
             <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
               <Link
-                to={'/topic/b2775a2b-3cdb-46a4-a9ba-9ea1f3b68bcc'}
+                to={'/topic/c03f204f-8803-4152-89e0-94958897d9fd'}
                 className="from-tool-to-blog-link"
                 onClick={(e) => e.stopPropagation()}
               >
