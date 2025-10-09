@@ -152,6 +152,22 @@ export const fetchSerialArticleByUuidAndLanguage = async (serialArticleUuid, lan
 		}
 }
 
+export const fetchRelatedArticlesByArticleUuidAndLanguage = async (articleUuid, languageCode, page, pageSize) => {
+	try {
+		const baseUrl = `${process.env.REACT_APP_UNIVERSE_BLOG_API_URL || 'http://localhost:8081'}`;
+
+		const response = await fetch(`${baseUrl}/articles/relatead-articles/${articleUuid}/${languageCode}?page=${page}&size=${pageSize}`);
+		if (!response.ok) {
+			throw new Error(`HTTP error! status: ${response.status}`);
+		}
+
+		return await response.json();
+	} catch (error) {
+		console.error('Error fetching topics:', error);
+		throw error;
+	}
+}
+
 // Generic API call function (optional)
 export async function apiCall(endpoint, options = {}) {
 	try {

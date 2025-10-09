@@ -1,10 +1,10 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useCallback } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import BlogLayout from '../../layouts/BlogLayout';
 import '../../styles/RelatedArtical.css';
 import '../../styles/SerialArticle.css';
 import { articleLinks } from '../../generic/articleLinks';
-import { apiCall, fetchArticleByUuidAndLanguage } from '../../utils/apiCall'; 
+import { apiCall, fetchArticleByUuidAndLanguage, fetchRelatedArticlesByArticleUuidAndLanguage } from '../../utils/apiCall'; 
 import { useTranslation } from 'react-i18next';
 
 export default function SerialArticle() {
@@ -21,7 +21,7 @@ export default function SerialArticle() {
   const [chapterPage, setChapterPage] = useState(0);
   const [hasMoreChapters, setHasMoreChapters] = useState(true);
   const [loadingChapters, setLoadingChapters] = useState(false);
-  const PAGE_SIZE = 4;
+  const ALL_CHAPTER_PAGE_SIZE = 4;
 
   const [topDropdownOpen, setTopDropdownOpen] = useState(false);
   const [bottomDropdownOpen, setBottomDropdownOpen] = useState(false);
@@ -30,36 +30,6 @@ export default function SerialArticle() {
   
   const topDropdownRef = useRef(null);
   const bottomDropdownRef = useRef(null);
-
-  
-  const loadChapters = async (page = 0) => {
-    if (!articleData?.serialArticle || loadingChapters) return;
-    try {
-      setLoadingChapters(true);
-      const languageCode = i18n.language ? "en" : "en";
-      const data = await apiCall(
-        `/articles/serial-article-chapters/${articleData.serialArticle}/${languageCode}?page=${page}&size=${PAGE_SIZE}`
-      );
-      if (data && data.length > 0) {
-        setChapters((prev) => [...prev, ...data]);
-        setChapterPage(page);
-      } else {
-        setHasMoreChapters(false);
-      }
-    } catch (err) {
-      console.error("Error loading chapters:", err);
-    } finally {
-      setLoadingChapters(false);
-    }
-  };
-
-  // Handle scroll inside dropdown
-  const handleScroll = (e) => {
-    const { scrollTop, clientHeight, scrollHeight } = e.target;
-    if (scrollTop + clientHeight >= scrollHeight - 5 && hasMoreChapters) {
-      loadChapters(chapterPage + 1);
-    }
-  };
 
   useEffect(() => {
     const fetchArticleData = async () => {
@@ -106,6 +76,12 @@ export default function SerialArticle() {
             setNextChapterData(null);
           }
         }
+		
+		// Related Article
+		
+
+		// Load initial related articles
+		await loadRelatedArticles(0, languageCode);
       } catch (err) {
         console.error('Error fetching article:', err);
         setError(err.message);
@@ -132,6 +108,117 @@ export default function SerialArticle() {
 	setDropdownOpen(false);
 	
   }, [articleUuid, i18n.language]);
+  
+  
+  /** Handle All Chapters **/
+  const loadChapters = async (page = 0) => {
+    if (!articleData?.serialArticle || loadingChapters) return;
+    try {
+      setLoadingChapters(true);
+      const languageCode = i18n.language ? "en" : "en";
+      const data = await apiCall(
+        `/articles/serial-article-chapters/${articleData.serialArticle}/${languageCode}?page=${page}&size=${ALL_CHAPTER_PAGE_SIZE}`
+      );
+      if (data && data.length > 0) {
+        setChapters((prev) => [...prev, ...data]);
+        setChapterPage(page);
+      } else {
+        setHasMoreChapters(false);
+      }
+    } catch (err) {
+      console.error("Error loading chapters:", err);
+    } finally {
+      setLoadingChapters(false);
+    }
+  };
+
+  // Handle scroll inside dropdown
+  const handleScroll = (e) => {
+    const { scrollTop, clientHeight, scrollHeight } = e.target;
+    if (scrollTop + clientHeight >= scrollHeight - 5 && hasMoreChapters) {
+      loadChapters(chapterPage + 1);
+    }
+  };
+  
+  /** Handle Related Articles **/
+  const [relatedArticles, setRelatedArticles] = useState([]);
+  const [loadingRelated, setLoadingRelated] = useState(false);
+  const [currentRelatedArticlePage, setCurrentRelatedArticlePage] = useState(0);
+  const [hasMoreRelatedArticle, setHasMoreRelatedArticle] = useState(true);
+  const scrollRelatedArticleContainerRef = useRef(null);
+  const RELATED_ARTICLE_PAGE_SIZE = 4;
+  
+  const loadRelatedArticles = async (page, languageCode) => {
+    if (loadingRelated) return;
+    
+    try {
+      setLoadingRelated(true);
+      
+      const relatedData = await fetchRelatedArticlesByArticleUuidAndLanguage(articleUuid, languageCode, page, RELATED_ARTICLE_PAGE_SIZE);
+      
+      if (relatedData.length === 0) {
+        setHasMoreRelatedArticle(false);
+      } else {
+        if (page === 0) {
+          setRelatedArticles(relatedData);
+        } else {
+          setRelatedArticles(prev => [...prev, ...relatedData]);
+        }
+        setCurrentRelatedArticlePage(page);
+        
+        // If we got less than requested, there are no more articles
+        if (relatedData.length < RELATED_ARTICLE_PAGE_SIZE) {
+          setHasMoreRelatedArticle(false);
+        }
+      }
+    } catch (err) {
+      console.error('Error loading related articles:', err);
+    } finally {
+      setLoadingRelated(false);
+    }
+  };  
+
+  // Infinite scroll handler
+  const handleScrollRelatedArticle = useCallback(() => {
+    const container = scrollRelatedArticleContainerRef.current;
+    if (!container || !hasMoreRelatedArticle || loadingRelated) return;
+
+    const { scrollTop, scrollHeight, clientHeight } = container;
+    // Load more when 80% scrolled
+    if (scrollTop + clientHeight >= scrollHeight * 0.8) {
+      const languageCode = i18n.language || 'en';
+      loadRelatedArticles(currentRelatedArticlePage + 1, languageCode);
+    }
+  }, [hasMoreRelatedArticle, loadingRelated, currentRelatedArticlePage, i18n.language]);
+
+  // Set up scroll event listener
+  useEffect(() => {
+    const container = scrollRelatedArticleContainerRef.current;
+    if (!container) return;
+
+    container.addEventListener('scroll', handleScrollRelatedArticle);
+    return () => container.removeEventListener('scroll', handleScrollRelatedArticle);
+  }, [handleScrollRelatedArticle]);
+
+  // Function to generate appropriate link based on article type
+  const generateArticleLink = (article) => {
+    if (article.isSerialArticleMaster) {
+      return `/serial-article/${article.articleUuid}`;
+    } else {
+      return `/article/single-article/${article.articleUuid}`;
+    }
+  };
+
+  // Format date for display
+  const formatDate = (dateString) => {
+    if (!dateString) return 'Unknown date';
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+  };
 
   if (loading) {
     return (
@@ -162,17 +249,6 @@ export default function SerialArticle() {
       </BlogLayout>
     );
   }
-
-  // Format date for display
-  const formatDate = (dateString) => {
-    if (!dateString) return 'Unknown date';
-    const date = new Date(dateString);
-    return date.toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    });
-  };
 
   // Get current chapter number for highlighting
   const currentChapterId = articleData.chapterId;
@@ -379,33 +455,66 @@ export default function SerialArticle() {
         </div>
       </div>
 
-
-      {/* 👉 Related Articles Section */}
-      <div className="related-content-box">
-        <h3>🔗 Related Articles</h3>
-        <ul>
-          {[
-            'discovery_history_of_america_part_01',
-            'discovery_history_of_america_part_02',
-            'discovery_history_of_america_part_03',
-            'discovery_history_of_america_part_04',
-            'discovery_history_of_america_part_05',
-            'discovery_history_of_america_part_06',
-            'discovery_history_of_america_part_07',
-            'discovery_history_of_america_part_08',
-            'discovery_history_of_america_part_09',
-            'discovery_history_of_america_part_10',
-            'discovery_history_of_america_part_11',
-            'discovery_history_of_america_part_12'
-          ].map((articleKey) => (
-            <li key={articleKey}>
-              <Link to={articleLinks[articleKey]?.to}>
-                {articleLinks[articleKey]?.title}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
+	  {/* 👉 Related Articles Section with Infinite Scroll */}
+	  <div className="related-content-box">
+	    <h3>🔗 Related Articles</h3>
+	    
+	    <div 
+	      className="related-scroll-container"
+	      ref={scrollRelatedArticleContainerRef}
+	    >
+	      {relatedArticles.length > 0 ? (
+	        <ul>
+	          {relatedArticles.map((article) => (
+	            <li key={article.articleUuid}>
+	              <Link 
+	                to={generateArticleLink(article)}
+	                className="related-article-link"
+	              >
+	                <div className="related-article-content">
+	                  <span className="related-article-title">
+	                    {article.articleName}
+	                  </span>
+	                  <div className="related-article-meta">
+	                    {article.dateCreated && (
+	                      <span className="related-article-date">
+	                        {formatDate(article.dateCreated)}
+	                      </span>
+	                    )}
+	                    {article.viewCounter !== null && (
+	                      <span className="related-article-views">
+	                        👁️ {article.viewCounter} views
+	                      </span>
+	                    )}
+	                  </div>
+	                </div>
+	              </Link>
+	            </li>
+	          ))}
+	          
+	          {/* Loading indicator */}
+	          {loadingRelated && (
+	            <li className="loading-item">
+	              <div className="loading-text">Loading more articles...</div>
+	            </li>
+	          )}
+	          
+	          {/* End of results message */}
+	          {!hasMoreRelatedArticle && relatedArticles.length > 0 && (
+	            <li className="end-message">
+	              <div className="loading-text">All related articles loaded</div>
+	            </li>
+	          )}
+	        </ul>
+	      ) : (
+	        !loadingRelated && (
+	          <div className="empty-state">
+	            <p>No related articles found</p>
+	          </div>
+	        )
+	      )}
+	    </div>
+	  </div>
     </BlogLayout>
   );
 }
