@@ -111,17 +111,7 @@
 
 
 /* Enhanced Related Articles Styles */
-.related-article-link {
-  display: block;
-  padding: 0.8rem;
-  margin-bottom: 0.5rem;
-  border-radius: 6px;
-  background: var(--card-bg);
-  transition: all 0.2s ease;
-  text-decoration: none;
-  color: inherit;
-  border: 1px solid var(--border-color);
-}
+
 
 .related-article-link:hover {
   background: var(--card-hover-bg);
