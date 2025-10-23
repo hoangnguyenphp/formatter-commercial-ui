@@ -1,0 +1,20 @@
+/* Freeze Quill toolbar inside resizable editor */
+.editor-wrapper .ql-toolbar {
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 10;
+  border-bottom: 1px solid #ddd;
+}
+.editor-wrapper .ql-editor {
+	min-height: 300px;
+}
+.editor-wrapper {
+	resize: both;
+	overflow: auto;
+	border: 1px solid #ccc;
+	border-radius: 8px;
+	min-height: 250px;
+	margin-bottom: 1rem;
+	padding: 4px;
+}

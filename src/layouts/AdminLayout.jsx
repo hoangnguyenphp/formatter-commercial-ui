@@ -5,7 +5,7 @@ import '../styles/AdminLayout.css';
 import { Link } from 'react-router-dom';
 import AdminLeftSidebarMenu from '../components/AdminLeftSidebarMenu';
 
-export default function BlogLayout({ children }) {
+export default function AdminLayout({ children }) {
 	// 1️⃣ Initialize from localStorage
 	const [mode, setMode] = useState(() => {
 	  return localStorage.getItem('themeMode') || 'dark';

@@ -1,28 +1,33 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import AdminLayout from '../layouts/AdminLayout';
-import '../styles/Admin_Article_Creation.css';
+import '../styles/Admin_Article_Update.css';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import {
   fetchTopics,
   fetchLanguages,
   fetchSerialArticles,
-  createArticle, // ✅ New API call
+  fetchArticleByUuidAndLanguage,
+  updateArticle,
 } from '../utils/apiCall';
 
-export default function Admin_Article_Creation() {
+export default function Admin_Article_Update() {
+  const { articleUuid } = useParams(); // from route: /article-update/:articleUuid
+
   const [editorContent, setEditorContent] = useState('');
   const [topics, setTopics] = useState([]);
   const [serialArticles, setSerialArticles] = useState([]);
   const [languages, setLanguages] = useState([]);
   const [selectedTopic, setSelectedTopic] = useState('');
   const [selectedSerialArticle, setSelectedSerialArticle] = useState('');
-  const [selectedLanguage, setSelectedLanguage] = useState('');
+  const [selectedLanguage, setSelectedLanguage] = useState('en'); // default
   const [isSerialArticle, setIsSerialArticle] = useState(false);
   const [articleName, setArticleName] = useState('');
   const [loading, setLoading] = useState(true);
+  const [saving, setSaving] = useState(false);
 
-  // ✅ Load dropdown data
+  // ✅ Load dropdown data + article
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -35,25 +40,37 @@ export default function Admin_Article_Creation() {
         setTopics(topicsData);
         setSerialArticles(serialData);
         setLanguages(langData);
+
+        // Load the article for update (default language or selected one)
+        const lang = selectedLanguage || 'en';
+        const articleData = await fetchArticleByUuidAndLanguage(articleUuid, lang);
+
+        setArticleName(articleData.articleName || '');
+        setSelectedTopic(articleData.masterTopicUuid || '');
+        setSelectedSerialArticle(articleData.serialArticle || '');
+        setSelectedLanguage(articleData.languageCode || 'en');
+        setEditorContent(articleData.articleContent || '');
+        setIsSerialArticle(!!articleData.serialArticle);
       } catch (error) {
-        console.error('Error loading dropdown data:', error);
-        alert('❌ Failed to load dropdown data');
+        console.error('Error loading article or dropdown data:', error);
+        alert('❌ Failed to load article or dropdown data');
       } finally {
         setLoading(false);
       }
     };
 
     fetchData();
-  }, []);
+  }, [articleUuid]);
 
-  // ✅ Handle Save -> call POST /articles
-  const handleSave = async () => {
+  // ✅ Handle update
+  const handleUpdate = async () => {
     if (!articleName || !selectedTopic || !selectedLanguage || !editorContent) {
       alert('⚠️ Please fill all required fields!');
       return;
     }
 
     const payload = {
+      articleUuid: articleUuid,
       articleName: articleName,
       masterTopicUuid: selectedTopic,
       articleContent: editorContent,
@@ -62,20 +79,15 @@ export default function Admin_Article_Creation() {
     };
 
     try {
-      const response = await createArticle(payload);
-      console.log('✅ Article created successfully:', response);
-      alert('✅ Article created successfully!');
-
-      // Optional: clear the form
-      setArticleName('');
-      setEditorContent('');
-      setSelectedTopic('');
-      setSelectedLanguage('');
-      setSelectedSerialArticle('');
-      setIsSerialArticle(false);
+      setSaving(true);
+      const response = await updateArticle(payload);
+      console.log('✅ Article updated successfully:', response);
+      alert('✅ Article updated successfully!');
     } catch (error) {
-      console.error('❌ Error creating article:', error);
-      alert('❌ Failed to create article');
+      console.error('❌ Error updating article:', error);
+      alert('❌ Failed to update article');
+    } finally {
+      setSaving(false);
     }
   };
 
@@ -94,7 +106,7 @@ export default function Admin_Article_Creation() {
     return (
       <AdminLayout>
         <div style={{ padding: '2rem' }}>
-          <h3>Loading data...</h3>
+          <h3>Loading article...</h3>
         </div>
       </AdminLayout>
     );
@@ -103,7 +115,7 @@ export default function Admin_Article_Creation() {
   return (
     <AdminLayout>
       <div className="related-articles">
-        <h2 style={{ marginTop: '1em' }}>Article Creation</h2>
+        <h2 style={{ marginTop: '1em' }}>Update Article</h2>
 
         {/* Article Name */}
         <div style={{ marginTop: '1rem', marginBottom: '1rem' }}>
@@ -193,14 +205,16 @@ export default function Admin_Article_Creation() {
             onChange={setEditorContent}
             modules={modules}
             theme="snow"
-            placeholder="Write your article here..."
+            placeholder="Edit your article here..."
             style={{ height: '100%', minHeight: '300px' }}
           />
         </div>
 
-        {/* Save Button */}
+        {/* Update Button */}
         <div style={{ marginTop: '2rem' }}>
-          <button onClick={handleSave}>Save Article</button>
+          <button onClick={handleUpdate} disabled={saving}>
+            {saving ? 'Saving...' : 'Update Article'}
+          </button>
         </div>
       </div>
     </AdminLayout>

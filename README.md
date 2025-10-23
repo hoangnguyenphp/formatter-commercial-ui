@@ -103,27 +103,13 @@ formatter-commercial-ui
 			ArticleLayout.jsx
 			GameLayout.jsx
 		pages
-			discovery
-				USAHistorical
-					en
-						HistoryOfAmerica_Part_01.jsx
-						HistoryOfAmerica_Part_02.jsx
-						HistoryOfAmerica_Part_03.jsx
-						HistoryOfAmerica_Part_04.jsx
-						HistoryOfAmerica_Part_05.jsx
-						HistoryOfAmerica_Part_06.jsx
-						HistoryOfAmerica_Part_07.jsx
-						HistoryOfAmerica_Part_08.jsx
-						HistoryOfAmerica_Part_09.jsx
-						HistoryOfAmerica_Part_10.jsx
-						HistoryOfAmerica_Part_11.jsx
-						HistoryOfAmerica_Part_12.jsx
-				joking
-					en
-						Joking_Part_01.jsx
-				topic
-					Discovery_Topic.jsx
-					Joking_Topic.jsx
+			article
+				SerialArticle.jsx
+				SingleArticle.jsx
+			serialarticle
+				SerialArticleChapterList.jsx
+			topic
+				ArticlesByTopic.jsx
 		styles
 			Admin_Article_Creation.css
 			AdminLayout.css

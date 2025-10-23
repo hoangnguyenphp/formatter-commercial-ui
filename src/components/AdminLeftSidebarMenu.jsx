@@ -26,7 +26,7 @@ export default function AdminLeftSidebarMenu() {
 		  <div className="admin-sidebar-section topics">
 		    <h3>📚 Menu</h3>
 		    <ul>
-		      <li><Link to='/admin/9c2d9d8c-26d1-4b02-8f12-7b18b7c6f693/artical-creation' title='Application Creation'>Application Creation</Link></li>
+		      <li><Link to='/admin/9c2d9d8c-26d1-4b02-8f12-7b18b7c6f693/artical-creation' title='Application Creation'>Article Creation</Link></li>
 		    </ul>
 		  </div>
 		  <div style={{flexDirection: 'column', gap: '0.5rem' }}>

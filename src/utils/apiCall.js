@@ -168,6 +168,85 @@ export const fetchRelatedArticlesByArticleUuidAndLanguage = async (articleUuid, 
 	}
 }
 
+export const fetchTopics = async () => {
+	try {
+		const baseUrl = `${process.env.REACT_APP_UNIVERSE_BLOG_API_URL || 'http://localhost:8081'}`;
+
+		const response = await fetch(`${baseUrl}/topics`);
+		if (!response.ok) {
+			throw new Error(`HTTP error! status: ${response.status}`);
+		}
+
+		return await response.json();
+	} catch (error) {
+		console.error('Error fetching topics:', error);
+		throw error;
+	}
+}
+
+export const fetchLanguages = async () => {
+	try {
+		const baseUrl = `${process.env.REACT_APP_UNIVERSE_BLOG_API_URL || 'http://localhost:8081'}`;
+
+		const response = await fetch(`${baseUrl}/languages`);
+		if (!response.ok) {
+			throw new Error(`HTTP error! status: ${response.status}`);
+		}
+
+		return await response.json();
+	} catch (error) {
+		console.error('Error fetching topics:', error);
+		throw error;
+	}
+}
+
+export const fetchSerialArticles = async () => {
+	try {
+		const baseUrl = `${process.env.REACT_APP_UNIVERSE_BLOG_API_URL || 'http://localhost:8081'}`;
+
+		const response = await fetch(`${baseUrl}/serial-articles`);
+		if (!response.ok) {
+			throw new Error(`HTTP error! status: ${response.status}`);
+		}
+
+		return await response.json();
+	} catch (error) {
+		console.error('Error fetching topics:', error);
+		throw error;
+	}
+}
+
+// apiCall.js
+export async function createArticle(articleData) {
+  const baseUrl = `${process.env.REACT_APP_UNIVERSE_BLOG_API_URL || 'http://localhost:8081'}`;
+  const response = await fetch(`${baseUrl}/articles`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(articleData),
+  });
+
+  if (!response.ok) {
+    throw new Error(`Failed to create article: ${response.status}`);
+  }
+
+  return await response.json();
+}
+
+export async function updateArticle(articleData) {
+  const baseUrl = `${process.env.REACT_APP_UNIVERSE_BLOG_API_URL || 'http://localhost:8081'}`;
+  const res = await fetch(`${baseUrl}/articles`, {
+    method: 'PATCH',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(articleData),
+  });
+  if (!res.ok) {
+    const text = await res.text();
+    throw new Error(`Update failed: ${res.status} - ${text}`);
+  }
+  return await res.json();
+}
+
+
 // Generic API call function (optional)
 export async function apiCall(endpoint, options = {}) {
 	try {
