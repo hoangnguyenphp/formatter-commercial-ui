@@ -74,7 +74,7 @@ export default function Admin_Article_Update() {
       articleName: articleName,
       masterTopicUuid: selectedTopic,
       articleContent: editorContent,
-      defaultLanguage: selectedLanguage,
+      languageCode: selectedLanguage,
       serialArticleUuid: isSerialArticle ? selectedSerialArticle : null,
     };
 

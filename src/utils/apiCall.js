@@ -234,7 +234,7 @@ export async function createArticle(articleData) {
 
 export async function updateArticle(articleData) {
   const baseUrl = `${process.env.REACT_APP_UNIVERSE_BLOG_API_URL || 'http://localhost:8081'}`;
-  const res = await fetch(`${baseUrl}/articles`, {
+  const res = await fetch(`${baseUrl}/article-translations`, {
     method: 'PATCH',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(articleData),
