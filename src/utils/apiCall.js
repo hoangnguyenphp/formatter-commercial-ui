@@ -247,6 +247,29 @@ export async function updateArticle(articleData) {
 }
 
 
+export async function searchArticles(payload) {
+  const baseUrl = `${process.env.REACT_APP_UNIVERSE_BLOG_API_URL || 'http://localhost:8081'}`;
+  const res = await fetch(`${baseUrl}/articles/search-article`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload),
+  });
+  if (!res.ok) throw new Error('Failed to search articles');
+  return res.json();
+}
+
+export async function createArticleTranslation(payload) {
+	const baseUrl = `${process.env.REACT_APP_UNIVERSE_BLOG_API_URL || 'http://localhost:8081'}`;
+  const res = await fetch(`${baseUrl}/article-translations`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload),
+  });
+  if (!res.ok) throw new Error('Failed to create translation');
+  return res.json();
+}
+
+
 // Generic API call function (optional)
 export async function apiCall(endpoint, options = {}) {
 	try {

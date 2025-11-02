@@ -6,6 +6,7 @@ import UUIDGenerator from './apps/UUIDGenerator';
 
 import Admin_Article_Creation from './admin/Admin_Article_Creation';
 import Admin_Article_Update from './admin/Admin_Article_Update';
+import Admin_Article_Translation_Creation from './admin/Admin_Article_Translation_Creation';
 
 import Discovery_Topic from './pages/topic/Discovery_Topic';
 import Joking_Topic from './pages/topic/Joking_Topic';
@@ -45,6 +46,7 @@ root.render(
   	<ScrollToTop />
     <Routes>
 	  <Route path="/admin/9c2d9d8c-26d1-4b02-8f12-7b18b7c6f693/article-creation" element={<Admin_Article_Creation />} />
+	  <Route path="/admin/9c2d9d8c-26d1-4b02-8f12-7b18b7c6f693/article-translation-creation" element={<Admin_Article_Translation_Creation />} />
 	  <Route
 	    path="/admin/9c2d9d8c-26d1-4b02-8f12-7b18b7c6f693/article-update/:articleUuid"
 	    element={<Admin_Article_Update />}
